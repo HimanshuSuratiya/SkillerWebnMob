@@ -140,10 +140,10 @@ const Testimonial = () => {
                                 </Swiper>
                             </div>
                             <div className="slider-btn-wrap">
-                                <div className="service-prev slider-btn style2" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-service">
+                                <div className="service-prev slider-btn style2" tabIndex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-service">
                                     <i><ArrowBackIcon style={{ cursor: 'pointer' }} /></i>
                                 </div>
-                                <div className="service-next slider-btn style2" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-service">
+                                <div className="service-next slider-btn style2" tabIndex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-service">
                                     <i><ArrowForwardIcon style={{ cursor: 'pointer' }} /></i>
                                 </div>
                             </div>

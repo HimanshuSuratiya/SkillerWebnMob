@@ -9,6 +9,7 @@ import Blogs from "../Components/LandingPageComponents/Blogs/Blogs";
 import ChooseUs from "../Components/LandingPageComponents/ChooseUs/ChooseUs";
 import Testimonial from "../Components/LandingPageComponents/Testimonial/Testimonial";
 import Footer from "../Components/Footer/Footer";
+import Login from "../Components/Login/Login";
 
 const HomePage = () => {
     return (
@@ -23,6 +24,7 @@ const HomePage = () => {
             <ChooseUs />
             <Testimonial />
             <Footer />
+            <Login />
         </>
     );
 };

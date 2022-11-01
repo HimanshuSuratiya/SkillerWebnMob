@@ -43,6 +43,7 @@ import meet from "./whychoose/meet.png";
 import graph from "./whychoose/graph.png";
 import build from "./whychoose/build.png";
 import logodark from "./logodark.png";
+import google from "./googleicon.png";
 
 const Images = {
     Logo,
@@ -90,6 +91,7 @@ const Images = {
     graph,
     build,
     logodark,
+    google,
 };
 
 export default Images;
