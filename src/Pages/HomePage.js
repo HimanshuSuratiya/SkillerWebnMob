@@ -7,6 +7,7 @@ import Vendor from "../Components/LandingPageComponents/Vendor/Vendor";
 import StaticsCounter from "../Components/LandingPageComponents/StaticsCounter/StaticsCounter";
 import Blogs from "../Components/LandingPageComponents/Blogs/Blogs";
 import ChooseUs from "../Components/LandingPageComponents/ChooseUs/ChooseUs";
+import Testimonial from "../Components/LandingPageComponents/Testimonial/Testimonial";
 
 const HomePage = () => {
     return (
@@ -19,6 +20,7 @@ const HomePage = () => {
             <StaticsCounter />
             <Blogs />
             <ChooseUs />
+            <Testimonial />
         </>
     );
 };

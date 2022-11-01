@@ -131,7 +131,7 @@ const Vendor = () => {
                     </div>
                 </div>
                 <div className="service-slider-one swiper-container style2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode">
-                    <div className="swiper-wrapper animationVendor" id="swiper-wrapper-service" aria-live="off">
+                    <div className="animationVendor" id="swiper-wrapper-service" aria-live="off">
                         <Swiper
                             id="swiper"
                             virtual

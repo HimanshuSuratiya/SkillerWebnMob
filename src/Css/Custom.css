@@ -2003,6 +2003,10 @@ span.input-group-append button:hover {
     padding-bottom: 50px;
 }
 
+.clientfeed {
+    padding-bottom: 50px;
+}
+
 .ourTestimonials {
     padding: 70px 0;
 }
@@ -2036,7 +2040,7 @@ span.input-group-append button:hover {
 
 }
 
-.clientbox:before {
+/* .clientbox:before {
     font-family: "fontAwesome";
     content: "\f10e";
     font-size: 35px;
@@ -2045,7 +2049,7 @@ span.input-group-append button:hover {
     position: absolute;
     right: 50px;
     top: 45px;
-}
+} */
 
 .ourclientTestimonials .swiper-slide {
     background: #fff;
@@ -2056,6 +2060,7 @@ span.input-group-append button:hover {
     -ms-box-shadow: 0px 0px 24px rgb(179 174 174 / 41%);
     -o-box-shadow: 0px 0px 24px rgb(179 174 174 / 41%);
     box-shadow: 0px 0px 24px rgb(179 174 174 / 41%);
+    padding-bottom: 0px;
 }
 
 .ourclientTestimonials .swiper-slide .clientbox {
@@ -2081,6 +2086,11 @@ span.input-group-append button:hover {
     display: flex;
     justify-content: center;
     padding-top: 55px;
+}
+
+.swiper.ourclientTestimonials .swiper-slide.swiper-slide-visible {
+    box-shadow: none;
+    padding: 30px 0px;
 }
 
 /*Widget News-Letter*/
