@@ -11,6 +11,7 @@ import Testimonial from "../Components/LandingPageComponents/Testimonial/Testimo
 import Footer from "../Components/Footer/Footer";
 import Login from "../Components/Login/Login";
 import Signup from "../Components/Signup/Signup";
+import Profile from "../Components/Profile/Profile";
 
 const HomePage = () => {
     return (
@@ -27,6 +28,7 @@ const HomePage = () => {
             <Footer />
             <Login />
             <Signup />
+            <Profile />
         </>
     );
 };

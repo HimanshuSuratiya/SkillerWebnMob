@@ -27,7 +27,6 @@ const Signup = () => {
                                 <label className="form-label mb-0" for="form1Example23">Confirm Password</label>
                                 <input type="password" id="form1Example23" className="form-control form-control-lg" />
                             </div>
-                            <a className="d-flex justify-content-center text-decoration-underline">Already have an account ?... </a>
                             <div className="d-flex justify-content-center">
                                 <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Sign up <ArrowRightAltIcon /></button>
                             </div>
@@ -62,6 +61,7 @@ const Signup = () => {
                                     </div>
                                 </div>
                             </div>
+                            <a className="d-flex justify-content-center text-decoration-underline mt-2">Already have an account ?... </a>
                         </form>
                     </div>
                 </div>

@@ -31,7 +31,6 @@ const Login = () => {
                                     </div>
                                     <a href="#!">Forgot password?</a>
                                 </div>
-                                <a className="d-flex justify-content-center text-decoration-underline">Don't have an account ?... </a>
                                 <div className="d-flex justify-content-center">
                                     <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Log in <ArrowRightAltIcon /></button>
                                 </div>
@@ -66,6 +65,7 @@ const Login = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <a className="d-flex justify-content-center text-decoration-underline mt-2">Don't have an account ?... </a>
                             </form>
                         </div>
                     </div>
