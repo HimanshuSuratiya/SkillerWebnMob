@@ -44,6 +44,7 @@ import graph from "./whychoose/graph.png";
 import build from "./whychoose/build.png";
 import logodark from "./logodark.png";
 import google from "./googleicon.png";
+import SignUp from "./SignUp.webp";
 
 const Images = {
     Logo,
@@ -92,6 +93,7 @@ const Images = {
     build,
     logodark,
     google,
+    SignUp,
 };
 
 export default Images;

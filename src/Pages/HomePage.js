@@ -10,6 +10,7 @@ import ChooseUs from "../Components/LandingPageComponents/ChooseUs/ChooseUs";
 import Testimonial from "../Components/LandingPageComponents/Testimonial/Testimonial";
 import Footer from "../Components/Footer/Footer";
 import Login from "../Components/Login/Login";
+import Signup from "../Components/Signup/Signup";
 
 const HomePage = () => {
     return (
@@ -25,6 +26,7 @@ const HomePage = () => {
             <Testimonial />
             <Footer />
             <Login />
+            <Signup />
         </>
     );
 };

@@ -17,7 +17,7 @@ const Login = () => {
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                             <form>
                                 <div className="form-outline mb-2">
-                                    <label className="form-label mb-0" for="form1Example13">Email address</label>
+                                    <label className="form-label mb-0" for="form1Example13">Email / Phone number</label>
                                     <input type="email" id="form1Example13" className="form-control form-control-lg" />
                                 </div>
                                 <div className="form-outline mb-2">
@@ -31,6 +31,7 @@ const Login = () => {
                                     </div>
                                     <a href="#!">Forgot password?</a>
                                 </div>
+                                <a className="d-flex justify-content-center text-decoration-underline">Don't have an account ?... </a>
                                 <div className="d-flex justify-content-center">
                                     <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Log in <ArrowRightAltIcon /></button>
                                 </div>
