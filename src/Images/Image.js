@@ -42,6 +42,7 @@ import whychoosebg1 from "./whychoose/whychoosebg1.jpg";
 import meet from "./whychoose/meet.png";
 import graph from "./whychoose/graph.png";
 import build from "./whychoose/build.png";
+import logodark from "./logodark.png";
 
 const Images = {
     Logo,
@@ -88,6 +89,7 @@ const Images = {
     meet,
     graph,
     build,
+    logodark,
 };
 
 export default Images;
