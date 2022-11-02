@@ -2,6 +2,7 @@ import React from 'react'
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "../Login/Login.css";
+import { TextField, TextareaAutosize } from '@mui/material';
 
 const Signup = () => {
     return (
@@ -13,31 +14,54 @@ const Signup = () => {
                     </div>
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                         <form>
-                            <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example13">First Name</label>
-                                <input type="email" id="form1Example13" className="form-control form-control-lg" />
+                            <div className="form-outline">
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    size='large'
+                                    label={'First Name'}
+                                />
                             </div>
-                            <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example13">Last Name</label>
-                                <input type="email" id="form1Example13" className="form-control form-control-lg" />
+                            <div className="form-outline mt-3">
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    size='large'
+                                    label={'Last Name'}
+                                />
                             </div>
-                            <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example23">Location</label>
-                                <input type="password" id="form1Example23" className="form-control form-control-lg" />
-                                <div className="form-outline mb-2">
-                                    <label className="form-label mb-0" for="form1Example13">Phone number</label>
-                                    <input type="email" id="form1Example13" className="form-control form-control-lg" />
-                                </div>
+                            <div className="form-outline mt-3">
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    size='large'
+                                    label={'Location'}
+                                />
                             </div>
-                            <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example23">County </label>
-                                <input type="password" id="form1Example23" className="form-control form-control-lg" />
+                            <div className="form-outline mt-3">
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    size='large'
+                                    label={'Phone Number'}
+                                />
                             </div>
-                            <div className="col-lg-12">
-                                <div className="form-group mt-2">
-                                    <label className="form-label mb-0" for="form1Example23">Address </label>
-                                    <textarea className="form-control p-2" rows="4" placeholder="Enter your address"></textarea>
-                                </div>
+                            <div className="form-outline mt-3">
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    size='large'
+                                    label={'Country'}
+                                />
+                            </div>
+                            <div className="form-group mt-3">
+                                <TextareaAutosize
+                                    className='p-2'
+                                    aria-label="minimum height"
+                                    minRows={2}
+                                    style={{ width: '100%' }}
+                                    placeholder="Enter your address"
+                                />
                             </div>
                             <div className="d-flex justify-content-center mt-2">
                                 <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Sign up <ArrowRightAltIcon /></button>

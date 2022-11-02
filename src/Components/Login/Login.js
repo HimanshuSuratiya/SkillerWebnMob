@@ -3,6 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "./Login.css"
+import { TextField, Checkbox } from '@mui/material';
 
 const Login = () => {
     return (
@@ -15,17 +16,25 @@ const Login = () => {
                         </div>
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                             <form>
-                                <div className="form-outline mb-2">
-                                    <label className="form-label mb-0" for="form1Example13">Email</label>
-                                    <input type="email" id="form1Example13" className="form-control form-control-lg" />
+                                <div className="form-outline">
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        size='large'
+                                        label={'Email'}
+                                    />
                                 </div>
-                                <div className="form-outline mb-2">
-                                    <label className="form-label mb-0" for="form1Example23">Password</label>
-                                    <input type="password" id="form1Example23" className="form-control form-control-lg" />
+                                <div className="form-outline mt-3 mb-3">
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        size='large'
+                                        label={'Password'}
+                                    />
                                 </div>
                                 <div className="d-flex justify-content-around align-items-center mb-2">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                                        <Checkbox className="m-0 p-0" />
                                         <label className="form-check-label" for="form1Example3"> Remember me </label>
                                     </div>
                                     <a href="#!">Forgot password?</a>
