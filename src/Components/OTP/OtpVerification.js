@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../Login/Login.css"
 import "./Otp.css";
+import Grid from "@material-ui/core/Grid";
+import OtpInput from "react-otp-input";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+
+const useStyles = makeStyles((theme) => ({
+    grid: {
+        backgroundColor: "grey",
+        height: "50vh",
+        textAlign: "center"
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2)
+    },
+    paper: {
+        marginTop: theme.spacing(8),
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+    }
+}));
 
 const OtpVerification = () => {
+    const classes = useStyles();
+    const theme = useTheme();
+    const [registerType, setRegisterType] = useState(false)
     return (
         <section className="vh-80">
             <div className="container py-4 h-80 abc">
@@ -10,29 +43,75 @@ const OtpVerification = () => {
                     <div className="col-md-8 col-lg-7 col-xl-6 Otpanimation">
                         <img src="https://www.kaleyra.com/wp-content/uploads/2020/07/2FA-graphic.png" className="img-fluid" alt="Phone image" style={{ height: '50%' }} />
                     </div>
-                    <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <form>
-                            <a className="d-flex justify-content-center" style={{ fontSize: '22px', letterSpacing: "2px" }}>OTP Verification</a>
-                            <div className="form-outline mb-2">
-                                <span className="form-label mb-0 d-flex justify-content-center" for="form1Example13">Your Phone number is +91*******732</span>
-                            </div>
-                            <div className="form-outline mb-2 align-items-center justify-content-center">
-                                <div className='d-flex justify-content-center'>
-                                    <label className="form-label mb-0 p-2" for="form1Example23">Enter OTP </label>
+                    {registerType != true ?
+                        <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                            <div>
+                                <a className="d-flex justify-content-center" style={{ fontSize: '22px', letterSpacing: "2px" }}>OTP Verification</a>
+                                <div className="form-outline mb-2">
+                                    <span className="form-label mb-0 d-flex justify-content-center" for="form1Example13">Your Phone number is +91*******732</span>
                                 </div>
-                                <div className='d-flex justify-content-center'>
-                                    <input style={{ width: '50%' }} type="password" id="form1Example23" className="form-control form-control-lg" />
+                                <div className="form-outline mb-2 align-items-center justify-content-center">
+                                    <div className='d-flex justify-content-center'>
+                                        <label className="form-label mb-0 p-2" for="form1Example23">Enter OTP </label>
+                                    </div>
+                                    <div className='d-flex justify-content-center'>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            container
+                                            justify="center"
+                                            alignItems="center"
+                                            direction="column"
+                                        >
+                                            <Grid item spacing={3} justify="center">
+                                                <OtpInput
+                                                    separator={
+                                                        <span>
+                                                            <strong>.</strong>
+                                                        </span>
+                                                    }
+                                                    inputStyle={{
+                                                        width: "3rem",
+                                                        height: "3rem",
+                                                        margin: "0 1rem",
+                                                        fontSize: "2rem",
+                                                        borderRadius: 4,
+                                                        border: "1px solid rgba(0,0,0,0.3)"
+                                                    }}
+                                                />
+                                            </Grid>
+                                        </Grid>
+                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-around align-items-center mb-2">
+                                    <a>Resend OTP</a>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <button className="btn btn-primary btn-lg btn-block LoginBtn">Skip</button>
+                                    <button className="btn btn-primary btn-lg btn-block LoginBtn" onClick={() => { setRegisterType(true) }}>Verify</button>
                                 </div>
                             </div>
-                            <div className="d-flex justify-content-around align-items-center mb-2">
-                                <a href="#!">Resend OTP</a>
+                        </div>
+                        :
+                        <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                            <div className='d-flex justify-content-center mt-2'>
+                                <FormControl>
+                                    <FormLabel id="demo-row-radio-buttons-group-label" style={{ color: '#188dc7' }}>Register Type</FormLabel>
+                                    <RadioGroup
+                                        row
+                                        aria-labelledby="demo-row-radio-buttons-group-label"
+                                        name="row-radio-buttons-group"
+                                    >
+                                        <FormControlLabel value="female" control={<Radio />} label="Skill Seeker" />
+                                        <FormControlLabel value="male" control={<Radio />} label="Skill Provider" />
+                                    </RadioGroup>
+                                </FormControl>
                             </div>
                             <div className="d-flex justify-content-center">
-                                <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Skip</button>
-                                <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Submit</button>
+                                <button className="btn btn-primary btn-lg btn-block LoginBtn"><ArrowRightAltIcon /> Continue</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </section>
@@ -40,3 +119,5 @@ const OtpVerification = () => {
 }
 
 export default OtpVerification
+
+
