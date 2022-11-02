@@ -1,0 +1,13 @@
+.Otpanimation {
+    animation: Otpanimation 5s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes Otpanimation {
+    0% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(-50px);
+    }
+}

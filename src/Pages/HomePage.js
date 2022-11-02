@@ -13,6 +13,7 @@ import Login from "../Components/Login/Login";
 import Signup from "../Components/Signup/Signup";
 import Profile from "../Components/Profile/Profile";
 import Contactus from "../Components/Contactus/Contactus";
+import OtpVerification from "../Components/OTP/OtpVerification";
 
 const HomePage = () => {
     return (
@@ -29,6 +30,7 @@ const HomePage = () => {
             <Footer />
             <Login />
             <Signup />
+            <OtpVerification />
             <Profile />
             <Contactus />
         </>

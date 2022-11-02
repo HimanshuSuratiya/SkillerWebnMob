@@ -1,6 +1,5 @@
 import React from "react";
 import FacebookIcon from '@mui/icons-material/Facebook';
-import AppleIcon from '@mui/icons-material/Apple';
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "./Login.css"
@@ -17,7 +16,7 @@ const Login = () => {
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                             <form>
                                 <div className="form-outline mb-2">
-                                    <label className="form-label mb-0" for="form1Example13">Email / Phone number</label>
+                                    <label className="form-label mb-0" for="form1Example13">Email</label>
                                     <input type="email" id="form1Example13" className="form-control form-control-lg" />
                                 </div>
                                 <div className="form-outline mb-2">
@@ -46,16 +45,6 @@ const Login = () => {
                                             </a>
                                         </div>
                                     </div>
-                                    <div className="d-flex justify-content-center LoginFields">
-                                        <div className="media-options">
-                                            <a href="#">
-                                                <AppleIcon />
-                                                <span> Login with Apple</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="LoginPlatforms d-flex justify-content-between mt-2">
                                     <div className="d-flex justify-content-center LoginFields">
                                         <div className="media-options">
                                             <a href="#" className="googleImage">

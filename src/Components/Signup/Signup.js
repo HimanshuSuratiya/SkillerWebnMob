@@ -1,6 +1,4 @@
 import React from 'react'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import AppleIcon from '@mui/icons-material/Apple';
 import Images from "../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "../Login/Login.css";
@@ -16,50 +14,33 @@ const Signup = () => {
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                         <form>
                             <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example13">Email / Phone number</label>
+                                <label className="form-label mb-0" for="form1Example13">First Name</label>
                                 <input type="email" id="form1Example13" className="form-control form-control-lg" />
                             </div>
                             <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example23">Create Password</label>
-                                <input type="password" id="form1Example23" className="form-control form-control-lg" />
+                                <label className="form-label mb-0" for="form1Example13">Last Name</label>
+                                <input type="email" id="form1Example13" className="form-control form-control-lg" />
                             </div>
                             <div className="form-outline mb-2">
-                                <label className="form-label mb-0" for="form1Example23">Confirm Password</label>
+                                <label className="form-label mb-0" for="form1Example23">Location</label>
+                                <input type="password" id="form1Example23" className="form-control form-control-lg" />
+                                <div className="form-outline mb-2">
+                                    <label className="form-label mb-0" for="form1Example13">Phone number</label>
+                                    <input type="email" id="form1Example13" className="form-control form-control-lg" />
+                                </div>
+                            </div>
+                            <div className="form-outline mb-2">
+                                <label className="form-label mb-0" for="form1Example23">County </label>
                                 <input type="password" id="form1Example23" className="form-control form-control-lg" />
                             </div>
-                            <div className="d-flex justify-content-center">
+                            <div className="col-lg-12">
+                                <div className="form-group mt-2">
+                                    <label className="form-label mb-0" for="form1Example23">Address </label>
+                                    <textarea className="form-control p-2" rows="4" placeholder="Enter your address"></textarea>
+                                </div>
+                            </div>
+                            <div className="d-flex justify-content-center mt-2">
                                 <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Sign up <ArrowRightAltIcon /></button>
-                            </div>
-                            <div className="divider d-flex align-items-center my-3 justify-content-center">
-                                <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                            </div>
-                            <div className="LoginPlatforms d-flex justify-content-between">
-                                <div className="d-flex justify-content-center LoginFields">
-                                    <div className="media-options">
-                                        <a href="#">
-                                            <FacebookIcon />
-                                            <span> Singup with Facebook</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="d-flex justify-content-center LoginFields">
-                                    <div className="media-options">
-                                        <a href="#">
-                                            <AppleIcon />
-                                            <span> Singup with Apple</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="LoginPlatforms d-flex justify-content-between mt-2">
-                                <div className="d-flex justify-content-center LoginFields">
-                                    <div className="media-options">
-                                        <a href="#" className="googleImage">
-                                            <img src={Images.google} />
-                                            <span> Singup with Google</span>
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                             <a className="d-flex justify-content-center text-decoration-underline mt-2">Already have an account ?... </a>
                         </form>
