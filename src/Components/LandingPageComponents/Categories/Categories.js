@@ -94,7 +94,7 @@ const Categories = () => {
                         <div className="col-md-12">
                             <div className="p-t80">
                                 <div>
-                                    <div className="swiper-wrapper">
+                                    <div className="swiper-wrapper categoriesDot">
                                         <Swiper
                                             slidesPerView={5}
                                             spaceBetween={30}

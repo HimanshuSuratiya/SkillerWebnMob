@@ -17,8 +17,8 @@ const Profile = () => {
                                             <p className="text-secondary mb-1">Full Stack Developer</p>
                                             <p className="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                                                <button className="btn btn-primary">Follow</button>
-                                                <button className="btn btn-outline-primary">Message</button>
+                                                <button className="profileFollowBtn">Follow</button>
+                                                <button className="profileMessageBtn">Message</button>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@ const Profile = () => {
                                     <hr />
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <a className="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                            <a className="profileMessageBtn" target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
                                         </div>
                                     </div>
                                 </div>

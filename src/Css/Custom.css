@@ -844,6 +844,10 @@ a.navbar-brand {
     line-height: 23px;
 }
 
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    top: 55px;
+}
+
 /******************Start the banner*****************/
 .aon-banner-wrap {
     position: relative;
@@ -977,6 +981,10 @@ a.navbar-brand {
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.categoriesDot .swiper-pagination-bullets-dynamic {
+    height: 20px;
 }
 
 .CategoriesList li {

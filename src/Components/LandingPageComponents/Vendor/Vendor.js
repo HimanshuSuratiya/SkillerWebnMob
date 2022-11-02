@@ -11,7 +11,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const Vendor = () => {
-    const CategoriesData = [
+    const VendorData = [
         {
             imgSource: Images.web,
             text: 'Web Development',
@@ -106,7 +106,7 @@ const Vendor = () => {
                             modules={[FreeMode, Pagination, Navigation]}
                             className="mySwiper"
                         >
-                            {CategoriesData.map((item, index) => {
+                            {VendorData.map((item, index) => {
                                 return (
                                     <SwiperSlide >
                                         <div className="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="0" role="group" aria-label="1 / 4" style={{ width: "362px", marginRight: "30px" }}>

@@ -59,3 +59,32 @@
 .shadow-none {
     box-shadow: none !important;
 }
+
+.profileMessageBtn {
+    color: #ffffff;
+    margin-left: 11px;
+    background: #188dc7;
+    padding: 4px 20px;
+    transition: .5s;
+    border-radius: 20px;
+    border: 2px solid #188dc7;
+}
+
+.profileMessageBtn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
+
+.profileFollowBtn {
+    background: #fff;
+    color: #000;
+    padding: 4px 20px;
+    transition: .5s;
+    border-radius: 20px;
+}
+
+.profileFollowBtn:hover {
+    background: #188dc7a8;
+    color: #fff;
+}

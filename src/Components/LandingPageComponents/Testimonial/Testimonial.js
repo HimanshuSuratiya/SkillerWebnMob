@@ -11,7 +11,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
 
 const Testimonial = () => {
 
-    const CategoriesData = [
+    const TestimonialData = [
         {
             imgSource: Images.web,
             text: 'Web Development',
@@ -78,7 +78,7 @@ const Testimonial = () => {
         },
     ]
 
-    const slides = CategoriesData.map((item, index) => {
+    const slides = TestimonialData.map((item, index) => {
         return (
             <SwiperSlide key={`slide-${index}`} style={{ listStyle: "none" }}>
                 <div className="swiper-slide">
