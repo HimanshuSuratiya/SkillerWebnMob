@@ -1,12 +1,11 @@
 import React from "react";
 import Images from "../../../Images/Image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Autoplay, Virtual } from "swiper/core";
-import "swiper/swiper-bundle.css";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { FreeMode, Pagination, Navigation } from "swiper";
 
 const Categories = () => {
     const CategoriesData = [
@@ -76,21 +75,6 @@ const Categories = () => {
         },
     ]
 
-    const slides = CategoriesData.map((item, index) => {
-        return (
-            <SwiperSlide key={`slide-${index}`} style={{ listStyle: "none" }}>
-                <div className="swiper-slide">
-                    <a href="#!" className="teamImg">
-                        <img src={item.imgSource} />
-                    </a>
-                    <div className="member-info">
-                        <h3>{item.text}</h3>
-                    </div>
-                </div>
-            </SwiperSlide>
-        )
-    })
-
     return (
         <>
             <section className="categoriesSection aon-categories-area">
@@ -109,27 +93,37 @@ const Categories = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="p-t80">
-                                <div className="swiper categories">
+                                <div>
                                     <div className="swiper-wrapper">
                                         <Swiper
-                                            id="swiper"
-                                            virtual
                                             slidesPerView={5}
                                             spaceBetween={30}
+                                            freeMode={true}
                                             autoplay
-                                            onReachEnd={() => {
-                                                const tmp = slides.unshift();
-                                                slides.push(tmp);
+                                            pagination={{
+                                                dynamicBullets: true,
                                             }}
-                                            navigation
-                                            pagination
+                                            navigation={true}
+                                            modules={[FreeMode, Pagination, Navigation]}
+                                            className="mySwiper"
                                         >
-                                            {slides}
+                                            {CategoriesData.map((item, index) => {
+                                                return (
+                                                    <SwiperSlide >
+                                                        <div className="swiper-slide">
+                                                            <div>
+                                                                <a href="#!" className="teamImg">
+                                                                    <img src={item.imgSource} />
+                                                                </a>
+                                                                <div className="member-info">
+                                                                    <h3>{item.text}</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </SwiperSlide>
+                                                )
+                                            })}
                                         </Swiper>
-                                    </div>
-                                    <div className="categoriesControler">
-                                        <div className="swiper-button-next"><ArrowBackIcon style={{ cursor: 'pointer' }} /></div>
-                                        <div className="swiper-button-prev"><ArrowForwardIcon style={{ cursor: 'pointer' }} /></div>
                                     </div>
                                 </div>
                             </div>
