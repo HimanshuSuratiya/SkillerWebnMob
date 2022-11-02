@@ -12,6 +12,7 @@ import Footer from "../Components/Footer/Footer";
 import Login from "../Components/Login/Login";
 import Signup from "../Components/Signup/Signup";
 import Profile from "../Components/Profile/Profile";
+import Contactus from "../Components/Contactus/Contactus";
 
 const HomePage = () => {
     return (
@@ -29,6 +30,7 @@ const HomePage = () => {
             <Login />
             <Signup />
             <Profile />
+            <Contactus />
         </>
     );
 };
