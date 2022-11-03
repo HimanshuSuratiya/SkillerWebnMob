@@ -45,6 +45,9 @@ import build from "./whychoose/build.png";
 import logodark from "./logodark.png";
 import google from "./googleicon.png";
 import SignUp from "./SignUp.webp";
+import loginBnr from "./loginBnr.jpg";
+import otpVerify from "./otpVerify.jpeg";
+import register from "./register.jpg";
 
 const Images = {
     Logo,
@@ -94,6 +97,9 @@ const Images = {
     logodark,
     google,
     SignUp,
+    loginBnr,
+    otpVerify,
+    register,
 };
 
 export default Images;

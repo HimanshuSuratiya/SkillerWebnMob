@@ -4,7 +4,9 @@ import Images from "../../../Images/Image";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { TextField, Checkbox } from '@mui/material';
+import Banner from "../../Banner/Banner";
 import "../Animation.css";
+import Footer from "../../Footer/Footer";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
@@ -47,7 +49,8 @@ const Login = () => {
     return (
         <>
             <section className="vh-80">
-                <div className="container py-4 h-80">
+                <Banner imgSource={Images.loginBnr} text="Login" />
+                <div className="container py-4 h-80 mt-4">
                     <div className="row d-flex align-items-center justify-content-center h-100">
                         <div className="col-md-8 col-lg-7 col-xl-6 Loginanimation">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
@@ -107,6 +110,7 @@ const Login = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     )
 }
