@@ -20,6 +20,9 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact-us" element={<Contactus />} />
         <Route path="/otp-verification" element={<OtpVerification />} />
+        {/* <Route path="/post-a-task" element={< />} /> */}
+        {/* <Route path="/about-us" element={< />} /> */}
+        {/* <Route path="/how-it-works" element={< />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

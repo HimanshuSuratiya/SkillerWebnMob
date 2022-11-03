@@ -7,6 +7,7 @@ import { TextField, Checkbox } from '@mui/material';
 import Banner from "../../Banner/Banner";
 import "../Animation.css";
 import Footer from "../../Footer/Footer";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
@@ -104,7 +105,7 @@ const Login = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <a className="d-flex justify-content-center text-decoration-underline mt-2">Don't have an account ?... </a>
+                                <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/signup">Don't have an account ?... </NavLink>
                             </form>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../Animation.css";
 import Banner from "../../Banner/Banner";
 import Footer from "../../Footer/Footer";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     SignupBtn: {
@@ -89,7 +90,7 @@ const Signup = () => {
                                 <div className="d-flex justify-content-center mt-2">
                                     <button type="submit" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></button>
                                 </div>
-                                <a className="d-flex justify-content-center text-decoration-underline mt-2">Already have an account ?... </a>
+                                <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/login">Already have an account ?... </NavLink>
                             </form>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import Images from "../../Images/Image";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
+import { NavLink } from "react-router-dom";
 
 const Menu = () => {
     const [addClass, setAddClass] = useState('');
@@ -23,20 +24,20 @@ const Menu = () => {
             <header className="header">
                 <nav className="navbar navbar-expand-md " id="navArea">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">
+                        <NavLink className="navbar-brand" to='/'>
                             <img src={Images.Logo} />
-                        </a>
+                        </NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse navigation" id="navbarCollapse">
                             <ul className="navbar-nav me-auto mb-2 mb-md-0">
                                 <li className="nav-item">
-                                    <a className="nav-link postATaskbtn" aria-current="page" href="#">Post a task</a>
+                                    <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                 </li>
-                                <li className="nav-item"><a className="nav-link" href="#!">About Us</a></li>
+                                <li className="nav-item"><NavLink className="nav-link" to="/about-us">About Us</NavLink></li>
                                 <li className="nav-item dropdown">
-                                    <a className={`nav-link dropdown-toggle ${addClass}`} data-bs-toggle="dropdown" href="#!" onClick={() => { setAddClass(addClass === '' ? 'show' : '') }}>Categories</a>
+                                    <a className={`nav-link dropdown-toggle ${addClass}`} data-bs-toggle="dropdown" onClick={() => { setAddClass(addClass === '' ? 'show' : '') }}>Categories</a>
                                     <div className={`dropdown-menu submenu ${addClass}`}>
                                         <div className="categoriesContant">
                                             <div className="submenuLeftCont">
@@ -133,8 +134,8 @@ const Menu = () => {
                                         </div>
                                     </div>
                                 </li>
-                                <li className="nav-item"><a className="nav-link" href="#!">How it works</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#!">Contact Us</a></li>
+                                <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
+                                <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                             </ul>
                             <div className="d-flex">
                                 <form>
@@ -147,8 +148,8 @@ const Menu = () => {
                                         </span>
                                     </div>
                                 </form>
-                                <button className="btn defoultBtn" type="submit"><PersonIcon /> Login</button>
-                                <button className="btn defoultBtn signupBtn" type="submit"> <AddIcon /> Sign Up</button>
+                                <button className="btn defoultBtn"> <NavLink className="nav-link" to="/login"> <PersonIcon /> Login </NavLink></button>
+                                <button className="btn defoultBtn signupBtn"> <NavLink className="nav-link" to="/signup"> <AddIcon /> Sign Up </NavLink></button>
                             </div>
                         </div>
                     </div>
