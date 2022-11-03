@@ -1,5 +1,6 @@
 import React from 'react'
 import "../LandingPage.css";
+import CountUp from 'react-countup';
 
 const StaticsCounter = () => {
     return (
@@ -18,23 +19,51 @@ const StaticsCounter = () => {
                             <div className="row">
                                 <div className="col-md-6 col-sm-6">
                                     <div className="counter">
-                                        <span className="counter-value">36</span>
+                                        <span className="counter-value">
+                                            <CountUp
+                                                start={0}
+                                                end={259}
+                                                duration={2}
+                                            >
+                                            </CountUp>
+                                        </span>
                                         <h6>Providers</h6>
                                     </div>
 
                                     <div className="counter purple mt-3">
-                                        <span className="counter-value">108</span>
+                                        <span className="counter-value">
+                                            <CountUp
+                                                start={0}
+                                                end={599}
+                                                duration={2}
+                                            >
+                                            </CountUp>
+                                        </span>
                                         <h6>Customer</h6>
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-6">
                                     <div className="counter">
-                                        <span className="counter-value">89</span>
+                                        <span className="counter-value">
+                                            <CountUp
+                                                start={0}
+                                                end={1156}
+                                                duration={2}
+                                            >
+                                            </CountUp>
+                                        </span>
                                         <h6>Jobs</h6>
                                     </div>
 
                                     <div className="counter purple mt-3">
-                                        <span className="counter-value">59</span>
+                                        <span className="counter-value">
+                                            <CountUp
+                                                start={0}
+                                                end={2350}
+                                                duration={2}
+                                            >
+                                            </CountUp>
+                                        </span>
                                         <h6>Categories</h6>
                                     </div>
                                 </div>
