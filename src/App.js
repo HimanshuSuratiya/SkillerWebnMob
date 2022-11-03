@@ -1,12 +1,11 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import HomePage from "./Pages/HomePage";
-import "./Css/Custom.css"
+import LandingPage from "./Pages/LandingPage";
 
 const App = () => {
   return (
     <>
-      <HomePage />
+      <LandingPage />
     </>
   );
 };

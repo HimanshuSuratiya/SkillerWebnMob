@@ -6,6 +6,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination, Navigation } from "swiper";
+import "../LandingPage.css";
 
 const Categories = () => {
     const CategoriesData = [

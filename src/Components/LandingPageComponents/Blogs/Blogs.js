@@ -1,5 +1,6 @@
 import React from 'react'
 import Images from "../../../Images/Image";
+import "../LandingPage.css";
 
 const Blogs = () => {
     return (

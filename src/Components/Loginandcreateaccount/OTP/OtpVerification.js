@@ -1,41 +1,35 @@
 import React, { useState } from 'react'
-import "../Login/Login.css"
-import "./Otp.css";
 import Grid from "@material-ui/core/Grid";
 import OtpInput from "react-otp-input";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import { makeStyles } from "@material-ui/core/styles";
 import FormLabel from '@mui/material/FormLabel';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import "../Animation.css";
 
-const useStyles = makeStyles((theme) => ({
-    grid: {
-        backgroundColor: "grey",
-        height: "50vh",
-        textAlign: "center"
+const useStyles = makeStyles(() => ({
+    otpButtons: {
+        color: '#ffffff',
+        marginLeft: '11px',
+        background: '#188dc7',
+        padding: '4px 20px',
+        transition: '.5s',
+        borderRadius: '20px',
+        border: '2px solid #188dc7',
+        "&:hover": {
+            color: 'black',
+            border: '2px solid #188dc7',
+            background: '#8fc1e2',
+        },
     },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2)
-    },
-    paper: {
-        marginTop: theme.spacing(8),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-    }
 }));
 
 const OtpVerification = () => {
-    const classes = useStyles();
-    const theme = useTheme();
     const [registerType, setRegisterType] = useState(false)
+    const classes = useStyles();
     return (
         <section className="vh-80">
             <div className="container py-4 h-80 abc">
@@ -87,8 +81,8 @@ const OtpVerification = () => {
                                     <a>Resend OTP</a>
                                 </div>
                                 <div className="d-flex justify-content-center">
-                                    <button className="btn btn-primary btn-lg btn-block LoginBtn">Skip</button>
-                                    <button className="btn btn-primary btn-lg btn-block LoginBtn" onClick={() => { setRegisterType(true) }}>Verify</button>
+                                    <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Skip</button>
+                                    <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { setRegisterType(true) }}>Verify</button>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +102,7 @@ const OtpVerification = () => {
                                 </FormControl>
                             </div>
                             <div className="d-flex justify-content-center">
-                                <button className="btn btn-primary btn-lg btn-block LoginBtn"><ArrowRightAltIcon /> Continue</button>
+                                <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}><ArrowRightAltIcon /> Continue</button>
                             </div>
                         </div>
                     }

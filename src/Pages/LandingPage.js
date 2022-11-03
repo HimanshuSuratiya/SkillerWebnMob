@@ -9,13 +9,13 @@ import Blogs from "../Components/LandingPageComponents/Blogs/Blogs";
 import ChooseUs from "../Components/LandingPageComponents/ChooseUs/ChooseUs";
 import Testimonial from "../Components/LandingPageComponents/Testimonial/Testimonial";
 import Footer from "../Components/Footer/Footer";
-import Login from "../Components/Login/Login";
-import Signup from "../Components/Signup/Signup";
+import Login from "../Components/Loginandcreateaccount/Login/Login";
+import Signup from "../Components/Loginandcreateaccount/Signup/Signup";
 import Profile from "../Components/Profile/Profile";
 import Contactus from "../Components/Contactus/Contactus";
-import OtpVerification from "../Components/OTP/OtpVerification";
+import OtpVerification from "../Components/Loginandcreateaccount/OTP/OtpVerification";
 
-const HomePage = () => {
+const LandingPage = () => {
     return (
         <>
             <Menu />
@@ -37,4 +37,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default LandingPage;

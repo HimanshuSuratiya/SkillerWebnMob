@@ -6,6 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Images from "../../../Images/Image";
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import "../LandingPage.css";
 
 SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
 

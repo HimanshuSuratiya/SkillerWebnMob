@@ -82,9 +82,11 @@
     padding: 4px 20px;
     transition: .5s;
     border-radius: 20px;
+    border: 2px solid #188dc7;
 }
 
 .profileFollowBtn:hover {
     background: #188dc7a8;
     color: #fff;
+    border: 2px solid #188dc7;
 }

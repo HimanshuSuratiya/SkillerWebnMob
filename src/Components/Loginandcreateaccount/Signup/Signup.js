@@ -1,15 +1,34 @@
 import React from 'react'
-import Images from "../../Images/Image";
+import Images from "../../../Images/Image";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import "../Login/Login.css";
 import { TextField, TextareaAutosize } from '@mui/material';
+import { makeStyles } from "@material-ui/core/styles";
+import "../Animation.css";
+
+const useStyles = makeStyles(() => ({
+    SignupBtn: {
+        color: '#ffffff',
+        marginLeft: '11px',
+        background: '#188dc7',
+        padding: '4px 20px',
+        transition: '.5s',
+        borderRadius: '20px',
+        border: '2px solid #188dc7',
+        "&:hover": {
+            color: 'black',
+            border: '2px solid #188dc7',
+            background: '#8fc1e2',
+        },
+    },
+}));
 
 const Signup = () => {
+    const classes = useStyles();
     return (
         <section className="vh-80">
             <div className="container py-4 h-80 abc">
                 <div className="row d-flex align-items-center justify-content-center h-100">
-                    <div className="col-md-8 col-lg-7 col-xl-6 animation">
+                    <div className="col-md-8 col-lg-7 col-xl-6 Signupanimation">
                         <img src={Images.SignUp} className="img-fluid" alt="Phone image" />
                     </div>
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -64,7 +83,7 @@ const Signup = () => {
                                 />
                             </div>
                             <div className="d-flex justify-content-center mt-2">
-                                <button type="submit" className="btn btn-primary btn-lg btn-block LoginBtn">Sign up <ArrowRightAltIcon /></button>
+                                <button type="submit" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></button>
                             </div>
                             <a className="d-flex justify-content-center text-decoration-underline mt-2">Already have an account ?... </a>
                         </form>

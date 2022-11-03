@@ -9,6 +9,7 @@ import { FreeMode, Pagination, Navigation } from "swiper";
 import DoneIcon from '@mui/icons-material/Done';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import "../LandingPage.css";
 
 const Vendor = () => {
     const VendorData = [
