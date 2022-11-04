@@ -88,7 +88,7 @@ const Signup = () => {
                                     />
                                 </div>
                                 <div className="d-flex justify-content-center mt-2">
-                                    <button type="submit" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></button>
+                                    <NavLink to="/otp-verification" className={`btn btn-primary btn-lg btn-block ${classes.SignupBtn}`}>Sign up <ArrowRightAltIcon /></NavLink>
                                 </div>
                                 <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/login">Already have an account ?... </NavLink>
                             </form>

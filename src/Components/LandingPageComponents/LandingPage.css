@@ -807,6 +807,29 @@ header.header .navbar {
     color: #fff;
 }
 
+.more-menu-area .submenuLeftCont {
+    width: 100%;
+    padding: 15px 20px;
+}
+
+
+.more-menu-area .CategoriesList {
+    display: inherit;
+}
+
+.dropdown-menu.submenu.more-menu-drop-down {
+    width: 10%;
+}
+
+.more-menu-drop-down .CategoriesList li a {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.more-menu-drop-down .CategoriesList li {
+    line-height: 25px;
+}
+
 button.btn.defoultBtn {
     color: #ffffff;
     margin-left: 11px;

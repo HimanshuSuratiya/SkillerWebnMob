@@ -4,13 +4,19 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 import { NavLink } from "react-router-dom";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+const defaultState = {
+    categories: '',
+    moreMenu: '',
+}
 
 const Menu = () => {
-    const [addClass, setAddClass] = useState('');
+    const [state, setState] = useState(defaultState);
 
     window.addEventListener("scroll", function () {
         let navArea = document.getElementById("navArea");
-
         if (window.pageYOffset > 0) {
             navArea.classList.add("is-sticky");
         } else {
@@ -37,8 +43,10 @@ const Menu = () => {
                                 </li>
                                 <li className="nav-item"><NavLink className="nav-link" to="/about-us">About Us</NavLink></li>
                                 <li className="nav-item dropdown">
-                                    <a className={`nav-link dropdown-toggle ${addClass}`} data-bs-toggle="dropdown" onClick={() => { setAddClass(addClass === '' ? 'show' : '') }}>Categories</a>
-                                    <div className={`dropdown-menu submenu ${addClass}`}>
+                                    <a className={`nav-link dropdown ${state.categories}`} data-bs-toggle="dropdown" onClick={() => {
+                                        setState(prevState => ({ ...prevState, categories: state.categories === '' ? 'show' : '', moreMenu: '' }));
+                                    }}>Categories{state.categories === '' ? <ArrowRightIcon style={{ fontSize: '28px' }} /> : <ArrowDropDownIcon style={{ fontSize: '28px' }} />} </a>
+                                    <div className={`dropdown-menu submenu ${state.categories}`}>
                                         <div className="categoriesContant">
                                             <div className="submenuLeftCont">
                                                 <h5>What are you looking for?</h5>
@@ -135,7 +143,26 @@ const Menu = () => {
                                     </div>
                                 </li>
                                 <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
-                                <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
+                                <li className="nav-item dropdown more-menu-area">
+                                    <a className={`nav-link dropdown ${state.moreMenu}`} data-bs-toggle="dropdown" onClick={() => {
+                                        setState(prevState => ({ ...prevState, moreMenu: state.moreMenu === '' ? 'show' : '', categories: '' }));
+                                    }}>more{state.moreMenu === '' ? <ArrowRightIcon style={{ fontSize: '28px' }} /> : <ArrowDropDownIcon style={{ fontSize: '28px' }} />}</a>
+                                    <div className={`dropdown-menu submenu more-menu-drop-down ${state.moreMenu}`}>
+                                        <div className="categoriesContant">
+                                            <div className="submenuLeftCont">
+                                                <ul className="CategoriesList">
+                                                    <li><NavLink to="/contact-us">Contact Us</NavLink></li>
+                                                    <li><a href="">Browse requests</a></li>
+                                                    <li><a href="">Help</a></li>
+                                                    <li><a href="">My Profile</a></li>
+                                                    <li><a href="">Notification</a></li>
+                                                    <li><a href="">My tasks</a></li>
+                                                    <li><a href="">Search posts</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                             <div className="d-flex">
                                 <form>
