@@ -13,6 +13,7 @@ import Footer from "../Components/Footer/Footer";
 const LandingPage = () => {
     return (
         <>
+            <Menu />
             <Banner />
             <Categories />
             <HowItsWork />

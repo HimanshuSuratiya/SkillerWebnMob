@@ -12,6 +12,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "../Animation.css";
 import Banner from "../../Banner/Banner";
 import Footer from "../../Footer/Footer";
+import Menu from "../../Menu/Menu";
 
 const useStyles = makeStyles(() => ({
     otpButtons: {
@@ -35,6 +36,7 @@ const OtpVerification = () => {
     const classes = useStyles();
     return (
         <>
+            <Menu />
             <section className="vh-80">
                 <Banner imgSource={Images.otpVerify} text="One time verification" />
                 <div className="container py-4 h-80 abc">

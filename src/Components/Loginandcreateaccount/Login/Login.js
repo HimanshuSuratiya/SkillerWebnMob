@@ -8,6 +8,7 @@ import Banner from "../../Banner/Banner";
 import "../Animation.css";
 import Footer from "../../Footer/Footer";
 import { NavLink } from "react-router-dom";
+import Menu from "../../Menu/Menu";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
@@ -49,6 +50,7 @@ const Login = () => {
     const classes = useStyles();
     return (
         <>
+            <Menu />
             <section className="vh-80">
                 <Banner imgSource={Images.loginBnr} text="Login" />
                 <div className="container py-4 h-80 mt-4">
