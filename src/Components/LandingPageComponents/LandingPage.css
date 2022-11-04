@@ -830,6 +830,34 @@ header.header .navbar {
     line-height: 25px;
 }
 
+.main-search-bar {
+    border-radius: 50px !important;
+    border: 1px solid #fff !important;
+    margin-top: 1px !important;
+    padding: 5px 0px 1px 13px !important;
+}
+
+.main-search-bar div::before {
+    border-bottom: none;
+}
+
+.main-search-bar div input {
+    color: #fff;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: none !important;
+}
+
+.main-search-bar div input::placeholder {
+    color: #fff;
+}
+
+.main-search-bar div svg {
+    margin: -1px 8px 0px -17px;
+    color: #fff;
+}
+
 button.btn.defoultBtn {
     color: #ffffff;
     margin-left: 11px;

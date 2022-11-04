@@ -6,6 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { NavLink } from "react-router-dom";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import TextField from "@material-ui/core/TextField";
 
 const defaultState = {
     categories: '',
@@ -166,14 +167,13 @@ const Menu = () => {
                             </ul>
                             <div className="d-flex">
                                 <form>
-                                    <div className="input-group">
-                                        <input className="form-control border-end-0 border rounded-pill" type="search" placeholder="search" id="example-search-input" />
-                                        <span className="input-group-append">
-                                            <button className="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
-                                                <SearchIcon style={{ height: '22px' }} />
-                                            </button>
-                                        </span>
-                                    </div>
+                                    <TextField
+                                        className="main-search-bar"
+                                        variant="standard"
+                                        size="small"
+                                        placeholder={'Search'}
+                                        InputProps={{ endAdornment: <SearchIcon /> }}
+                                    />
                                 </form>
                                 <button className="btn defoultBtn"> <NavLink className="nav-link" to="/login"> <PersonIcon /> Login </NavLink></button>
                                 <button className="btn defoultBtn signupBtn"> <NavLink className="nav-link" to="/signup"> <AddIcon /> Sign Up </NavLink></button>
