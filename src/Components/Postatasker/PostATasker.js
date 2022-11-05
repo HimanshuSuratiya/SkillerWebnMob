@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Images from "../../Images/Image";
 import CloseIcon from '@mui/icons-material/Close';
@@ -19,6 +19,8 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment'
+import Chip from "@material-ui/core/Chip";
+import ChipInput from "material-ui-chip-input";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -100,38 +102,56 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+const chipRenderer = ({ chip, className, handleClick, handleDelete }, key) => (
+    <Chip
+        className={className}
+        key={key}
+        label={chip}
+        onClick={handleClick}
+        onDelete={handleDelete}
+        size="small"
+    />
+);
+
+const defaultState = {
+    skills: ["ex:Skills"],
+    selectedTab: 0,
+    location: 0,
+    language: 0,
+    catergory: 0,
+    dateTime: dayjs(new Date()),
+}
+
 const PostATasker = () => {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-    const [location, setLocation] = React.useState(0)
-    const [state, setState] = React.useState(0)
-
-    const [avalue, setAvalue] = React.useState(
-        dayjs(new Date()),
-    );
+    const [state, setState] = useState(defaultState)
 
     const selectCategory = (event) => {
-        setState(event.target.value);
+        setState((prevState) => ({ ...prevState, catergory: event.target.value }));
     };
 
     const selectLocation = (event) => {
-        setLocation(event.target.value);
+        setState((prevState) => ({ ...prevState, location: event.target.value }));
+    };
+
+    const selectLanguage = (event) => {
+        setState((prevState) => ({ ...prevState, language: event.target.value }));
     };
 
     const handleNextTab = (value) => {
         if (6 > value) {
-            setValue(value + 1)
+            setState((prevState) => ({ ...prevState, selectedTab: value + 1 }));
         } else {
-            setValue(0)
+            setState((prevState) => ({ ...prevState, selectedTab: 0 }));
         }
     }
 
     const handleAChange = (newValue) => {
-        setAvalue(newValue);
+        setState((prevState) => ({ ...prevState, dateTime: newValue }));
     };
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
+        setState((prevState) => ({ ...prevState, selectedTab: newValue }));
     };
 
 
@@ -155,7 +175,7 @@ const PostATasker = () => {
                             orientation="vertical"
                             variant="scrollable"
                             className={classes.LeftButtonWidth}
-                            value={value}
+                            value={state.selectedTab}
                             onChange={handleChange}
                             aria-label="Vertical tabs example"
                             sx={{ borderRight: 1, borderColor: 'divider' }}
@@ -164,11 +184,11 @@ const PostATasker = () => {
                             <Tab label="Category & Location" {...a11yProps(1)} />
                             <Tab label="Date & Time" {...a11yProps(2)} />
                             <Tab label="Budget & Skills" {...a11yProps(3)} />
-                            <Tab label="Item Five" {...a11yProps(4)} />
-                            <Tab label="Item Six" {...a11yProps(5)} />
-                            <Tab label="Item Seven" {...a11yProps(6)} />
+                            <Tab label="Language" {...a11yProps(4)} />
+                            <Tab label="Learning Method" {...a11yProps(5)} />
+                            <Tab label="Photos" {...a11yProps(6)} />
                         </Tabs>
-                        <TabPanel value={value} index={0} style={{ overflow: 'auto', width: '85%' }}>
+                        <TabPanel value={state.selectedTab} index={0} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
                                 <h5>Let's start with the basics</h5>
                                 <TextField
@@ -189,12 +209,12 @@ const PostATasker = () => {
                                 />
                             </div>
                         </TabPanel>
-                        <TabPanel value={value} index={1} style={{ overflow: 'auto', width: '85%' }}>
+                        <TabPanel value={state.selectedTab} index={1} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
                                 <h5>Location & Category</h5>
                                 <Select
                                     style={{ width: '100%' }}
-                                    value={state}
+                                    value={state.catergory}
                                     className="mt-2"
                                     onChange={selectCategory}
                                     displayEmpty
@@ -212,7 +232,7 @@ const PostATasker = () => {
                             <div style={{ width: '100%' }} className="mt-4">
                                 <Select
                                     style={{ width: '100%' }}
-                                    value={location}
+                                    value={state.location}
                                     onChange={selectLocation}
                                     displayEmpty
                                     variant="outlined"
@@ -227,7 +247,7 @@ const PostATasker = () => {
                                 </Select>
                             </div>
                         </TabPanel>
-                        <TabPanel value={value} index={2} style={{ overflow: 'auto', width: '85%' }}>
+                        <TabPanel value={state.selectedTab} index={2} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
                                 <h5>Date & Time</h5>
                                 <div className='mt-3'>
@@ -235,7 +255,7 @@ const PostATasker = () => {
                                         <Stack spacing={3}>
                                             <DateTimePicker
                                                 label="Date & Time"
-                                                value={avalue}
+                                                value={state.dateTime}
                                                 onChange={handleAChange}
                                                 renderInput={(params) => <TextField {...params} />}
                                             />
@@ -257,11 +277,11 @@ const PostATasker = () => {
                                 </div>
                             </div>
                         </TabPanel>
-                        <TabPanel value={value} index={3} style={{ overflow: 'auto', width: '85%' }}>
+                        <TabPanel value={state.selectedTab} index={3} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
                                 <h5>Budget and Skills</h5>
                                 <div className='mt-3'>
-                                    <FormControl fullWidth sx={{ m: 1 }}>
+                                    <FormControl fullWidth>
                                         <InputLabel htmlFor="outlined-adornment-amount">Budget</InputLabel>
                                         <OutlinedInput
                                             type='number'
@@ -272,20 +292,45 @@ const PostATasker = () => {
                                     </FormControl>
                                 </div>
                             </div>
+                            <div style={{ width: '100%' }} className="mt-4">
+                                <div>
+                                    <div>
+                                        <ChipInput className='w-100' defaultValue={state.skills} label="Skills" />
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
-                        <TabPanel value={value} index={4}>
-                            Item Five
+                        <TabPanel value={state.selectedTab} index={4} style={{ overflow: 'auto', width: '85%' }}>
+                            <div style={{ width: '100%' }}>
+                                <h5>Select your Language</h5>
+                                <Select
+                                    style={{ width: '100%' }}
+                                    value={state.language}
+                                    className="mt-2"
+                                    onChange={selectLanguage}
+                                    displayEmpty
+                                    variant="outlined"
+                                >
+                                    <MenuItem value={0}>{"Select your Language"}</MenuItem>
+                                    <MenuItem value={1}>{"English"}</MenuItem>
+                                    <MenuItem value={2}>{"Spanish"}</MenuItem>
+                                    <MenuItem value={3}>{"Arabic"}</MenuItem>
+                                    <MenuItem value={4}>{"Russian"}</MenuItem>
+                                    <MenuItem value={5}>{"Japanese"}</MenuItem>
+                                    <MenuItem value={6}>{"Korean"}</MenuItem>
+                                </Select>
+                            </div>
                         </TabPanel>
-                        <TabPanel value={value} index={5}>
+                        <TabPanel value={state.selectedTab} index={5}>
                             Item Six
                         </TabPanel>
-                        <TabPanel value={value} index={6}>
+                        <TabPanel value={state.selectedTab} index={6}>
                             Item Seven
                         </TabPanel>
                     </Box>
                 </div>
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                    <button onClick={() => { handleNextTab(value) }} className={classes.LoginBtn}>Next</button>
+                    <button onClick={() => { handleNextTab(state.selectedTab) }} className={classes.LoginBtn}>Next</button>
                 </div>
             </div>
         </>
