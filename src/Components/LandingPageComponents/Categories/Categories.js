@@ -106,7 +106,7 @@ const Categories = () => {
                                             }}
                                             navigation={true}
                                             modules={[FreeMode, Pagination, Navigation]}
-                                            className="mySwiper"
+                                            className="mySwiper left-arrow-category"
                                         >
                                             {CategoriesData.map((item, index) => {
                                                 return (

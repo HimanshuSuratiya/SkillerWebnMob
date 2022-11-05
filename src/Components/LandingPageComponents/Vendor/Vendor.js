@@ -105,7 +105,7 @@ const Vendor = () => {
                             }}
                             navigation={true}
                             modules={[FreeMode, Pagination, Navigation]}
-                            className="mySwiper"
+                            className="mySwiper left-right-arrow-vendor"
                         >
                             {VendorData.map((item, index) => {
                                 return (
