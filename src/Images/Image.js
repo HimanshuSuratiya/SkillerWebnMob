@@ -48,6 +48,7 @@ import SignUp from "./SignUp.webp";
 import loginBnr from "./loginBnr.jpg";
 import otpVerify from "./otpVerify.jpeg";
 import register from "./register.jpg";
+import contactus from "./contactus.jpg";
 
 const Images = {
     Logo,
@@ -100,6 +101,7 @@ const Images = {
     loginBnr,
     otpVerify,
     register,
+    contactus,
 };
 
 export default Images;
