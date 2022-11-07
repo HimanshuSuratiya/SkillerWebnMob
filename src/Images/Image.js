@@ -49,6 +49,7 @@ import loginBnr from "./loginBnr.jpg";
 import otpVerify from "./otpVerify.jpeg";
 import register from "./register.jpg";
 import contactus from "./contactus.jpg";
+import profile from "./profile.jpg";
 
 const Images = {
     Logo,
@@ -102,6 +103,7 @@ const Images = {
     otpVerify,
     register,
     contactus,
+    profile,
 };
 
 export default Images;

@@ -155,7 +155,7 @@ const Menu = () => {
                                                     <li><NavLink to="/contact-us">Contact Us</NavLink></li>
                                                     <li><a href="">Browse requests</a></li>
                                                     <li><a href="">Help</a></li>
-                                                    <li><a href="">My Profile</a></li>
+                                                    <li><NavLink to="/profile">My Profile</NavLink></li>
                                                     <li><a href="">Notification</a></li>
                                                     <li><a href="">My tasks</a></li>
                                                     <li><a href="">Search posts</a></li>
