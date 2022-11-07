@@ -1,0 +1,48 @@
+.how-work-all-box-area {
+    padding: 40px 0px 60px 0px;
+    width: 100%;
+}
+
+.how-work-heading-area {
+    text-align: center;
+}
+
+.how-work-box-main {
+    text-align: center;
+    border: 1px solid #cdcdcd87;
+    padding: 30px;
+    margin: 40px 0px 0px 0px;
+    box-shadow: rgb(17 17 26 / 5%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 0px 8px;
+    border-radius: 10px;
+}
+
+.how-work-box-main:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    border: 1px solid #188dc7;
+}
+
+.how-work-icon-area {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    margin: auto;
+    background: #8fc1e2;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 65px;
+    background: #188dc7;
+}
+
+.how-work-box-content h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.icon-size {
+    font-size: 35px !important;
+}
+
+.how-work-heading-area P {
+    margin-bottom: 0px;
+}

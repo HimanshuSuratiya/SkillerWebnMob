@@ -50,6 +50,7 @@ import otpVerify from "./otpVerify.jpeg";
 import register from "./register.jpg";
 import contactus from "./contactus.jpg";
 import profile from "./profile.jpg";
+import howItsWorkFlow from "./howItsWorkFlow.png";
 
 const Images = {
     Logo,
@@ -104,6 +105,7 @@ const Images = {
     register,
     contactus,
     profile,
+    howItsWorkFlow,
 };
 
 export default Images;
