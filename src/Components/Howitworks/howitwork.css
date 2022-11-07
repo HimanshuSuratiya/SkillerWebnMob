@@ -46,3 +46,14 @@
 .how-work-heading-area P {
     margin-bottom: 0px;
 }
+
+/* Tabs  */
+.how-work-tab-area-bg-color {
+    transform: skewY(-1deg);
+    background: #eff3f6;
+    padding: 50px 0px 50px 0px;
+}
+
+.how-work-bg-gray {
+    transform: skewY(1deg);
+}

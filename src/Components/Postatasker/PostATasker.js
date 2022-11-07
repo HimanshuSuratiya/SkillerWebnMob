@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Select from "@material-ui/core/Select";
@@ -19,18 +20,10 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment'
-import Chip from "@material-ui/core/Chip";
 import ChipInput from "material-ui-chip-input";
 
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
-}
-
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
     const { children, value, index, ...other } = props;
-
     return (
         <div
             role="tabpanel"
@@ -48,7 +41,13 @@ function TabPanel(props: TabPanelProps) {
     );
 }
 
-function a11yProps(index: number) {
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
     return {
         id: `vertical-tab-${index}`,
         'aria-controls': `vertical-tabpanel-${index}`,
@@ -102,17 +101,6 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const chipRenderer = ({ chip, className, handleClick, handleDelete }, key) => (
-    <Chip
-        className={className}
-        key={key}
-        label={chip}
-        onClick={handleClick}
-        onDelete={handleDelete}
-        size="small"
-    />
-);
-
 const defaultState = {
     skills: ["ex:Skills"],
     selectedTab: 0,
@@ -146,18 +134,17 @@ const PostATasker = () => {
         }
     }
 
-    const handleAChange = (newValue) => {
+    const handleDateChange = (newValue) => {
         setState((prevState) => ({ ...prevState, dateTime: newValue }));
     };
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, selectedTab: newValue }));
     };
 
-
     return (
         <>
-            <div className={`container d-flex align-items-center justify-content-between ${classes.mainHeader}`} >
+            <div className={`container mt-5 d-flex align-items-center justify-content-between ${classes.mainHeader}`} >
                 <NavLink to="/">
                     <div>
                         <img src={Images.Logo} />
@@ -169,7 +156,7 @@ const PostATasker = () => {
                 <div className='mt-4' style={{ backgroundColor: '#ececec', padding: '20px', borderRadius: '10px' }}>
                     <h3 className='p-2'>Post A Task..</h3>
                     <Box
-                        sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 420 }}
+                        sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 320 }}
                     >
                         <Tabs
                             orientation="vertical"
@@ -256,7 +243,7 @@ const PostATasker = () => {
                                             <DateTimePicker
                                                 label="Date & Time"
                                                 value={state.dateTime}
-                                                onChange={handleAChange}
+                                                onChange={handleDateChange}
                                                 renderInput={(params) => <TextField {...params} />}
                                             />
                                         </Stack>
