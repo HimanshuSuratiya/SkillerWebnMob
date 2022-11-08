@@ -47,6 +47,14 @@
     margin-bottom: 0px;
 }
 
+.post-task-heading {
+    font-size: 30px;
+}
+
+.post-task-heading-inner-text {
+    font-size: 14px;
+}
+
 /* Tabs  */
 .how-work-tab-area-bg-color {
     transform: skewY(-1deg);
@@ -56,4 +64,111 @@
 
 .how-work-bg-gray {
     transform: skewY(1deg);
+}
+
+/* post a tasker */
+.box {
+    background: linear-gradient(#8fc1e2, #188dc7);
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    margin-top: 22px;
+    border-radius: 5px;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    transition: all 0.5s ease-out;
+    border-radius: 5px;
+}
+
+.box:hover img {
+    opacity: 0.2;
+}
+
+.box .box-content {
+    color: #fff !important;
+    width: 100%;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    z-index: 1;
+}
+
+.box .title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    transform: perspective(200px) rotateX(90deg);
+    transform-origin: bottom center;
+    transition: all 0.5s ease 0s;
+    color: #fff;
+}
+
+.box:hover .title {
+    transform: rotateX(0);
+}
+
+.box .post {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    transform: perspective(200px) rotateX(-90deg);
+    transform-origin: top center;
+    transition: all 0.5s ease 0s;
+}
+
+.box:hover .post {
+    transform: rotateX(0);
+}
+
+.box .icon {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    opacity: 0;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    transition: all 0.5s ease 0s;
+}
+
+.box:hover .icon {
+    opacity: 1;
+}
+
+.box .icon li {
+    margin: 0 5px 0 0;
+    display: inline-block;
+}
+
+.box .icon li a {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 15px;
+    text-align: center;
+    line-height: 33px;
+    width: 33px;
+    height: 33px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+
+.box .icon li a:hover {
+    color: #108dc7;
+    background-color: #fff;
+}
+
+@media only screen and (max-width:990px) {
+    .box {
+        margin: 0 0 30px;
+    }
 }

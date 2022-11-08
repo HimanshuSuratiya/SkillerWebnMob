@@ -82,6 +82,39 @@ const Howitwork = () => {
         },
     ]
 
+    const postATaskerData = [
+        {
+            name: 'Mr. Williamson',
+            skill: 'Web Development',
+            imgSource: Images.app,
+        },
+        {
+            name: 'Mr. John Dan',
+            skill: 'App Development',
+            imgSource: Images.web,
+        },
+        {
+            name: 'Mrs. Aleena',
+            skill: 'Yoga',
+            imgSource: Images.four,
+        },
+        {
+            name: 'Mr & Mrs. Cookers',
+            skill: 'Cooking',
+            imgSource: Images.one,
+        },
+        {
+            name: 'Mr. Parmod',
+            skill: 'Plummber',
+            imgSource: Images.two,
+        },
+        {
+            name: 'Cleaner Company',
+            skill: 'Home Cleaning',
+            imgSource: Images.three,
+        },
+    ]
+
     return (
         <>
             <Menu />
@@ -90,12 +123,6 @@ const Howitwork = () => {
                 <div className='how-work-all-box-area'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-lg-12'>
-                                <div className='how-work-heading-area'>
-                                    <h2>How its work</h2>
-                                    <p>The best place for people and businesses to outsource tasks</p>
-                                </div>
-                            </div>
                             {howItWorksData.map((item) => {
                                 return (
                                     <div className='col-4'>
@@ -129,9 +156,37 @@ const Howitwork = () => {
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
-                                <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'pink' }}>
-                                    <h1>Item One</h1>
-                                </div>
+                                <section className='pb-4'>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-5 d-flex align-items-center justify-content-center">
+                                                <div className='how-work-heading-area text-start'>
+                                                    <div>
+                                                        <h2 className='post-task-heading'>Post your task</h2>
+                                                        <p className='post-task-heading-inner-text'>Want your home cleaned or furniture put together? Just tell us about the task you’d like done, suggest a fair budget for a job well done and you’ll start to receive offers from available Taskers.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-7">
+                                                <div className="row">
+                                                    {postATaskerData.map((item) => {
+                                                        return (
+                                                            <div className="col-lg-4">
+                                                                <div className="box">
+                                                                    <img src={item.imgSource} />
+                                                                    <div className="box-content">
+                                                                        <h3 className="title">{item.name}</h3>
+                                                                        <span className="post">{item.skill}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'cyan' }}>
