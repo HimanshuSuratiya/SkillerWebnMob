@@ -51,6 +51,9 @@ import register from "./register.jpg";
 import contactus from "./contactus.jpg";
 import profile from "./profile.jpg";
 import howItsWorkFlow from "./howItsWorkFlow.png";
+import TopRatedIcon from "./TopRatedIcon.png";
+import customerSupport from "./customerSupport.png";
+import telephoneSupport from "./telephoneSupport.jpg";
 
 const Images = {
     Logo,
@@ -106,6 +109,9 @@ const Images = {
     contactus,
     profile,
     howItsWorkFlow,
+    TopRatedIcon,
+    customerSupport,
+    telephoneSupport,
 };
 
 export default Images;

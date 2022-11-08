@@ -15,6 +15,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -189,9 +190,52 @@ const Howitwork = () => {
                                 </section>
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'cyan' }}>
-                                    <h1>Item Two</h1>
-                                </div>
+                                <section className='pb-4'>
+                                    <div className="container mt-4">
+                                        <div className='d-flex justify-content-center'>
+                                            <div className='mb-4 shadow customer-support-top-image-area'>
+                                                <img src={Images.telephoneSupport} />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="pt-2 pb-2 col-lg-4 shadow d-flex align-items-center justify-content-center main-left-right-customer-support">
+                                                <div className=''>
+                                                    <div className='d-flex justify-content-center'>
+                                                        <img className="customer-support-icon-image" src={Images.TopRatedIcon} />
+                                                    </div>
+                                                    <div className='d-flex justify-content-center'>
+                                                        <h2 className='customer-support-heading'>Top rated insurance</h2>
+                                                    </div>
+                                                    <div>
+                                                        <p className='customer-support-heading-inner-text'>Skiller Insurance is provided by Berkshire Hathaway Specialty Insurance. This means Taskers on skiller are covered for liability to third parties when it comes to personal injury or property damage (terms and conditions apply) - so you can post or earn with peace of mind!*</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-4 d-flex align-items-center justify-content-center"></div>
+                                            <div className="pt-2 pb-2 shadow col-lg-4 d-flex align-items-center justify-content-center main-left-right-customer-support">
+                                                <div className=''>
+                                                    <div className='d-flex justify-content-center'>
+                                                        <img className="customer-support-icon-image" src={Images.customerSupport} />
+                                                    </div>
+                                                    <div className='d-flex justify-content-center'>
+                                                        <h2 className='customer-support-heading'>Complete customer support</h2>
+                                                    </div>
+                                                    <div>
+                                                        <p className='customer-support-heading-inner-text'>Got a question? Simply search our comprehensive for your answer <a className="help-center">Help Centre </a> . If you’re still stuck then feel free to reach out to our expert Customer Support Team who are more than happy to help.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className='d-flex justify-content-center mb-4'>
+                                                <button className='Customer-suppor-Learn-more'>Learn more <ArrowRightAltIcon /></button>
+                                            </div>
+                                            <p className='terms-conditions'>*Terms and Conditions apply. Included Task activities only. Excesses apply for
+                                                Taskers. <a className="help-center">Learn more about Skiller Insurance</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
                             </TabPanel>
                             <TabPanel value={value} index={2}>
                                 <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'gray' }}>

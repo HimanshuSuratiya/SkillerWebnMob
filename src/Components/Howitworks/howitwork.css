@@ -55,7 +55,7 @@
     font-size: 14px;
 }
 
-/* Tabs  */
+/* Tabs */
 .how-work-tab-area-bg-color {
     transform: skewY(-1deg);
     background: #eff3f6;
@@ -82,6 +82,7 @@
     height: auto;
     transition: all 0.5s ease-out;
     border-radius: 5px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
 }
 
 .box:hover img {
@@ -171,4 +172,63 @@
     .box {
         margin: 0 0 30px;
     }
+}
+
+/* Customer support  */
+.customer-support-top-image-area {
+    height: 120px;
+    width: 350px;
+}
+
+.customer-support-top-image-area img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.main-left-right-customer-support {
+    background-Color: #8fc1e2;
+    border-radius: 5px;
+}
+
+.customer-support-heading {
+    font-size: 22px;
+    color: #fff;
+}
+
+.customer-support-heading-inner-text {
+    font-size: 14px;
+    text-align: center;
+}
+
+.help-center {
+    text-decoration: underline;
+}
+
+.Customer-suppor-Learn-more {
+    color: #ffffff;
+    background-color: #188dc7;
+    padding: 4px 20px;
+    transition: .5s;
+    border-radius: 20px;
+    border: 2px solid #188dc7;
+}
+
+.Customer-suppor-Learn-more:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background-color: #8fc1e2;
+}
+
+.terms-conditions {
+    font-size: 12px;
+    text-align: center;
+}
+
+.shadow {
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
+}
+
+.customer-support-icon-image {
+    width: 10%;
+    padding: 10px 0px 10px 0px;
 }
