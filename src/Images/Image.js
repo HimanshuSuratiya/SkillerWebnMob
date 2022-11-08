@@ -54,6 +54,7 @@ import howItsWorkFlow from "./howItsWorkFlow.png";
 import TopRatedIcon from "./TopRatedIcon.png";
 import customerSupport from "./customerSupport.png";
 import telephoneSupport from "./telephoneSupport.jpg";
+import communicationImage from "./communicationImage.jpg";
 
 const Images = {
     Logo,
@@ -112,6 +113,7 @@ const Images = {
     TopRatedIcon,
     customerSupport,
     telephoneSupport,
+    communicationImage,
 };
 
 export default Images;

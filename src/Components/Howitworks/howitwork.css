@@ -232,3 +232,13 @@
     width: 10%;
     padding: 10px 0px 10px 0px;
 }
+
+/* Communication */
+.communication-inner-text {
+    font-size: 13px;
+}
+
+.left-right-some-space {
+    width: 47%;
+    margin: auto;
+}

@@ -16,6 +16,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import EmailIcon from '@mui/icons-material/Email';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -199,7 +200,7 @@ const Howitwork = () => {
                                         </div>
                                         <div className="row">
                                             <div className="pt-2 pb-2 col-lg-4 shadow d-flex align-items-center justify-content-center main-left-right-customer-support">
-                                                <div className=''>
+                                                <div>
                                                     <div className='d-flex justify-content-center'>
                                                         <img className="customer-support-icon-image" src={Images.TopRatedIcon} />
                                                     </div>
@@ -213,7 +214,7 @@ const Howitwork = () => {
                                             </div>
                                             <div className="col-lg-4 d-flex align-items-center justify-content-center"></div>
                                             <div className="pt-2 pb-2 shadow col-lg-4 d-flex align-items-center justify-content-center main-left-right-customer-support">
-                                                <div className=''>
+                                                <div>
                                                     <div className='d-flex justify-content-center'>
                                                         <img className="customer-support-icon-image" src={Images.customerSupport} />
                                                     </div>
@@ -243,9 +244,27 @@ const Howitwork = () => {
                                 </div>
                             </TabPanel>
                             <TabPanel value={value} index={3}>
-                                <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'brown' }}>
-                                    <h1>Item Four</h1>
-                                </div>
+                                <section className='pb-4'>
+                                    <div className="container mt-4">
+                                        <div className="row">
+                                            <div className="p-5 pb-2 col-lg-6 shadow d-flex align-items-center justify-content-center left-right-some-space">
+                                                <div className='communication'>
+                                                    <div>
+                                                        <h3 className='p-0 m-0'>Communication</h3>
+                                                        <p className='communication-inner-text'>Use Skiller to stay in contact from the moment your task is posted until it’s completed.</p>
+                                                    </div>
+                                                    <div className='mt-4'>
+                                                        <h4 className='p-0 m-0'><EmailIcon /> Private Messaging</h4>
+                                                        <p className='communication-inner-text'>Once you’ve accepted an offer, you can instantly reach out to the Tasker via private messaging to discuss task details, and get your task completed.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                                <img src={Images.bnrPic} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </TabPanel>
                             <TabPanel value={value} index={4}>
                                 <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'red' }}>
