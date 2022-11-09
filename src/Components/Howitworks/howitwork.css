@@ -247,7 +247,6 @@
 /* Rating & Reviews*/
 .rating-and-reviews-inner {
     height: 600px;
-    background-color: #108dc7;
     padding: 30px;
 }
 
@@ -266,17 +265,40 @@
 }
 
 .first-main {
-    background-color: rgb(33, 33, 33);
-    height: 321px;
+    background-color: #8fc1e2;
+    height: 370px;
     width: 308px;
     border-radius: 10px;
     margin-right: 20px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
 }
 
 .second-main {
-    background-color: red;
-    height: 400px;
+    background-color: #108dc7;
+    height: 432px;
     width: 308px;
     border-radius: 10px;
     margin-left: 20px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
+}
+
+.LoginBtn {
+    color: #ffffff;
+    background-color: #188dc7;
+    padding: 4px 20px;
+    transition: .5s;
+    border-radius: 20px;
+    border: 2px solid #8fc1e2;
+}
+
+.LoginBtn:hover {
+    color: black;
+    border: 2px solid gray;
+    background-color: #8fc1e2;
+}
+
+.h2-color {
+    color: #fff;
+    padding: 20px 5px 20px 5px;
+    ;
 }

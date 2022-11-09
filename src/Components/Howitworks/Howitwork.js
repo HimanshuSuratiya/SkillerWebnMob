@@ -21,6 +21,7 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -281,22 +282,22 @@ const Howitwork = () => {
                                                 <div className='col-md-6 first-box'>
                                                     <div className='first-main p-2'>
                                                         <div style={{ width: '100%' }}>
-                                                            <h4 className='p-0 m-0 d-flex justify-content-center'>Customer reviews</h4>
+                                                            <h4 className='d-flex justify-content-center h2-color'>Customer reviews</h4>
                                                             <Box
                                                                 sx={{
                                                                     width: '100%',
                                                                     display: 'flex',
                                                                     fontSize: '14px',
                                                                     alignItems: 'center',
-                                                                    color: '#188dc7',
+                                                                    color: '#fff',
                                                                     justifyContent: 'center',
+                                                                    paddingBottom: '20px'
                                                                 }}
                                                             >
                                                                 <Rating
                                                                     name="hover-feedback"
                                                                     value={starValue}
                                                                     precision={0.5}
-                                                                    style={{ color: '#fff' }}
                                                                     getLabelText={getLabelText}
                                                                     onChange={(event, newValue) => {
                                                                         setStarValue(newValue);
@@ -311,33 +312,64 @@ const Howitwork = () => {
                                                                 )}
                                                             </Box>
                                                             <Box>
-                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                <div className='pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
-                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>4.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5 star</p>
                                                                 </div>
-                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={20} />
-                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>1.0 star</p>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>1.0 star</p>
                                                                 </div>
-                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={30} />
-                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>1.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>1.5 star</p>
                                                                 </div>
-                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={70} />
-                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>3.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>3.5 star</p>
                                                                 </div>
-                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
-                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>4.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5 star</p>
                                                                 </div>
                                                             </Box>
-                                                            <h5 className='mt-4 p-2'>1772 total rating</h5>
+                                                            <h5 className='h2-color'>1772 total rating</h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6 second-box'>
-                                                    <div className='second-main'>
+                                                    <div className='second-main  p-2'>
+                                                        <div style={{ width: '100%' }}>
+                                                            <h4 className='d-flex justify-content-center h2-color'>By features</h4>
+                                                            <Box>
+                                                                <div className='mb-3 px-2 d-flex justify-content-between align-items-center w-100'>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px' }}>Value for money</p>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly style={{ paddingRight: '5px' }} />
+                                                                        <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='mb-3 px-2 d-flex justify-content-between align-items-center w-100'>
+                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px' }}>Giftable</p>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <Rating name="half-rating-read" defaultValue={3.7} precision={0.5} readOnly style={{ paddingRight: '5px' }} />
+                                                                        <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>3.7</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='d-flex justify-content-center'>
+                                                                    <div style={{ height: '200px', width: '285px', backgroundColor: '#fff', borderRadius: '5px' }}>
+                                                                        <div className='mt-4 mb-2 d-flex justify-content-center'>
+                                                                            <ReviewsIcon style={{ fontSize: '50px', color: '#108dc7' }} />
+                                                                        </div>
+                                                                        <h4 className='d-flex justify-content-center mb-2' >Review this product</h4>
+                                                                        <p className='text-center mt-2' style={{ fontSize: '14px' }}>Share your thoughts with other people.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </Box>
+                                                            <div className="mt-2 d-flex justify-content-center">
+                                                                <button className='btn btn-primary btn-lg btn-block LoginBtn'>Write a review</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
