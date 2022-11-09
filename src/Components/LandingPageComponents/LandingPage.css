@@ -1040,12 +1040,12 @@ a.navbar-brand {
 
 .CategoriesList li a {
     font-size: 12px;
-    color: #333;
+    color: #188dc7;
     transition: .5s;
 }
 
 .CategoriesList li a:hover {
-    color: #188dc7;
+    color: #8fc1e2;
 }
 
 .asSkiller {

@@ -242,3 +242,41 @@
     width: 47%;
     margin: auto;
 }
+
+
+/* Rating & Reviews*/
+.rating-and-reviews-inner {
+    height: 600px;
+    background-color: #108dc7;
+    padding: 30px;
+}
+
+.first-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: top;
+    width: 50%;
+}
+
+.second-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 50%;
+}
+
+.first-main {
+    background-color: rgb(33, 33, 33);
+    height: 321px;
+    width: 308px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.second-main {
+    background-color: red;
+    height: 400px;
+    width: 308px;
+    border-radius: 10px;
+    margin-left: 20px;
+}

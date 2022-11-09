@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTheme } from '@mui/material/styles';
 import { makeStyles } from "@material-ui/core/styles";
 import Images from "../../Images/Image";
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,7 +9,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { TextField, TextareaAutosize } from '@mui/material';
 import Select from "@material-ui/core/Select";
 import { MenuItem } from "@material-ui/core";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -21,6 +22,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment'
 import ChipInput from "material-ui-chip-input";
+import Chip from '@mui/material/Chip';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -105,14 +107,44 @@ const defaultState = {
     skills: ["ex:Skills"],
     selectedTab: 0,
     location: 0,
-    language: 0,
     catergory: 0,
     dateTime: dayjs(new Date()),
 }
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
+const names = [
+    'English',
+    'Spanish',
+    'Arabic',
+    'Russian',
+    'Japanese',
+    'Korean',
+];
+
+function getStyles(name, personName, theme) {
+    return {
+        fontWeight:
+            personName.indexOf(name) === -1
+                ? theme.typography.fontWeightRegular
+                : theme.typography.fontWeightMedium,
+    };
+}
+
 const PostATasker = () => {
+    const theme = useTheme();
     const classes = useStyles();
     const [state, setState] = useState(defaultState)
+    const [personName, setPersonName] = React.useState([]);
 
     const selectCategory = (event) => {
         setState((prevState) => ({ ...prevState, catergory: event.target.value }));
@@ -120,10 +152,6 @@ const PostATasker = () => {
 
     const selectLocation = (event) => {
         setState((prevState) => ({ ...prevState, location: event.target.value }));
-    };
-
-    const selectLanguage = (event) => {
-        setState((prevState) => ({ ...prevState, language: event.target.value }));
     };
 
     const handleNextTab = (value) => {
@@ -140,6 +168,15 @@ const PostATasker = () => {
 
     const handleChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, selectedTab: newValue }));
+    };
+
+    const handleLanguageSelection = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setPersonName(
+            typeof value === 'string' ? value.split(',') : value,
+        );
     };
 
     return (
@@ -187,12 +224,12 @@ const PostATasker = () => {
                                 />
                             </div>
                             <div style={{ width: '100%' }}>
-                                <TextField
-                                    className='mt-4'
-                                    label="Description"
-                                    fullWidth
-                                    autoComplete="shipping address-line1"
-                                    variant="outlined"
+                                <TextareaAutosize
+                                    className='p-2 mt-4'
+                                    aria-label="minimum height"
+                                    minRows={4}
+                                    style={{ width: '100%' }}
+                                    placeholder="Description"
                                 />
                             </div>
                         </TabPanel>
@@ -288,24 +325,36 @@ const PostATasker = () => {
                             </div>
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={4} style={{ overflow: 'auto', width: '85%' }}>
-                            <div style={{ width: '100%' }}>
-                                <h5>Select your Language</h5>
-                                <Select
-                                    style={{ width: '100%' }}
-                                    value={state.language}
-                                    className="mt-2"
-                                    onChange={selectLanguage}
-                                    displayEmpty
-                                    variant="outlined"
-                                >
-                                    <MenuItem value={0}>{"Select your Language"}</MenuItem>
-                                    <MenuItem value={1}>{"English"}</MenuItem>
-                                    <MenuItem value={2}>{"Spanish"}</MenuItem>
-                                    <MenuItem value={3}>{"Arabic"}</MenuItem>
-                                    <MenuItem value={4}>{"Russian"}</MenuItem>
-                                    <MenuItem value={5}>{"Japanese"}</MenuItem>
-                                    <MenuItem value={6}>{"Korean"}</MenuItem>
-                                </Select>
+                            <div>
+                                <FormControl sx={{ m: 1, width: '100%' }}>
+                                    <InputLabel id="demo-multiple-chip-label">Select your Language</InputLabel>
+                                    <Select
+                                        labelId="demo-multiple-chip-label"
+                                        id="demo-multiple-chip"
+                                        multiple
+                                        value={personName}
+                                        onChange={handleLanguageSelection}
+                                        input={<OutlinedInput id="select-multiple-chip" label="Select your Language" />}
+                                        renderValue={(selected) => (
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                                {selected.map((value) => (
+                                                    <Chip key={value} label={value} />
+                                                ))}
+                                            </Box>
+                                        )}
+                                        MenuProps={MenuProps}
+                                    >
+                                        {names.map((name) => (
+                                            <MenuItem
+                                                key={name}
+                                                value={name}
+                                                style={getStyles(name, personName, theme)}
+                                            >
+                                                {name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
                             </div>
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={5}>

@@ -239,9 +239,22 @@ const Howitwork = () => {
                                 </section>
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                                <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'gray' }}>
-                                    <h1>Item Three</h1>
-                                </div>
+                                <section >
+                                    <div >
+                                        <div className='container rating-and-reviews'>
+                                            <div className='row rating-and-reviews-inner'>
+                                                <div className='col-md-6 first-box'>
+                                                    <div className='first-main'>
+                                                    </div>
+                                                </div>
+                                                <div className='col-md-6 second-box'>
+                                                    <div className='second-main'>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </TabPanel>
                             <TabPanel value={value} index={3}>
                                 <section className='pb-4'>
