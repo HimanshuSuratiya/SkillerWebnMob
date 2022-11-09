@@ -17,6 +17,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import EmailIcon from '@mui/icons-material/Email';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material/styles';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -50,8 +54,39 @@ function a11yProps(index) {
     };
 }
 
+const labels = {
+    0.5: 'Useless',
+    1: 'Useless+',
+    1.5: 'Poor',
+    2: 'Poor+',
+    2.5: 'Ok',
+    3: 'Ok+',
+    3.5: 'Good',
+    4: 'Good+',
+    4.5: 'Excellent',
+    5: 'Excellent+',
+};
+
+function getLabelText(value) {
+    return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+}
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    height: 10,
+    borderRadius: 5,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+        backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+        borderRadius: 5,
+        backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    },
+}));
+
 const Howitwork = () => {
     const [value, setValue] = React.useState(0);
+    const [starValue, setStarValue] = React.useState(2);
+    const [hover, setHover] = React.useState(-1);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -244,7 +279,61 @@ const Howitwork = () => {
                                         <div className='container rating-and-reviews'>
                                             <div className='row rating-and-reviews-inner'>
                                                 <div className='col-md-6 first-box'>
-                                                    <div className='first-main'>
+                                                    <div className='first-main p-2'>
+                                                        <div style={{ width: '100%' }}>
+                                                            <h4 className='p-0 m-0 d-flex justify-content-center'>Customer reviews</h4>
+                                                            <Box
+                                                                sx={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    fontSize: '14px',
+                                                                    alignItems: 'center',
+                                                                    color: '#188dc7',
+                                                                    justifyContent: 'center',
+                                                                }}
+                                                            >
+                                                                <Rating
+                                                                    name="hover-feedback"
+                                                                    value={starValue}
+                                                                    precision={0.5}
+                                                                    style={{ color: '#fff' }}
+                                                                    getLabelText={getLabelText}
+                                                                    onChange={(event, newValue) => {
+                                                                        setStarValue(newValue);
+                                                                    }}
+                                                                    onChangeActive={(event, newHover) => {
+                                                                        setHover(newHover);
+                                                                    }}
+                                                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                                                />
+                                                                {value !== null && (
+                                                                    <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+                                                                )}
+                                                            </Box>
+                                                            <Box>
+                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                    <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
+                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>4.5 star</p>
+                                                                </div>
+                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                    <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={20} />
+                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>1.0 star</p>
+                                                                </div>
+                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                    <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={30} />
+                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>1.5 star</p>
+                                                                </div>
+                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                    <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={70} />
+                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>3.5 star</p>
+                                                                </div>
+                                                                <div className='mb-2 d-flex justify-content-around align-items-center w-100'>
+                                                                    <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
+                                                                    <p className='p-0 m-0' style={{ fontSize: '13px' }}>4.5 star</p>
+                                                                </div>
+                                                            </Box>
+                                                            <h5 className='mt-4 p-2'>1772 total rating</h5>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6 second-box'>
