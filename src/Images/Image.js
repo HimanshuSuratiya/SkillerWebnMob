@@ -55,6 +55,7 @@ import TopRatedIcon from "./TopRatedIcon.png";
 import customerSupport from "./customerSupport.png";
 import telephoneSupport from "./telephoneSupport.jpg";
 import communicationImage from "./communicationImage.jpg";
+import card from "./card.jpg";
 
 const Images = {
     Logo,
@@ -114,6 +115,7 @@ const Images = {
     customerSupport,
     telephoneSupport,
     communicationImage,
+    card,
 };
 
 export default Images;

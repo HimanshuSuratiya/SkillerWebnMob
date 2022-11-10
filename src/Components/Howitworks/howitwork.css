@@ -186,13 +186,12 @@
 }
 
 .main-left-right-customer-support {
-    background-Color: #8fc1e2;
+    background-color: #fff;
     border-radius: 5px;
 }
 
 .customer-support-heading {
     font-size: 22px;
-    color: #fff;
 }
 
 .customer-support-heading-inner-text {
@@ -250,6 +249,13 @@
     padding: 30px;
 }
 
+.review-this-product-div {
+    height: 180px;
+    width: 285px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
 .first-box {
     display: flex;
     justify-content: flex-end;
@@ -275,7 +281,7 @@
 
 .second-main {
     background-color: #108dc7;
-    height: 432px;
+    height: 428px;
     width: 308px;
     border-radius: 10px;
     margin-left: 20px;
@@ -289,6 +295,7 @@
     transition: .5s;
     border-radius: 20px;
     border: 2px solid #8fc1e2;
+    font-size: 14px;
 }
 
 .LoginBtn:hover {
@@ -301,4 +308,10 @@
     color: #fff;
     padding: 20px 5px 20px 5px;
     ;
+}
+
+/* common */
+.f-size-weight {
+    font-size: 13px;
+    font-weight: 600;
 }

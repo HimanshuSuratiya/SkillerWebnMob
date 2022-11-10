@@ -281,7 +281,7 @@ const Howitwork = () => {
                                             <div className='row rating-and-reviews-inner'>
                                                 <div className='col-md-6 first-box'>
                                                     <div className='first-main p-2'>
-                                                        <div style={{ width: '100%' }}>
+                                                        <div>
                                                             <h4 className='d-flex justify-content-center h2-color'>Customer reviews</h4>
                                                             <Box
                                                                 sx={{
@@ -314,23 +314,23 @@ const Howitwork = () => {
                                                             <Box>
                                                                 <div className='pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
-                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color f-size-weight'>4.5 star</p>
                                                                 </div>
                                                                 <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={20} />
-                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>1.0 star</p>
+                                                                    <p className='p-0 m-0 h2-color f-size-weight'>1.0 star</p>
                                                                 </div>
                                                                 <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={30} />
-                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>1.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color f-size-weight'>1.5 star</p>
                                                                 </div>
                                                                 <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={70} />
-                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>3.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color f-size-weight'>3.5 star</p>
                                                                 </div>
                                                                 <div className='pt-2 pb-2 d-flex justify-content-around align-items-center w-100'>
                                                                     <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={90} />
-                                                                    <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5 star</p>
+                                                                    <p className='p-0 m-0 h2-color f-size-weight'>4.5 star</p>
                                                                 </div>
                                                             </Box>
                                                             <h5 className='h2-color'>1772 total rating</h5>
@@ -339,25 +339,25 @@ const Howitwork = () => {
                                                 </div>
                                                 <div className='col-md-6 second-box'>
                                                     <div className='second-main  p-2'>
-                                                        <div style={{ width: '100%' }}>
+                                                        <div>
                                                             <h4 className='d-flex justify-content-center h2-color'>By features</h4>
                                                             <Box>
                                                                 <div className='mb-3 px-2 d-flex justify-content-between align-items-center w-100'>
                                                                     <p className='p-0 m-0 h2-color' style={{ fontSize: '13px' }}>Value for money</p>
                                                                     <div className='d-flex align-items-center'>
                                                                         <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly style={{ paddingRight: '5px' }} />
-                                                                        <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>4.5</p>
+                                                                        <p className='p-0 m-0 h2-color f-size-weight'>4.5</p>
                                                                     </div>
                                                                 </div>
                                                                 <div className='mb-3 px-2 d-flex justify-content-between align-items-center w-100'>
                                                                     <p className='p-0 m-0 h2-color' style={{ fontSize: '13px' }}>Giftable</p>
                                                                     <div className='d-flex align-items-center'>
                                                                         <Rating name="half-rating-read" defaultValue={3.7} precision={0.5} readOnly style={{ paddingRight: '5px' }} />
-                                                                        <p className='p-0 m-0 h2-color' style={{ fontSize: '13px', fontWeight: '600' }}>3.7</p>
+                                                                        <p className='p-0 m-0 h2-color f-size-weight'>3.7</p>
                                                                     </div>
                                                                 </div>
                                                                 <div className='d-flex justify-content-center'>
-                                                                    <div style={{ height: '200px', width: '285px', backgroundColor: '#fff', borderRadius: '5px' }}>
+                                                                    <div className='review-this-product-div'>
                                                                         <div className='mt-4 mb-2 d-flex justify-content-center'>
                                                                             <ReviewsIcon style={{ fontSize: '50px', color: '#108dc7' }} />
                                                                         </div>
@@ -366,7 +366,7 @@ const Howitwork = () => {
                                                                     </div>
                                                                 </div>
                                                             </Box>
-                                                            <div className="mt-2 d-flex justify-content-center">
+                                                            <div className="mt-4 d-flex justify-content-center">
                                                                 <button className='btn btn-primary btn-lg btn-block LoginBtn'>Write a review</button>
                                                             </div>
                                                         </div>
@@ -381,29 +381,49 @@ const Howitwork = () => {
                                 <section className='pb-4'>
                                     <div className="container mt-4">
                                         <div className="row">
-                                            <div className="p-5 pb-2 col-lg-6 shadow d-flex align-items-center justify-content-center left-right-some-space">
+                                            <div className="px-5 py-3 col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
                                                 <div className='communication'>
                                                     <div>
                                                         <h3 className='p-0 m-0'>Communication</h3>
                                                         <p className='communication-inner-text'>Use Skiller to stay in contact from the moment your task is posted until it’s completed.</p>
                                                     </div>
-                                                    <div className='mt-4'>
+                                                    <div>
                                                         <h4 className='p-0 m-0'><EmailIcon /> Private Messaging</h4>
                                                         <p className='communication-inner-text'>Once you’ve accepted an offer, you can instantly reach out to the Tasker via private messaging to discuss task details, and get your task completed.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
-                                                <img src={Images.bnrPic} />
+                                                <img className='rounded' src={Images.bnrPic} />
                                             </div>
                                         </div>
                                     </div>
                                 </section>
                             </TabPanel>
                             <TabPanel value={value} index={4}>
-                                <div className='d-flex justify-content-center align-items-center' style={{ height: '300px', width: '100%', backgroundColor: 'red' }}>
-                                    <h1>Item Five</h1>
-                                </div>
+                                <section className='pb-4'>
+                                    <div className="container mt-4">
+                                        <div className="row">
+                                            <div className="px-5 py-3 col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                                <div className='communication'>
+                                                    <div>
+                                                        <h3 className='p-0'>Skiller Pay</h3>
+                                                        <p className='communication-inner-text'>Skiller Pay is the seamless and secure way to get your tasks completed. Once you accept an offer on a task, the agreed upon amount is held secure with Skiller Pay until the task is complete.</p>
+                                                    </div>
+                                                    <div className='mt-2'>
+                                                        <p className='communication-inner-text'>Once complete, you’ll simply need to release the payment. We’ll then transfer the task payment to the Tasker’s verified bank account.</p>
+                                                    </div>
+                                                    <div className="mt-2">
+                                                        <button className='btn btn-primary btn-lg btn-block LoginBtn'>Learn more</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                                <img className='rounded' src={Images.card} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </TabPanel>
                         </Box>
                     </div>
