@@ -42,7 +42,7 @@ const Menu = () => {
                                 <li className="nav-item">
                                     <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                 </li>
-                                <li className="nav-item"><NavLink className="nav-link" to="/about-us">About Us</NavLink></li>
+                                <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 <li className="nav-item dropdown">
                                     <a className={`nav-link dropdown ${state.categories}`} data-bs-toggle="dropdown" onClick={() => {
                                         setState(prevState => ({ ...prevState, categories: state.categories === '' ? 'show' : '', moreMenu: '' }));
@@ -152,9 +152,8 @@ const Menu = () => {
                                         <div className="categoriesContant">
                                             <div className="submenuLeftCont">
                                                 <ul className="CategoriesList">
-                                                    <li><NavLink to="/contact-us">Contact Us</NavLink></li>
                                                     <li><a href="">Browse requests</a></li>
-                                                    <li><a href="">Help</a></li>
+                                                    <li><NavLink to="/help">Help</NavLink></li>
                                                     <li><NavLink to="/profile">My Profile</NavLink></li>
                                                     <li><a href="">Notification</a></li>
                                                     <li><a href="">My tasks</a></li>

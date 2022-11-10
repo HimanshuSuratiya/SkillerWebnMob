@@ -47,7 +47,7 @@ const Contactus = () => {
             <Menu />
             <section className="vh-80">
                 <Banner imgSource={Images.contactus} text="Contact us" />
-                <div className="contact3 py-5">
+                <div className="contact py-5">
                     <div className="row no-gutters">
                         <div className="container">
                             <div className="mb-2 d-flex justify-content-evenly w-100 align-items-center">

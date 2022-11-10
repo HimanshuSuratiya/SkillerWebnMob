@@ -9,6 +9,7 @@ import Contactus from "./Components/Contactus/Contactus";
 import OtpVerification from "./Components/Loginandcreateaccount/OTP/OtpVerification";
 import PostATasker from "./Components/Postatasker/PostATasker";
 import Howitwork from "./Components/Howitworks/Howitwork";
+import Help from "./Components/Help/Help";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/contact-us" element={<Contactus />} />
         <Route path="/otp-verification" element={<OtpVerification />} />
         <Route path="/post-a-task" element={< PostATasker />} />
+        <Route path="/help" element={< Help />} />
         {/* <Route path="/post-a-task" element={< />} /> */}
         {/* <Route path="/about-us" element={< />} /> */}
         <Route path="/how-it-works" element={<Howitwork />} />

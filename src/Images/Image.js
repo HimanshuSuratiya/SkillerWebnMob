@@ -56,6 +56,7 @@ import customerSupport from "./customerSupport.png";
 import telephoneSupport from "./telephoneSupport.jpg";
 import communicationImage from "./communicationImage.jpg";
 import card from "./card.jpg";
+import help from "./help.webp";
 
 const Images = {
     Logo,
@@ -116,6 +117,7 @@ const Images = {
     telephoneSupport,
     communicationImage,
     card,
+    help,
 };
 
 export default Images;
