@@ -63,7 +63,7 @@ const Menu = () => {
                                             </div>
                                             <div className="submenuRightCont">
                                                 <ul className="CategoriesList">
-                                                    <li><a href="">Accountants</a></li>
+                                                    <li><NavLink to="/accountants">Accountants</NavLink></li>
                                                     <li><a href="">Admin</a></li>
                                                     <li><a href="">Alterations</a></li>
                                                     <li><a href="">Appliances</a></li>
