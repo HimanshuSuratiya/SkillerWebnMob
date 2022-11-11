@@ -106,6 +106,8 @@ const useStyles = makeStyles(() => ({
 const defaultState = {
     skills: ["ex:Skills"],
     selectedTab: 0,
+    learningMethod: 1,
+    learningMethodTab: 0,
     location: 0,
     catergory: 0,
     dateTime: dayjs(new Date()),
@@ -144,7 +146,11 @@ const PostATasker = () => {
     const theme = useTheme();
     const classes = useStyles();
     const [state, setState] = useState(defaultState)
-    const [personName, setPersonName] = React.useState([]);
+    const [personName, setPersonName] = useState([]);
+
+    const handleLearningMethodTab = (event, newValue) => {
+        setState((prevState) => ({ ...prevState, learningMethodTab: newValue, learningMethod: newValue + 1 }));
+    };
 
     const selectCategory = (event) => {
         setState((prevState) => ({ ...prevState, catergory: event.target.value }));
@@ -152,6 +158,10 @@ const PostATasker = () => {
 
     const selectLocation = (event) => {
         setState((prevState) => ({ ...prevState, location: event.target.value }));
+    };
+
+    const selectLearningMethod = (event) => {
+        setState((prevState) => ({ ...prevState, learningMethod: event.target.value, learningMethodTab: event.target.value - 1 }));
     };
 
     const handleNextTab = (value) => {
@@ -166,7 +176,7 @@ const PostATasker = () => {
         setState((prevState) => ({ ...prevState, dateTime: newValue }));
     };
 
-    const handleChange = (event, newValue) => {
+    const handleTabChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, selectedTab: newValue }));
     };
 
@@ -200,7 +210,7 @@ const PostATasker = () => {
                             variant="scrollable"
                             className={classes.LeftButtonWidth}
                             value={state.selectedTab}
-                            onChange={handleChange}
+                            onChange={handleTabChange}
                             aria-label="Vertical tabs example"
                             sx={{ borderRight: 1, borderColor: 'divider' }}
                         >
@@ -357,8 +367,46 @@ const PostATasker = () => {
                                 </FormControl>
                             </div>
                         </TabPanel>
-                        <TabPanel value={state.selectedTab} index={5}>
-                            Item Six
+                        <TabPanel value={state.selectedTab} index={5} style={{ overflow: 'auto', width: '85%' }}>
+                            <Select
+                                style={{ width: '100%' }}
+                                value={state.learningMethod}
+                                onChange={selectLearningMethod}
+                                displayEmpty
+                                variant="outlined"
+                                className='mb-4'
+                            >
+                                <MenuItem value={0}>{"Select Your Learning Method"}</MenuItem>
+                                <MenuItem value={1}>{"Text"}</MenuItem>
+                                <MenuItem value={2}>{"Phone call"}</MenuItem>
+                                <MenuItem value={3}>{"Chat"}</MenuItem>
+                            </Select>
+                            {state.learningMethod != 0 ?
+                                <Box sx={{ width: '100%', backgroundColor: '' }}>
+                                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                        <Tabs value={state.learningMethodTab} onChange={handleLearningMethodTab} aria-label="basic tabs example">
+                                            <Tab label="Text" {...a11yProps(0)} />
+                                            <Tab label="Phone call" {...a11yProps(1)} />
+                                            <Tab label="Chat" {...a11yProps(2)} />
+                                        </Tabs>
+                                    </Box>
+                                    <TabPanel value={state.learningMethodTab} index={0} style={{ overflow: 'auto', width: '100%' }}>
+                                        <h5>Get text message (email) of how to solve your problem</h5>
+                                        <div className='d-flex justify-content-around'>
+                                            <p>o Tools needed</p>
+                                            <p>o Steps</p>
+                                            <p>o Expected result</p>
+                                            <p>o Verification of expected result</p>
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel value={state.learningMethodTab} index={1} style={{ overflow: 'auto', width: '100%' }}>
+                                        <h5>Google hangout, zoom, teams, phone call, up to 1 hour or 3 calls</h5>
+                                    </TabPanel>
+                                    <TabPanel value={state.learningMethodTab} index={2} style={{ overflow: 'auto', width: '100%' }}>
+                                        <h5>chat with the service provider to teach you, up to 1 day, whatsapp, teams, local platform</h5>
+                                    </TabPanel>
+                                </Box>
+                                : ''}
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={6}>
                             Item Seven
