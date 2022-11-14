@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Images from "../../../Images/Image";
 import { makeStyles } from "@material-ui/core/styles";
@@ -46,8 +46,34 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+const defaultState = {
+    email: '',
+    password: '',
+}
+
 const Login = () => {
     const classes = useStyles();
+    const [state, setState] = useState(defaultState)
+
+    const loginApproved = (event) => {
+        const { name, value } = event.target;
+        setState((prevState) => {
+            return {
+                ...prevState,
+                [name]: value,
+            }
+        })
+    }
+
+    const handleLogin = () => {
+        if (localStorage.getItem("email") === state.email && localStorage.getItem("password") === state.password) {
+            alert('Login succesfully')
+            localStorage.setItem("isLogin", true)
+        } else {
+            alert('something went wrong please tray again after some time')
+        }
+    }
+
     return (
         <>
             <Menu />
@@ -59,20 +85,24 @@ const Login = () => {
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
                         </div>
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                            <form>
+                            <div>
                                 <div className="form-outline">
                                     <TextField
+                                        name="email"
                                         fullWidth
                                         variant='outlined'
                                         size='large'
                                         label={'Email'}
+                                        onChange={loginApproved}
                                     />
                                 </div>
                                 <div className="form-outline mt-3 mb-3">
                                     <TextField
+                                        name="password"
                                         fullWidth
                                         variant='outlined'
                                         size='large'
+                                        onChange={loginApproved}
                                         label={'Password'}
                                     />
                                 </div>
@@ -84,7 +114,7 @@ const Login = () => {
                                     <a href="#!">Forgot password?</a>
                                 </div>
                                 <div className="d-flex justify-content-center">
-                                    <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`}>Log in <ArrowRightAltIcon /></button>
+                                    <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`} onClick={handleLogin} disabled={state.email != '' && state.password != '' ? false : true}>Log in <ArrowRightAltIcon /></button>
                                 </div>
                                 <div className="divider d-flex align-items-center my-3 justify-content-center">
                                     <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
@@ -108,7 +138,7 @@ const Login = () => {
                                     </div>
                                 </div>
                                 <NavLink className="d-flex justify-content-center text-decoration-underline mt-2" to="/signup">Don't have an account ?... </NavLink>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

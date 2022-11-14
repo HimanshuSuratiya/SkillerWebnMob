@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "./Pages/LandingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -13,6 +13,13 @@ import Help from "./Components/Help/Help";
 import ViewPost from "./Components/Viewpost/ViewPost";
 
 const App = () => {
+
+  useEffect(() => {
+    localStorage.setItem('isLogin', false)
+    localStorage.setItem('email', 'adminskiller@gmail.com')
+    localStorage.setItem('password', '12345@')
+  }, [])
+
   return (
     <>
       <Routes>
