@@ -18,6 +18,8 @@ import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
+import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
+import Badge from '@mui/material/Badge';
 
 const defaultState = {
     categories: '',
@@ -185,6 +187,13 @@ const Menu = () => {
                                             InputProps={{ endAdornment: <SearchIcon /> }}
                                         />
                                     </form>
+                                    <div>
+                                        <NavLink to="/notification">
+                                            <Badge badgeContent={4} color="primary">
+                                                <NotificationAddIcon style={{ fontSize: '42px', color: '#fff', cursor: 'pointer' }} />
+                                            </Badge>
+                                        </NavLink>
+                                    </div>
                                     <>
                                         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                                             <Tooltip title="Account settings">
