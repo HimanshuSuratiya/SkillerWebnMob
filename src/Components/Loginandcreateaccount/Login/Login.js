@@ -9,6 +9,7 @@ import "../Animation.css";
 import Footer from "../../Footer/Footer";
 import { NavLink } from "react-router-dom";
 import Menu from "../../Menu/Menu";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
@@ -54,6 +55,7 @@ const defaultState = {
 const Login = () => {
     const classes = useStyles();
     const [state, setState] = useState(defaultState)
+    let navigate = useNavigate();
 
     const loginApproved = (event) => {
         const { name, value } = event.target;
@@ -67,8 +69,8 @@ const Login = () => {
 
     const handleLogin = () => {
         if (localStorage.getItem("email") === state.email && localStorage.getItem("password") === state.password) {
-            alert('Login succesfully')
-            localStorage.setItem("isLogin", true)
+            localStorage.setItem("isLogin", 1)
+            navigate("/");
         } else {
             alert('something went wrong please tray again after some time')
         }

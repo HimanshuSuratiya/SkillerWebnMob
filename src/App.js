@@ -11,11 +11,23 @@ import PostATasker from "./Components/Postatasker/PostATasker";
 import Howitwork from "./Components/Howitworks/Howitwork";
 import Help from "./Components/Help/Help";
 import ViewPost from "./Components/Viewpost/ViewPost";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  let navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.setItem('isLogin', false)
+    if (localStorage.getItem('isLogin') === null) {
+      localStorage.setItem('isLogin', 0)
+    } else {
+      if (parseInt(localStorage.getItem('isLogin')) === 1) {
+        localStorage.setItem('isLogin', 1)
+        navigate("/");
+      } else {
+        localStorage.setItem('isLogin', 0)
+        navigate("/login");
+      }
+    }
     localStorage.setItem('email', 'adminskiller@gmail.com')
     localStorage.setItem('password', '12345@')
   }, [])
@@ -32,8 +44,6 @@ const App = () => {
         <Route path="/post-a-task" element={< PostATasker />} />
         <Route path="/help" element={< Help />} />
         <Route path="/accountants" element={< ViewPost />} />
-        {/* <Route path="/post-a-task" element={< />} /> */}
-        {/* <Route path="/about-us" element={< />} /> */}
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
