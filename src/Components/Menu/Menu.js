@@ -18,7 +18,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
-import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Badge from '@mui/material/Badge';
 
 const defaultState = {
@@ -187,10 +187,10 @@ const Menu = () => {
                                             InputProps={{ endAdornment: <SearchIcon /> }}
                                         />
                                     </form>
-                                    <div>
+                                    <div className="ps-4">
                                         <NavLink to="/notification">
                                             <Badge badgeContent={4} color="primary">
-                                                <NotificationAddIcon style={{ fontSize: '42px', color: '#fff', cursor: 'pointer' }} />
+                                                <NotificationsActiveIcon style={{ fontSize: '40px', color: '#fff', cursor: 'pointer' }} />
                                             </Badge>
                                         </NavLink>
                                     </div>
