@@ -27,7 +27,7 @@ const defaultState = {
     logedin: parseInt(localStorage.getItem("isLogin"))
 }
 
-const Menu = () => {
+const Menu = (props) => {
     const [state, setState] = useState(defaultState);
     const [anchorEl, setAnchorEl] = React.useState(null);
     let navigate = useNavigate();
@@ -55,12 +55,11 @@ const Menu = () => {
         navigate("/login");
     }
 
-
     return (
         <>
             <header className="header">
                 {parseInt(localStorage.getItem("isLogin")) ?
-                    <nav className="navbar navbar-expand-md " id="navArea">
+                    <nav style={{ backgroundColor: `${props.color}` }} className="navbar navbar-expand-md " id="navArea">
                         <div className="container-fluid">
                             <NavLink className="navbar-brand" to='/'>
                                 <img src={Images.Logo} />
@@ -175,7 +174,7 @@ const Menu = () => {
                                         </div>
                                     </li>
                                     <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
-                                    <li className="nav-item"><NavLink className="nav-link" to="/Browse-requests">Browse requests</NavLink></li>
+                                    <li className="nav-item"><NavLink className="nav-link" to="/browse-requests">Browse requests</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
                                     <form>

@@ -1,0 +1,32 @@
+.card-main-div {
+    padding-top: 3px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px rgb(187 194 220 / 60%);
+    border-left: 2px solid #7db343;
+    border-top: 1px solid #cfcbcb;
+}
+
+.card-main-div:hover {
+    box-shadow: 3px 5px 8px rgb(187 194 220 / 60%);
+    opacity: 1;
+    text-decoration: none;
+}
+
+.dollerPrice {
+    color: black;
+}
+
+.openColor {
+    color: #7db343;
+}
+
+.fontServerandDate {
+    font-size: 14px;
+}
+
+.leftmainDiv {
+    height: 585px;
+    overflow: auto;
+    overflow-x: hidden;
+}

@@ -13,6 +13,7 @@ import Help from "./Components/Help/Help";
 import ViewPost from "./Components/Viewpost/ViewPost";
 import { useNavigate } from "react-router-dom";
 import Notification from "./Components/Notification/Notification";
+import BrowseRequests from "./Components/BrowseRequests/BrowseRequests";
 
 const App = () => {
   let navigate = useNavigate();
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/accountants" element={< ViewPost />} />
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/notification" element={<Notification />} />
+        <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
