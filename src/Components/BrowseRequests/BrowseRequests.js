@@ -343,6 +343,9 @@ const BrowseRequests = () => {
                     <div className='container px-5'>
                         <div className='row'>
                             <div className='col-lg-4 leftmainDiv'>
+                                <div className="d-flex justify-content-center">
+                                    <button className='btn btn-primary btn-lg btn-block LoginBtn'>{TaskData.length} New Tasks</button>
+                                </div>
                                 {TaskData.map((item) => {
                                     return (
                                         <>

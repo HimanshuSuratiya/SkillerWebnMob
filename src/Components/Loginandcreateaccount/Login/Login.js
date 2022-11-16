@@ -102,6 +102,7 @@ const Login = () => {
                                     <TextField
                                         name="password"
                                         fullWidth
+                                        type="password"
                                         variant='outlined'
                                         size='large'
                                         onChange={loginApproved}
