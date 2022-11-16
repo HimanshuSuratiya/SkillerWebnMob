@@ -278,7 +278,7 @@ const Menu = (props) => {
                         </div>
                     </nav>
                     :
-                    <nav className="navbar navbar-expand-md " id="navArea">
+                    <nav style={{ backgroundColor: `${props.color}` }} className="navbar navbar-expand-md " id="navArea">
                         <div className="container-fluid">
                             <NavLink className="navbar-brand" to='/'>
                                 <img src={Images.Logo} />
@@ -401,10 +401,10 @@ const Menu = (props) => {
                                             <div className="categoriesContant">
                                                 <div className="submenuLeftCont">
                                                     <ul className="CategoriesList">
-                                                        <li><a href="">Browse requests</a></li>
+                                                        <li><NavLink to="/browse-requests">Browse requests</NavLink></li>
                                                         <li><NavLink to="/help">Help</NavLink></li>
                                                         <li><NavLink to="/profile">My Profile</NavLink></li>
-                                                        <li><a href="">Notification</a></li>
+                                                        <li><NavLink to="notification">Notification</NavLink></li>
                                                         <li><a href="">My tasks</a></li>
                                                         <li><a href="">Search posts</a></li>
                                                     </ul>
