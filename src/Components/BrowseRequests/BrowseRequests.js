@@ -28,7 +28,7 @@ const BrowseRequests = () => {
             offers: 4,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -46,61 +46,7 @@ const BrowseRequests = () => {
             offers: 11,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -136,7 +82,7 @@ const BrowseRequests = () => {
             offers: 4,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -154,61 +100,7 @@ const BrowseRequests = () => {
             offers: 11,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -244,7 +136,7 @@ const BrowseRequests = () => {
             offers: 4,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -262,7 +154,7 @@ const BrowseRequests = () => {
             offers: 11,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -298,7 +190,7 @@ const BrowseRequests = () => {
             offers: 4,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -316,7 +208,115 @@ const BrowseRequests = () => {
             offers: 11,
         },
         {
-            taskName: 'MOVE FURNITURE AROUND THE HOUSE TO HAVE LAMINATE LAYED',
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Done',
+            offers: 7,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Assigned',
+            offers: 4,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Open',
+            offers: 11,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Assigned',
+            offers: 4,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Done',
+            offers: 7,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Open',
+            offers: 11,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Done',
+            offers: 7,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Assigned',
+            offers: 4,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Open',
+            offers: 11,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Assigned',
+            offers: 4,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Done',
+            offers: 7,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Open',
+            offers: 11,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
@@ -344,7 +344,7 @@ const BrowseRequests = () => {
                         <div className='row'>
                             <div className='col-lg-4 leftmainDiv'>
                                 <div className="d-flex justify-content-center">
-                                    <button className='btn btn-primary btn-lg btn-block LoginBtn'>{TaskData.length} New Tasks</button>
+                                    <button className='btn btn-primary btn-lg btn-block NewTaskBtn'>{TaskData.length} New Tasks</button>
                                 </div>
                                 {TaskData.map((item) => {
                                     return (
@@ -357,13 +357,13 @@ const BrowseRequests = () => {
                                                 <div className='px-2 my-1 d-flex justify-content-between'>
                                                     <div className='d-flex flex-column'>
                                                         <div className='d-flex align-items-center'>
-                                                            <LanguageIcon /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
                                                         </div>
                                                         <div className='d-flex align-items-center'>
-                                                            <DateRangeIcon /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
                                                         </div>
                                                         <div className='d-flex align-items-center'>
-                                                            <AddLocationIcon /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
                                                         </div>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
@@ -372,7 +372,7 @@ const BrowseRequests = () => {
                                                 </div>
                                                 <Divider style={{ backgroundColor: 'gray' }} />
                                                 <div className='px-2'>
-                                                    <span className="openColor">{item.status}</span> <span className='px-2' style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                 </div>
                                             </div>
                                         </>

@@ -3,8 +3,10 @@
     width: 100%;
     background-color: #fff;
     box-shadow: 0 1px rgb(187 194 220 / 60%);
-    border-left: 2px solid #7db343;
+    border-left: 2px solid #188dc7;
     border-top: 1px solid #cfcbcb;
+    margin: 0px 0px 20px 0px !important;
+    padding: 10px 0px 10px 0px;
 }
 
 .card-main-div:hover {
@@ -15,10 +17,14 @@
 
 .dollerPrice {
     color: black;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .openColor {
-    color: #7db343;
+    color: #188dc7;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .fontServerandDate {
@@ -29,4 +35,29 @@
     height: 585px;
     overflow: auto;
     overflow-x: hidden;
+}
+
+.card-main-div h4 {
+    margin: 0px 0px 10px 0px !important;
+}
+
+.icon {
+    font-size: 18px !important;
+}
+
+.NewTaskBtn {
+    color: #ffffff;
+    background-color: #188dc7;
+    padding: 4px 40px;
+    transition: .5s;
+    border-radius: 5px;
+    border: 2px solid #8fc1e2;
+    font-size: 14px;
+    margin: 20px 0px 15px 0px;
+}
+
+.NewTaskBtn:hover {
+    color: #fff;
+    border: 2px solid #188dc7;
+    background-color: #188dc7;
 }
