@@ -1,0 +1,72 @@
+.one-box-card-area {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.main-category-profile-card {
+    border: 1px solid #cdcdcd87;
+    box-shadow: rgb(17 17 26 / 5%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 0px 8px;
+    border-radius: 10px;
+    width: 27%;
+    margin: 10px;
+}
+
+.main-category-profile-card:hover {
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
+    border: 1px solid #188dc7;
+}
+
+.ratingFont {
+    font-size: 18px !important;
+}
+
+.ratingNumberFont {
+    font-size: 14px;
+}
+
+.latestReviewsPara {
+    font-size: 15px;
+    line-height: initial;
+}
+
+.requestBtnDiv {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.RequestQuoteBtn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    margin-left: 11px;
+    border-radius: 20px;
+}
+
+.RequestQuoteBtn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}

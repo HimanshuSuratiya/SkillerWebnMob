@@ -1,17 +1,125 @@
 import React from 'react'
 import Menu from '../Menu/Menu';
 import Banner from '../Banner/Banner';
+import { Avatar } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Rating from '@mui/material/Rating';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import Tooltip from '@mui/material/Tooltip';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import "./ViewPost.css"
 
 const ViewPost = () => {
+
+    const viewPostCategoryData = [
+        {
+            img: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+            name: 'Line sethnita V',
+            lastName: 'Melbourne City CBD VIC',
+            rate: 4,
+            rateNumber: 51,
+            review: 'Cynthia was amazing! Very efficient and professional. Thank you Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
+        },
+        {
+            img: 'https://eu7cmie.cloudimg.io/s/crop/96x96/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1558734/image-ffdf9760b9d6939a9fad07a7b823560d.jpg',
+            name: 'Matthew S',
+            lastName: 'Edmondson Park NSW',
+            rate: 5,
+            rateNumber: 63,
+            review: 'Great service- Mathew helped me in all the areas i needed assistance with and relieved my work load pressure, and taught me would definitely recommend...',
+        },
+        {
+            img: 'https://eu7cmie.cloudimg.io/s/crop/96x96/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2425127/image-2950cc63705a6193d6e61c12c6daea1c.jpg',
+            name: 'Vidhi ashik M',
+            lastName: 'St James NSW',
+            rate: 2,
+            rateNumber: 17,
+            review: 'Vidhi was great to work with and she was very patient and helped me along the way as I needed. Would definitely recommend her. Great service- Mathew helped',
+        },
+        {
+            img: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+            name: 'Line sethnita V',
+            lastName: 'Melbourne City CBD VIC',
+            rate: 4,
+            rateNumber: 51,
+            review: 'Cynthia was amazing! Very efficient and professional. Thank you Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
+        },
+        {
+            img: 'https://eu7cmie.cloudimg.io/s/crop/96x96/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1558734/image-ffdf9760b9d6939a9fad07a7b823560d.jpg',
+            name: 'Matthew S',
+            lastName: 'Edmondson Park NSW',
+            rate: 5,
+            rateNumber: 63,
+            review: 'Great service- Mathew helped me in all the areas i needed assistance with and relieved my work load pressure, and taught me would definitely recommend...',
+        },
+        {
+            img: 'https://eu7cmie.cloudimg.io/s/crop/96x96/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2425127/image-2950cc63705a6193d6e61c12c6daea1c.jpg',
+            name: 'Vidhi ashik M',
+            lastName: 'St James NSW',
+            rate: 2,
+            rateNumber: 17,
+            review: 'Vidhi was great to work with and she was very patient and helped me along the way as I needed. Would definitely recommend her. Great service- Mathew helped',
+        },
+    ]
+
     return (
         <>
             <Menu />
             <section >
                 <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text="View posts" />
-                <div className='p-4 container bg-success'>
-                    <div className='bg-primary p-2'>
-                        <div style={{ height: '250px', width: '28%', backgroundColor: 'cyan' }}>
-
+                <div className='p-4 container'>
+                    <div>
+                        <div className='one-box-card-area'>
+                            {viewPostCategoryData.map((item) => {
+                                return (
+                                    <>
+                                        <div className='p-4 main-category-profile-card'>
+                                            <div className='d-flex justify-content-between align-items-center'>
+                                                <Avatar
+                                                    alt="Remy Sharp"
+                                                    src={item.img}
+                                                    sx={{ width: 65, height: 65 }}
+                                                />
+                                                <div>
+                                                    <h5 className='p-0 m-0'>{item.name}</h5>
+                                                    <p className='p- m-0'>{item.lastName}</p>
+                                                    <div className='d-flex align-items-center'>
+                                                        <Rating className='p-0 m-0 ratingFont' name="read-only" value={item.rate} readOnly />
+                                                        <span className='ratingNumberFont'>({item.rateNumber})</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <Divider className='my-2' color="secondary" />
+                                            <div>
+                                                <h4 className='p-0 py-2 m-0'>Latest Reviews</h4>
+                                                <p className='p-0 py-2 m-0 latestReviewsPara'>{item.review}</p>
+                                            </div>
+                                            <div>
+                                                <h4 className='p-0 py-2 m-0'>Verified Badges</h4>
+                                                <div className='d-flex justify-content-around align-items-center'>
+                                                    <Tooltip title="Digital ID Verified" placement="top-start">
+                                                        <HowToRegIcon style={{ color: '#188dc7' }} />
+                                                    </Tooltip>
+                                                    <Tooltip title="Payment Method Verified" placement="top-start">
+                                                        <CreditCardIcon style={{ color: '#188dc7' }} />
+                                                    </Tooltip>
+                                                    <Tooltip title="Mobile Verified" placement="top-start">
+                                                        <PhoneEnabledIcon style={{ color: '#188dc7' }} />
+                                                    </Tooltip>
+                                                    <Tooltip title="LinkedIn Verified" placement="top-start">
+                                                        <LinkedInIcon style={{ color: '#188dc7' }} />
+                                                    </Tooltip>
+                                                </div>
+                                            </div>
+                                            <div className='d-flex align-items-center justify-content-center requestBtnDiv'>
+                                                <button className='btn btn-primary btn-lg btn-block RequestQuoteBtn' >Request a Quote</button>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
