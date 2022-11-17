@@ -885,14 +885,20 @@ a.navbar-brand {
 }
 
 .navigation .navbar-nav .nav-item .nav-link.postATaskbtn {
-    background: #fff;
-    color: #000;
+    background: #188dc7;
+    color: #ffffff;
     border-radius: 20px;
     padding: 4px 20px;
     font-size: 13px;
     font-weight: 600;
     margin-top: 7px;
+    transition: .5s;
     line-height: 23px;
+}
+
+.navigation .navbar-nav .nav-item .nav-link.postATaskbtn:hover {
+    color: #fff;
+    background: #8fc1e2;
 }
 
 .navbar-expand-md .navbar-nav .dropdown-menu {

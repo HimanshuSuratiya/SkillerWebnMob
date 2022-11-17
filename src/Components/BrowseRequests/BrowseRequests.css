@@ -44,20 +44,3 @@
 .icon {
     font-size: 18px !important;
 }
-
-.NewTaskBtn {
-    color: #ffffff;
-    background-color: #188dc7;
-    padding: 4px 40px;
-    transition: .5s;
-    border-radius: 5px;
-    border: 2px solid #8fc1e2;
-    font-size: 14px;
-    margin: 20px 0px 15px 0px;
-}
-
-.NewTaskBtn:hover {
-    color: #fff;
-    border: 2px solid #188dc7;
-    background-color: #188dc7;
-}
