@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Menu from '../Menu/Menu'
 import LanguageIcon from '@mui/icons-material/Language';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import Avatar from '@mui/material/Avatar';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import { Divider } from '@mui/material';
+import DetailPage from "./DetailPage/DetailPage";
 import "./BrowseRequests.css";
 
 const BrowseRequests = () => {
+    const [detail, setDetail] = useState(false);
     const TaskData = [
         {
             taskName: 'Photo correction',
@@ -346,7 +348,7 @@ const BrowseRequests = () => {
                                 {TaskData.map((item) => {
                                     return (
                                         <>
-                                            <div className='m-2 rounded card-main-div'>
+                                            <div className='m-2 rounded card-main-div' onClick={() => { setDetail(true) }}>
                                                 <div className='px-2 d-flex justify-content-between align-items-center'>
                                                     <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                     <span className='px-1 dollerPrice'>${item.price}</span>
@@ -377,10 +379,15 @@ const BrowseRequests = () => {
                                 })}
                             </div>
                             <div className='col-lg-8'>
-                                <p style={{ height: '100%', width: '100%' }}>
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
-                                    </iframe>
-                                </p>
+                                {detail
+                                    ?
+                                    <DetailPage setDetail={setDetail} />
+                                    :
+                                    <p style={{ height: '100%', width: '100%' }}>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
+                                        </iframe>
+                                    </p>
+                                }
                             </div>
                         </div>
                     </div>
