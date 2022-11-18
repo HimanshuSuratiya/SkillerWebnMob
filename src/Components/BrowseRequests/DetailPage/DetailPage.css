@@ -3,10 +3,6 @@
     border-radius: 5px;
 }
 
-/* .task-status-main-area {}
-
-.task-status-area {} */
-
 .task-status {
     margin: 0px;
     padding: 2px 10px 2px 10px;
@@ -64,4 +60,20 @@
 
 .icon-size {
     font-size: 35px;
+}
+
+.make-an-offer-btn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.make-an-offer-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
 }

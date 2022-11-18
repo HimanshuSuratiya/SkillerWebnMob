@@ -32,7 +32,13 @@
     font-size: 14px;
 }
 
-.leftmainDiv {
+.left-main-Div {
+    height: 585px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.right-main-div {
     height: 585px;
     overflow: auto;
     overflow-x: hidden;

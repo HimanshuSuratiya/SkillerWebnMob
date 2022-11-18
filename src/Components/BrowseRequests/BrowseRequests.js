@@ -344,7 +344,7 @@ const BrowseRequests = () => {
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
                         <div className='row'>
-                            <div className='col-lg-4 leftmainDiv'>
+                            <div className='col-lg-4 left-main-Div'>
                                 {TaskData.map((item) => {
                                     return (
                                         <>
@@ -378,7 +378,7 @@ const BrowseRequests = () => {
                                     )
                                 })}
                             </div>
-                            <div className='col-lg-8'>
+                            <div className='col-lg-8 right-main-div'>
                                 {detail
                                     ?
                                     <DetailPage setDetail={setDetail} />
