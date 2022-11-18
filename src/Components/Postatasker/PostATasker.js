@@ -10,19 +10,19 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import { TextField, TextareaAutosize } from '@mui/material';
-import Select from "@material-ui/core/Select";
-import { MenuItem } from "@material-ui/core";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment'
 import ChipInput from "material-ui-chip-input";
 import Chip from '@mui/material/Chip';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -108,8 +108,8 @@ const defaultState = {
     selectedTab: 0,
     learningMethod: 1,
     learningMethodTab: 0,
-    location: 0,
-    catergory: 0,
+    location: '',
+    catergory: '',
     dateTime: dayjs(new Date()),
 }
 
@@ -191,7 +191,7 @@ const PostATasker = () => {
 
     return (
         <>
-            <div className={`container mt-5 d-flex align-items-center justify-content-between ${classes.mainHeader}`} >
+            <div className={`container mt-2 d-flex align-items-center justify-content-between ${classes.mainHeader}`} >
                 <NavLink to="/">
                     <div>
                         <img src={Images.Logo} />
@@ -224,7 +224,7 @@ const PostATasker = () => {
                         </Tabs>
                         <TabPanel value={state.selectedTab} index={0} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
-                                <h5>Let's start with the basics</h5>
+                                <h5 className='py-2'>Let's start with the basics</h5>
                                 <TextField
                                     className='mt-2'
                                     label="Post Title * "
@@ -245,40 +245,43 @@ const PostATasker = () => {
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={1} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
-                                <h5>Location & Category</h5>
-                                <Select
-                                    style={{ width: '100%' }}
-                                    value={state.catergory}
-                                    className="mt-2"
-                                    onChange={selectCategory}
-                                    displayEmpty
-                                    variant="outlined"
-                                >
-                                    <MenuItem value={0}>{"Select Your Category"}</MenuItem>
-                                    <MenuItem value={1}>{"Category-1"}</MenuItem>
-                                    <MenuItem value={2}>{"Category-2"}</MenuItem>
-                                    <MenuItem value={3}>{"Category-3"}</MenuItem>
-                                    <MenuItem value={4}>{"Category-4"}</MenuItem>
-                                    <MenuItem value={5}>{"Category-5"}</MenuItem>
-                                    <MenuItem value={6}>{"Category-6"}</MenuItem>
-                                </Select>
+                                <h5 className='py-2'>Location & Category</h5>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">Select Your Category</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={state.catergory}
+                                        label="Select Your Category"
+                                        onChange={selectCategory}
+                                    >
+                                        <MenuItem value={1}>{"Category-1"}</MenuItem>
+                                        <MenuItem value={2}>{"Category-2"}</MenuItem>
+                                        <MenuItem value={3}>{"Category-3"}</MenuItem>
+                                        <MenuItem value={4}>{"Category-4"}</MenuItem>
+                                        <MenuItem value={5}>{"Category-5"}</MenuItem>
+                                        <MenuItem value={6}>{"Category-6"}</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </div>
                             <div style={{ width: '100%' }} className="mt-4">
-                                <Select
-                                    style={{ width: '100%' }}
-                                    value={state.location}
-                                    onChange={selectLocation}
-                                    displayEmpty
-                                    variant="outlined"
-                                >
-                                    <MenuItem value={0}>{"Select Your Location"}</MenuItem>
-                                    <MenuItem value={1}>{"Location-1"}</MenuItem>
-                                    <MenuItem value={2}>{"Location-2"}</MenuItem>
-                                    <MenuItem value={3}>{"Location-3"}</MenuItem>
-                                    <MenuItem value={4}>{"Location-4"}</MenuItem>
-                                    <MenuItem value={5}>{"Location-5"}</MenuItem>
-                                    <MenuItem value={6}>{"Location-6"}</MenuItem>
-                                </Select>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">Select Your Location</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={state.location}
+                                        label="Select Your Location"
+                                        onChange={selectLocation}
+                                    >
+                                        <MenuItem value={1}>{"Location-1"}</MenuItem>
+                                        <MenuItem value={2}>{"Location-2"}</MenuItem>
+                                        <MenuItem value={3}>{"Location-3"}</MenuItem>
+                                        <MenuItem value={4}>{"Location-4"}</MenuItem>
+                                        <MenuItem value={5}>{"Location-5"}</MenuItem>
+                                        <MenuItem value={6}>{"Location-6"}</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </div>
                         </TabPanel>
                         <TabPanel value={state.selectedTab} index={2} style={{ overflow: 'auto', width: '85%' }}>
