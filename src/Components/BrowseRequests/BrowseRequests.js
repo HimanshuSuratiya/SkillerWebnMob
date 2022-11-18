@@ -4,14 +4,81 @@ import LanguageIcon from '@mui/icons-material/Language';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import Avatar from '@mui/material/Avatar';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-import { Divider } from '@mui/material';
 import DetailPage from "./DetailPage/DetailPage";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
+import Box from '@mui/material/Box';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import CloseIcon from '@mui/icons-material/Close';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./BrowseRequests.css";
 
 const BrowseRequests = () => {
     const [detail, setDetail] = useState(false);
+    const [state, setState] = useState({
+        left: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (
+            event &&
+            event.type === 'keydown' &&
+            (event.key === 'Tab' || event.key === 'Shift')
+        ) {
+            return;
+        }
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <Box
+            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, marginTop: '60px' }}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <div className='d-flex justify-content-between align-items-center my-2'>
+                <button className='p-0 m-0 px-2 backBtn d-flex justify-content-between align-items-center'> <KeyboardBackspaceIcon style={{ fontSize: '35px' }} /> <p className='p-0 m-0 px-2'>Back</p></button>
+                <CloseIcon style={{ fontSize: '35px' }} />
+            </div>
+            <List>
+                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    <ListItem key={text} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+            <Divider />
+            <List>
+                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                    <ListItem key={text} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+        </Box>
+    );
+
     const TaskData = [
         {
             taskName: 'Photo correction',
@@ -343,16 +410,28 @@ const BrowseRequests = () => {
         <>
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
-                <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='main-filter-area d-flex justify-content-between align-items-center' style={{ backgroundColor: 'red', height: '60px' }}>
+                <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                <div className='d-flex justify-content-between align-items-center' style={{ marginLeft: '50px', width: '32%', padding: '0px 36px 0px 36px' }}>
+                    <div>
+                        <React.Fragment key={'left'}>
+                            <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
+                            <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
+                            <SwipeableDrawer
+                                anchor={'left'}
+                                open={state['left']}
+                                onClose={toggleDrawer('left', false)}
+                                onOpen={toggleDrawer('left', true)}
+                            >
+                                {list('left')}
+                            </SwipeableDrawer>
+                        </React.Fragment>
+                    </div>
                     <TextField
                         variant="outlined"
                         size="small"
                         placeholder={'Search : '}
                         InputProps={{ endAdornment: <SearchIcon /> }}
                     />
-                    <p className='p-0 m-0'>abcd</p>
-                    <p className='p-0 m-0'>efgh</p>
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>

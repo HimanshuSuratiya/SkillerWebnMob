@@ -59,3 +59,19 @@
 .main-filter-area .MuiFormControl-root {
     height: 34px;
 }
+
+.backBtn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    margin-left: 11px;
+    border-radius: 20px;
+}
+
+.backBtn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
