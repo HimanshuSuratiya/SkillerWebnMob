@@ -6,6 +6,8 @@ import Avatar from '@mui/material/Avatar';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import { Divider } from '@mui/material';
 import DetailPage from "./DetailPage/DetailPage";
+import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
 import "./BrowseRequests.css";
 
 const BrowseRequests = () => {
@@ -341,6 +343,18 @@ const BrowseRequests = () => {
         <>
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
+                <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
+                <div className='main-filter-area d-flex justify-content-between align-items-center' style={{ backgroundColor: 'red', height: '60px' }}>
+                    <TextField
+                        variant="outlined"
+                        size="small"
+                        placeholder={'Search : '}
+                        InputProps={{ endAdornment: <SearchIcon /> }}
+                    />
+                    <p className='p-0 m-0'>abcd</p>
+                    <p className='p-0 m-0'>efgh</p>
+                </div>
+                <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
                         <div className='row'>

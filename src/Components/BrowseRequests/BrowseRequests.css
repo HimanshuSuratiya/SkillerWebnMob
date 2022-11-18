@@ -51,3 +51,11 @@
 .icon {
     font-size: 18px !important;
 }
+
+.main-filter-area {
+    padding: 0px 110px 0px 110px;
+}
+
+.main-filter-area .MuiFormControl-root {
+    height: 34px;
+}
