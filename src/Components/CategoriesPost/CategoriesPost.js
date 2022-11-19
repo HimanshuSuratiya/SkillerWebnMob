@@ -9,9 +9,9 @@ import Tooltip from '@mui/material/Tooltip';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import "./ViewPost.css"
+import "./CategoriesPost.css"
 
-const ViewPost = () => {
+const CategoriesPost = () => {
 
     const viewPostCategoryData = [
         {
@@ -68,7 +68,7 @@ const ViewPost = () => {
         <>
             <Menu />
             <section >
-                <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text="View posts" />
+                <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text="Accountants" />
                 <div className='p-4 container'>
                     <div>
                         <div className='one-box-card-area'>
@@ -128,4 +128,4 @@ const ViewPost = () => {
     );
 };
 
-export default ViewPost
+export default CategoriesPost

@@ -403,10 +403,6 @@ const Menu = (props) => {
                                                     <ul className="CategoriesList">
                                                         <li><NavLink to="/browse-requests">Browse requests</NavLink></li>
                                                         <li><NavLink to="/help">Help</NavLink></li>
-                                                        <li><NavLink to="/profile">My Profile</NavLink></li>
-                                                        <li><NavLink to="/notification">Notification</NavLink></li>
-                                                        <li><NavLink to="/my-tasks" >My tasks</NavLink></li>
-                                                        <li><a href="">Search posts</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

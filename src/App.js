@@ -10,7 +10,7 @@ import OtpVerification from "./Components/Loginandcreateaccount/OTP/OtpVerificat
 import PostATasker from "./Components/Postatasker/PostATasker";
 import Howitwork from "./Components/Howitworks/Howitwork";
 import Help from "./Components/Help/Help";
-import ViewPost from "./Components/Viewpost/ViewPost";
+import CategoriesPost from "./Components/CategoriesPost/CategoriesPost";
 import Notification from "./Components/Notification/Notification";
 import BrowseRequests from "./Components/BrowseRequests/BrowseRequests";
 import MyTasks from "./Components/MyTasks/MyTasks";
@@ -41,7 +41,7 @@ const App = () => {
         <Route path="/otp-verification" element={<OtpVerification />} />
         <Route path="/post-a-task" element={< PostATasker />} />
         <Route path="/help" element={< Help />} />
-        <Route path="/accountants" element={< ViewPost />} />
+        <Route path="/accountants" element={< CategoriesPost />} />
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests" element={<BrowseRequests />} />
