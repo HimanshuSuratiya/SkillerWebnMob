@@ -795,6 +795,10 @@ header.header .navbar {
     background: transparent;
 }
 
+.Right-Icon-Sub-menu {
+    margin-top: 11px !important;
+}
+
 .navbar-brand img {
     height: 40px;
 }

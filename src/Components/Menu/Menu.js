@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Images from "../../Images/Image";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -7,39 +7,61 @@ import { NavLink } from "react-router-dom";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import TextField from "@material-ui/core/TextField";
-import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
-import MenuComponentMui from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Badge from '@mui/material/Badge';
+import Button from '@mui/material/Button';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Grow from '@mui/material/Grow';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Stack from '@mui/material/Stack';
 
 const defaultState = {
     categories: '',
     moreMenu: '',
-    logedin: parseInt(localStorage.getItem("isLogin"))
+    isOpen: false,
+    logedin: parseInt(localStorage.getItem("isLogin")),
 }
 
 const Menu = (props) => {
     const [state, setState] = useState(defaultState);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const anchorRef = useRef(null);
     let navigate = useNavigate();
-    const open = Boolean(anchorEl);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleToggle = () => {
+        setState(prevState => ({ ...prevState, isOpen: !state.isOpen }));
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+        setState(prevState => ({ ...prevState, isOpen: false }));
     };
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setState(prevState => ({ ...prevState, isOpen: false }));
+        } else if (event.key === 'Escape') {
+            setState(prevState => ({ ...prevState, isOpen: false }));
+        }
+    }
+
+    const prevOpen = useRef(state.isOpen);
+    useEffect(() => {
+        if (prevOpen.current === true && state.isOpen === false) {
+            anchorRef.current.focus();
+        }
+        prevOpen.current = state.isOpen;
+    }, [state.isOpen]);
 
     window.addEventListener("scroll", function () {
         let navArea = document.getElementById("navArea");
@@ -194,84 +216,83 @@ const Menu = (props) => {
                                         </NavLink>
                                     </div>
                                     <>
-                                        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                                            <Tooltip title="Account settings">
-                                                <IconButton
-                                                    onClick={handleClick}
-                                                    size="small"
-                                                    sx={{ ml: 2 }}
-                                                    aria-controls={open ? 'account-menu' : undefined}
+                                        <Stack direction="row" spacing={2}>
+                                            <div>
+                                                <Button
+                                                    ref={anchorRef}
+                                                    id="composition-button"
+                                                    aria-controls={state.isOpen ? 'composition-menu' : undefined}
+                                                    aria-expanded={state.isOpen ? 'true' : undefined}
                                                     aria-haspopup="true"
-                                                    aria-expanded={open ? 'true' : undefined}
+                                                    onClick={handleToggle}
                                                 >
                                                     <Avatar sx={{ width: 32, height: 32 }}>S</Avatar>
-                                                </IconButton>
-                                            </Tooltip>
-                                        </Box>
-                                        <MenuComponentMui
-                                            anchorEl={anchorEl}
-                                            id="account-menu"
-                                            open={open}
-                                            onClose={handleClose}
-                                            onClick={handleClose}
-                                            PaperProps={{
-                                                elevation: 3,
-                                                sx: {
-                                                    overflow: 'visible',
-                                                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                                                    mt: 1.5,
-                                                    '& .MuiAvatar-root': {
-                                                        width: 32,
-                                                        height: 32,
-                                                        ml: -0.5,
-                                                        mr: 1,
-                                                    },
-                                                    '&:before': {
-                                                        content: '""',
-                                                        display: 'block',
-                                                        position: 'absolute',
-                                                        top: 0,
-                                                        right: 14,
-                                                        width: 10,
-                                                        height: 10,
-                                                        bgcolor: 'background.paper',
-                                                        transform: 'translateY(-50%) rotate(45deg)',
-                                                        zIndex: 0,
-                                                    },
-                                                },
-                                            }}
-                                            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                                            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                                        >
-                                            <MenuItem>
-                                                <NavLink to="/profile">My Profile</NavLink>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <NavLink to="/help">Help</NavLink>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <NavLink to="/notification">Notification</NavLink>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <NavLink to="/my-tasks">My tasks</NavLink>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <NavLink to="/search-posts">Search posts</NavLink>
-                                            </MenuItem>
-                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                            <MenuItem>
-                                                <ListItemIcon>
-                                                    <Settings fontSize="small" />
-                                                </ListItemIcon>
-                                                Settings
-                                            </MenuItem>
-                                            <MenuItem onClick={handleLogout}>
-                                                <ListItemIcon>
-                                                    <Logout fontSize="small" />
-                                                </ListItemIcon>
-                                                Logout
-                                            </MenuItem>
-                                        </MenuComponentMui>
+                                                </Button>
+                                                <Popper
+                                                    open={state.isOpen}
+                                                    anchorEl={anchorRef.current}
+                                                    className="Right-Icon-Sub-menu"
+                                                    role={undefined}
+                                                    placement="bottom-start"
+                                                    transition
+                                                    disablePortal
+                                                >
+                                                    {({ TransitionProps, placement }) => (
+                                                        <Grow
+                                                            {...TransitionProps}
+                                                            style={{
+                                                                transformOrigin:
+                                                                    placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                                            }}
+                                                        >
+                                                            <Paper>
+                                                                <ClickAwayListener onClickAway={handleClose}>
+                                                                    <MenuList
+                                                                        autoFocusItem={state.isOpen}
+                                                                        id="composition-menu"
+                                                                        aria-labelledby="composition-button"
+                                                                        onKeyDown={handleListKeyDown}
+                                                                    >
+                                                                        <NavLink to="/profile">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                My Profile
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/help">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Help
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/notification">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Notification
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/my-tasks">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                My Tasks
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/search-posts">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Search posts
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <Divider style={{ backgroundColor: 'gray' }} />
+                                                                        <MenuItem onClick={handleLogout}>
+                                                                            <ListItemIcon>
+                                                                                <Logout fontSize="small" />
+                                                                            </ListItemIcon>
+                                                                            Logout
+                                                                        </MenuItem>
+                                                                    </MenuList>
+                                                                </ClickAwayListener>
+                                                            </Paper>
+                                                        </Grow>
+                                                    )}
+                                                </Popper>
+                                            </div>
+                                        </Stack>
                                     </>
                                 </div>
                             </div>
