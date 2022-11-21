@@ -9,10 +9,11 @@ import Tooltip from '@mui/material/Tooltip';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useParams } from 'react-router-dom';
 import "./CategoriesPost.css"
 
 const CategoriesPost = () => {
-
+    let { name } = useParams()
     const viewPostCategoryData = [
         {
             img: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
@@ -68,7 +69,7 @@ const CategoriesPost = () => {
         <>
             <Menu />
             <section >
-                <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text="Accountants" />
+                <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text={name} />
                 <div className='p-4 container'>
                     <div>
                         <div className='one-box-card-area'>

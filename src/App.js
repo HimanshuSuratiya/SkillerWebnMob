@@ -42,7 +42,7 @@ const App = () => {
         <Route path="/otp-verification" element={<OtpVerification />} />
         <Route path="/post-a-task" element={< PostATasker />} />
         <Route path="/help" element={< Help />} />
-        <Route path="/accountants" element={< CategoriesPost />} />
+        <Route path="/:name" element={< CategoriesPost />} />
         <Route path="/how-it-works" element={<Howitwork />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests" element={<BrowseRequests />} />
