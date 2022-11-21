@@ -414,21 +414,66 @@ const Menu = (props) => {
                                         </div>
                                     </li>
                                     <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
-                                    <li className="nav-item dropdown more-menu-area">
-                                        <a className={`nav-link dropdown ${state.moreMenu}`} data-bs-toggle="dropdown" onClick={() => {
-                                            setState(prevState => ({ ...prevState, moreMenu: state.moreMenu === '' ? 'show' : '', categories: '' }));
-                                        }}>more{state.moreMenu === '' ? <ArrowRightIcon style={{ fontSize: '28px' }} /> : <ArrowDropDownIcon style={{ fontSize: '28px' }} />}</a>
-                                        <div className={`dropdown-menu submenu more-menu-drop-down ${state.moreMenu}`}>
-                                            <div className="categoriesContant">
-                                                <div className="submenuLeftCont">
-                                                    <ul className="CategoriesList">
-                                                        <li><NavLink to="/browse-requests">Browse requests</NavLink></li>
-                                                        <li><NavLink to="/help">Help</NavLink></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                    <Stack direction="row" spacing={2}>
+                                        <div>
+                                            <Button
+                                                ref={anchorRef}
+                                                id="composition-button"
+                                                className="p-0 m-0"
+                                                aria-controls={state.isOpen ? 'composition-menu' : undefined}
+                                                aria-expanded={state.isOpen ? 'true' : undefined}
+                                                aria-haspopup="true"
+                                                onClick={handleToggle}
+                                            >
+                                                <li className="nav-item">
+                                                    <a className='nav-link' style={{ paddingTop: '9px', textTransform: 'capitalize' }} >
+                                                        more {state.isOpen ? <ArrowDropDownIcon style={{ fontSize: '28px' }} /> : <ArrowRightIcon style={{ fontSize: '28px' }} />}
+                                                    </a>
+                                                </li>
+                                            </Button>
+                                            <Popper
+                                                open={state.isOpen}
+                                                anchorEl={anchorRef.current}
+                                                className="Right-Icon-Sub-menu"
+                                                role={undefined}
+                                                placement="bottom-start"
+                                                transition
+                                                disablePortal
+                                            >
+                                                {({ TransitionProps, placement }) => (
+                                                    <Grow
+                                                        {...TransitionProps}
+                                                        style={{
+                                                            transformOrigin:
+                                                                placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                                        }}
+                                                    >
+                                                        <Paper>
+                                                            <ClickAwayListener onClickAway={handleClose}>
+                                                                <MenuList
+                                                                    autoFocusItem={state.isOpen}
+                                                                    id="composition-menu"
+                                                                    aria-labelledby="composition-button"
+                                                                    onKeyDown={handleListKeyDown}
+                                                                >
+                                                                    <NavLink to="/browse-requests">
+                                                                        <MenuItem onClick={handleClose}>
+                                                                            Browse requests
+                                                                        </MenuItem>
+                                                                    </NavLink>
+                                                                    <NavLink to="/help">
+                                                                        <MenuItem onClick={handleClose}>
+                                                                            Help
+                                                                        </MenuItem>
+                                                                    </NavLink>
+                                                                </MenuList>
+                                                            </ClickAwayListener>
+                                                        </Paper>
+                                                    </Grow>
+                                                )}
+                                            </Popper>
                                         </div>
-                                    </li>
+                                    </Stack>
                                 </ul>
                                 <div className="d-flex">
                                     <form>
