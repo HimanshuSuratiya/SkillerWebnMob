@@ -42,7 +42,7 @@ const OtpVerification = () => {
                 <div className="container py-4 h-80 abc">
                     <div className="row d-flex align-items-center justify-content-center h-50">
                         <div className="col-md-8 col-lg-7 col-xl-6 Otpanimation">
-                            <img src="https://www.kaleyra.com/wp-content/uploads/2020/07/2FA-graphic.png" className="img-fluid" alt="Phone image" style={{ height: '50%' }} />
+                            <img src={Images.otpAnnimation} className="img-fluid" alt="Phone image" style={{ height: '50%' }} />
                         </div>
                         {registerType != true ?
                             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

@@ -84,7 +84,7 @@ const Login = () => {
                 <div className="container py-4 h-80 mt-4">
                     <div className="row d-flex align-items-center justify-content-center h-100">
                         <div className="col-md-8 col-lg-7 col-xl-6 Loginanimation">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
+                            <img src={Images.loginAnnimation} className="img-fluid" alt="Phone image" />
                         </div>
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                             <div>
@@ -114,7 +114,7 @@ const Login = () => {
                                         <Checkbox className="m-0 p-0" />
                                         <label className="form-check-label" for="form1Example3"> Remember me </label>
                                     </div>
-                                    <a href="#!">Forgot password?</a>
+                                    <NavLink to="/forget-password" >Forgot password?</NavLink>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <button className={`btn btn-primary btn-lg btn-block ${classes.LoginBtn}`} onClick={handleLogin} disabled={state.email != '' && state.password != '' ? false : true}>Log in <ArrowRightAltIcon /></button>

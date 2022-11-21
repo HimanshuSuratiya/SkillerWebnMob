@@ -58,6 +58,10 @@ import communicationImage from "./communicationImage.jpg";
 import card from "./card.jpg";
 import help from "./help.webp";
 import notification from "./notification.png";
+import forgetPass from "./forgetPass.webp";
+import forgetAnnimation from "./forgetAnnimation.webp";
+import loginAnnimation from "./loginAnnimation.svg";
+import otpAnnimation from "./otpAnnimation.png";
 
 const Images = {
     Logo,
@@ -120,6 +124,10 @@ const Images = {
     card,
     help,
     notification,
+    forgetPass,
+    forgetAnnimation,
+    loginAnnimation,
+    otpAnnimation,
 };
 
 export default Images;
