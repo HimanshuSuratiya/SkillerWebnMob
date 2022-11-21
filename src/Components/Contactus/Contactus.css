@@ -23,17 +23,16 @@
 }
 
 .card-main-box {
-    height: 240px;
-    padding: 20px;
+    padding: 40px 20px;
     border-radius: 10px;
-    width: 28%;
+    width: 30%;
     background-color: #fff;
     box-shadow: 0px 0px 40px #d2e4ed;
     margin-bottom: 50px;
 }
 
 .card-icon-box {
-    height: 70px;
+    height: 45px;
     width: 100%;
 }
 
@@ -44,14 +43,36 @@
 }
 
 .card-main-label {
-    height: 25px;
     align-items: center;
-    font-size: 22px;
-    width: 100%;
-    color: #585858;
-    letter-spacing: 2px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 600;
+    line-height: 36px;
 }
 
 .card-main-text {
     color: #188dc7;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.contact-us-btn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.contact-us-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
+
+.contact-us-img img {
+    border-radius: 8px;
 }

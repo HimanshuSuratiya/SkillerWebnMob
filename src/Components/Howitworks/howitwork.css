@@ -203,21 +203,6 @@
     text-decoration: underline;
 }
 
-.Customer-suppor-Learn-more {
-    color: #ffffff;
-    background-color: #188dc7;
-    padding: 4px 20px;
-    transition: .5s;
-    border-radius: 20px;
-    border: 2px solid #188dc7;
-}
-
-.Customer-suppor-Learn-more:hover {
-    color: black;
-    border: 2px solid #188dc7;
-    background-color: #8fc1e2;
-}
-
 .terms-conditions {
     font-size: 12px;
     text-align: center;
@@ -288,22 +273,6 @@
     box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
 }
 
-.LoginBtn {
-    color: #ffffff;
-    background-color: #188dc7;
-    padding: 4px 20px;
-    transition: .5s;
-    border-radius: 20px;
-    border: 2px solid #8fc1e2;
-    font-size: 14px;
-}
-
-.LoginBtn:hover {
-    color: black;
-    border: 2px solid gray;
-    background-color: #8fc1e2;
-}
-
 .h2-color {
     color: #fff;
     padding: 20px 5px 20px 5px;
@@ -314,4 +283,21 @@
 .f-size-weight {
     font-size: 13px;
     font-weight: 600;
+}
+
+.write-review-btn {
+    color: #ffff;
+    border: 2px solid #8fc1e2;
+    padding: 4px 20px;
+    background: #8fc1e2;
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.write-review-btn:hover {
+    color: #000;
+    border: 2px solid #8fc1e2;
+    background: #fff;
 }

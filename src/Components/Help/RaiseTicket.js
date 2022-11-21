@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -10,12 +9,31 @@ import Typography from '@material-ui/core/Typography';
 import { IconButton, Divider } from '@material-ui/core';
 import CloseIcon from "@material-ui/icons/Close";
 import { TextField, TextareaAutosize } from '@mui/material';
+import { makeStyles } from "@material-ui/core/styles";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const useStyles = makeStyles(() => ({
+    RaiseTicketBtn: {
+        color: '#ffffff',
+        background: '#188dc7',
+        padding: '4px 20px',
+        fontSize: '16px',
+        transition: '.5s',
+        borderRadius: '20px',
+        border: '2px solid #188dc7',
+        "&:hover": {
+            color: 'black',
+            border: '2px solid #188dc7',
+            background: '#8fc1e2',
+        },
+    },
+}));
+
 const RaiseTicket = ({ setClosePopUp, popUp }) => {
+    const classes = useStyles();
     const handleClose = () => {
         setClosePopUp(false);
     };
@@ -73,8 +91,8 @@ const RaiseTicket = ({ setClosePopUp, popUp }) => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions className='px-4 py-4'>
-                    <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                    <Button variant="contained" onClick={handleClose}>Submit</Button>
+                    <button className={classes.RaiseTicketBtn} onClick={handleClose}>Cancel</button>
+                    <button className={classes.RaiseTicketBtn} onClick={handleClose}>Submit</button>
                 </DialogActions>
             </Dialog>
         </div>

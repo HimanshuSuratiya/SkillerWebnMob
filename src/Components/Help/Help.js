@@ -57,10 +57,11 @@ const useStyles = makeStyles(() => ({
 
     Raise: {
         color: '#ffffff',
-        marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
+        fontSize: '16px',
         transition: '.5s',
+        marginTop: '18px',
         borderRadius: '20px',
         border: '2px solid #188dc7',
         "&:hover": {

@@ -265,7 +265,7 @@ const Howitwork = () => {
                                         </div>
                                         <div>
                                             <div className='d-flex justify-content-center mb-4'>
-                                                <button className='Customer-suppor-Learn-more'>Learn more <ArrowRightAltIcon /></button>
+                                                <button className='contact-us-btn'>Learn more</button>
                                             </div>
                                             <p className='terms-conditions'>*Terms and Conditions apply. Included Task activities only. Excesses apply for
                                                 Taskers. <a className="help-center">Learn more about Skiller Insurance</a>
@@ -367,7 +367,7 @@ const Howitwork = () => {
                                                                 </div>
                                                             </Box>
                                                             <div className="mt-4 d-flex justify-content-center">
-                                                                <button className='btn btn-primary btn-lg btn-block LoginBtn'>Write a review</button>
+                                                                <button className='btn btn-primary btn-lg btn-block write-review-btn'>Write a review</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -414,7 +414,7 @@ const Howitwork = () => {
                                                         <p className='communication-inner-text'>Once complete, you’ll simply need to release the payment. We’ll then transfer the task payment to the Tasker’s verified bank account.</p>
                                                     </div>
                                                     <div className="mt-2">
-                                                        <button className='btn btn-primary btn-lg btn-block LoginBtn'>Learn more</button>
+                                                        <button className='btn btn-primary btn-lg btn-block contact-us-btn'>Learn more</button>
                                                     </div>
                                                 </div>
                                             </div>

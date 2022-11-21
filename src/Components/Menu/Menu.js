@@ -456,6 +456,7 @@ const Menu = (props) => {
                                                             <ClickAwayListener onClickAway={handleClose}>
                                                                 <MenuList
                                                                     autoFocusItem={state.isOpen}
+                                                                    className="p-0"
                                                                     id="composition-menu"
                                                                     aria-labelledby="composition-button"
                                                                     onKeyDown={handleListKeyDown}
