@@ -86,7 +86,7 @@ const useStyles = makeStyles(() => ({
         padding: '4px 20px',
         transition: '.5s',
         borderRadius: '20px',
-        width: '42%',
+        width: '48%',
         border: '2px solid #188dc7',
         fontSize: '16px',
         "&:hover": {

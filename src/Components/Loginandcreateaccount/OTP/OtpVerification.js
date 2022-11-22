@@ -12,6 +12,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import "../Animation.css";
 import Banner from "../../Banner/Banner";
 import Footer from "../../Footer/Footer";
+import { useNavigate } from 'react-router-dom';
 import Menu from "../../Menu/Menu";
 
 const useStyles = makeStyles(() => ({
@@ -33,6 +34,7 @@ const useStyles = makeStyles(() => ({
 
 const OtpVerification = () => {
     const [registerType, setRegisterType] = useState(false)
+    let navigate = useNavigate();
     const classes = useStyles();
     return (
         <>
@@ -111,7 +113,7 @@ const OtpVerification = () => {
                                     </FormControl>
                                 </div>
                                 <div className="d-flex justify-content-center my-2">
-                                    <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}><ArrowRightAltIcon /> Continue</button>
+                                    <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { navigate('/') }}><ArrowRightAltIcon /> Continue</button>
                                 </div>
                             </div>
                         }

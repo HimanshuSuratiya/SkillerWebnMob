@@ -2,7 +2,7 @@
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0% 24%;
+    background-position: 0% 50%;
     height: 300px;
 }
 
@@ -13,7 +13,8 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000cc;
+    opacity: 0.5;
+    background-color: rgb(24, 141, 199);
 }
 
 .breadcrum-info-title {
@@ -41,13 +42,12 @@
 .breadcrum-info-title ul {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    letter-spacing: 2px;
 }
 
 .breadcrum-info-title ul li {
     display: inline-block;
     position: relative;
-    color: #188dc7;
+    color: #ffffff;
     font-weight: 600;
     font-size: 17px;
 }

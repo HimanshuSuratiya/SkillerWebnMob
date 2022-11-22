@@ -2249,13 +2249,19 @@ span.input-group-append button:hover {
     top: 0px;
     right: 0px;
     font-size: 14px;
-    color: #000;
+    color: #fff;
     border: none;
     font-weight: 500;
-    background-color: #8fc1e2;
+    background-color: #188dc7;
     border-radius: 12px;
+    transition: .5s;
     padding: 8px 30px;
     margin-left: 0px;
+}
+
+.sf-news-l-form .sf-sb-btn:hover {
+    color: black;
+    background: #8fc1e2;
 }
 
 @media only screen and (max-width:360px) {

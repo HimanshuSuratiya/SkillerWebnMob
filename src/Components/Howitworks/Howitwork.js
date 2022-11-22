@@ -156,7 +156,7 @@ const Howitwork = () => {
         <>
             <Menu />
             <section >
-                <Banner imgSource={Images.howItsWorkFlow} text="How its work" />
+                <Banner imgSource={Images.bannerBgWebp} text="How its work" />
                 <div className='how-work-all-box-area'>
                     <div className='container'>
                         <div className='row'>

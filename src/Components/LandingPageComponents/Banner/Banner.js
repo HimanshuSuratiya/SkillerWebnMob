@@ -1,6 +1,7 @@
 import React from "react";
 import Images from "../../../Images/Image";
 import "../LandingPage.css";
+import { NavLink } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -21,8 +22,8 @@ const Banner = () => {
                             <div className="row justify-content-center">
                                 <div className="col-lg-8">
                                     <div className="bannerBtn">
-                                        <a href="#!" className="PostyourtaskforfreeBtn">Post your task for free</a>
-                                        <a href="#!">Earn money as a Tasker</a>
+                                        <NavLink to="/post-a-task" className="PostyourtaskforfreeBtn">Post your task for free</NavLink>
+                                        <NavLink to="/post-a-task">Earn money as a Tasker</NavLink>
                                     </div>
                                 </div>
                             </div>

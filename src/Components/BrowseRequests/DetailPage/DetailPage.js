@@ -34,7 +34,7 @@ const DetailPage = ({ setDetail }) => {
                             <p className='follow-user d-flex align-items-center'><FavoriteBorderIcon className="follow-icon" /> Follow</p>
                         </div>
                         <div className='p-2'>
-                            <h4 className='task-status-heading text-uppercase'>Embroidery knitted or heated onto Christmas stockings</h4>
+                            <h4 className='task-status-heading text-uppercase heading-color'>Embroidery knitted or heated onto Christmas stockings</h4>
                             <p className='p-0 m-0 d-flex returntomap align-items-center' onClick={() => { setDetail(false) }}><ArrowBackIcon className="follow-icon" /> Return to map</p>
                         </div>
                         <div className='p-2 d-flex justify-content-between'>
@@ -61,13 +61,13 @@ const DetailPage = ({ setDetail }) => {
                             </div>
                         </div>
                         <div className='p-2'>
-                            <h5 className='p-0 m-0'>GOVERNMENT COVID-19 RESTRICTIONS HAVE CHANGED.</h5>
+                            <h5 className='p-0 m-0 heading-color'>GOVERNMENT COVID-19 RESTRICTIONS HAVE CHANGED.</h5>
                             <p className='p-0 m-0'>Your task may be impacted. See Safety Centre for info.</p>
                         </div>
                     </div>
                     <div className='col-lg-4 py-2'>
                         <div className='' style={{ border: '1px solid black', borderRadius: '4px' }}>
-                            <h4 className='p-0 m-0 py-2 d-flex align-item-center justify-content-center'>Task Budget</h4>
+                            <h4 className='p-0 m-0 py-2 d-flex align-item-center justify-content-center heading-color'>Task Budget</h4>
                             <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '32px' }}>$50</p>
                             <div className="d-flex justify-content-center py-2">
                                 <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' >Make an offer</button>
@@ -96,17 +96,12 @@ const DetailPage = ({ setDetail }) => {
                 </div>
                 <div>
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Details</h5>
-                        <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
-                        <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
-                    </div>
-                    <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Offers</h5>
+                        <h5 className='p-0 m-0 px-2 heading-color'>Offers</h5>
                         <div className='pt-2 pb-5'>
                             <div className='p-0 m-0 px-2 d-flex align-items-center'>
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
-                                    <h4 className='p-0 m-0'>Brunzo Z.</h4>
+                                    <h4 className='p-0 m-0 heading-color'>Brunzo Z.</h4>
                                     <p className='p-0 m-0'>New!</p>
                                     <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
                                 </div>
@@ -118,7 +113,7 @@ const DetailPage = ({ setDetail }) => {
                             <div className='m-0 px-2 d-flex align-items-center'>
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
-                                    <h4 className='p-0 m-0'>Mohammed  I.</h4>
+                                    <h4 className='p-0 m-0 heading-color'>Mohammed  I.</h4>
                                     <p className='p-0 m-0'>New!</p>
                                     <div className='d-flex align-items-center justify-content-end'>
                                         <Rating className='p-0 m-0 ratingFont' name="read-only" value={4} readOnly />
@@ -133,7 +128,7 @@ const DetailPage = ({ setDetail }) => {
                             <div className='m-0 px-2 d-flex align-items-center'>
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
-                                    <h4 className='p-0 m-0'>Jordan  K.</h4>
+                                    <h4 className='p-0 m-0 heading-color'>Jordan  K.</h4>
                                     <p className='p-0 m-0'>New!</p>
                                     <div className='d-flex align-items-center justify-content-end'>
                                         <Rating className='p-0 m-0 ratingFont' name="read-only" value={5} readOnly />
@@ -146,22 +141,22 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                     </div>
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Details</h5>
+                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
                         <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
                         <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                     </div>
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Details</h5>
+                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
                         <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
                         <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                     </div>
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Details</h5>
+                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
                         <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
                         <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                     </div>
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2'>Details</h5>
+                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
                         <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
                         <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                     </div>
