@@ -7,7 +7,7 @@ import Rating from '@mui/material/Rating';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Tooltip from '@mui/material/Tooltip';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useParams } from 'react-router-dom';
 import "./CategoriesPost.css"
@@ -83,34 +83,34 @@ const CategoriesPost = () => {
                                                     src={item.img}
                                                     sx={{ width: 65, height: 65 }}
                                                 />
-                                                <div>
+                                                <div className='text-right'>
                                                     <h5 className='p-0 m-0'>{item.name}</h5>
                                                     <p className='p- m-0'>{item.lastName}</p>
-                                                    <div className='d-flex align-items-center'>
+                                                    <div className='d-flex align-items-center justify-content-end'>
                                                         <Rating className='p-0 m-0 ratingFont' name="read-only" value={item.rate} readOnly />
                                                         <span className='ratingNumberFont'>({item.rateNumber})</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <Divider className='my-2' color="secondary" />
+                                            <Divider className='my-3' color="secondary" />
                                             <div>
-                                                <h4 className='p-0 py-2 m-0'>Latest Reviews</h4>
-                                                <p className='p-0 py-2 m-0 latestReviewsPara'>{item.review}</p>
+                                                <h4>Latest Reviews</h4>
+                                                <p className='latestReviewsPara'>{item.review}</p>
                                             </div>
                                             <div>
-                                                <h4 className='p-0 py-2 m-0'>Verified Badges</h4>
-                                                <div className='d-flex justify-content-around align-items-center'>
+                                                <h4>Verified Badges</h4>
+                                                <div className='d-flex justify-content-around align-items-center py-3'>
                                                     <Tooltip title="Digital ID Verified" placement="top-start">
-                                                        <HowToRegIcon style={{ color: '#188dc7' }} />
+                                                        <HowToRegIcon className='category-verified-badges' />
                                                     </Tooltip>
                                                     <Tooltip title="Payment Method Verified" placement="top-start">
-                                                        <CreditCardIcon style={{ color: '#188dc7' }} />
+                                                        <CreditCardIcon className='category-verified-badges' />
                                                     </Tooltip>
                                                     <Tooltip title="Mobile Verified" placement="top-start">
-                                                        <PhoneEnabledIcon style={{ color: '#188dc7' }} />
+                                                        <PhoneIcon className='category-verified-badges' />
                                                     </Tooltip>
                                                     <Tooltip title="LinkedIn Verified" placement="top-start">
-                                                        <LinkedInIcon style={{ color: '#188dc7' }} />
+                                                        <LinkedInIcon className='category-verified-badges' />
                                                     </Tooltip>
                                                 </div>
                                             </div>

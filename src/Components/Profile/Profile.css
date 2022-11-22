@@ -62,12 +62,12 @@
 
 .profileMessageBtn {
     color: #ffffff;
-    margin-left: 11px;
-    background: #188dc7;
+    border: 2px solid #188dc7;
     padding: 4px 20px;
+    background: #188dc7;
     transition: .5s;
     border-radius: 20px;
-    border: 2px solid #188dc7;
+    font-size: 16px;
 }
 
 .profileMessageBtn:hover {
@@ -77,12 +77,13 @@
 }
 
 .profileFollowBtn {
-    background: #fff;
     color: #000;
+    border: 2px solid #188dc7;
     padding: 4px 20px;
+    background: #fff;
     transition: .5s;
     border-radius: 20px;
-    border: 2px solid #188dc7;
+    font-size: 16px;
 }
 
 .profileFollowBtn:hover {

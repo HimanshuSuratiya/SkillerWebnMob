@@ -80,15 +80,15 @@ const useStyles = makeStyles(() => ({
         color: 'gray',
     },
 
-    LoginBtn: {
+    PostATaskerNext: {
         color: '#ffffff',
-        marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
         transition: '.5s',
         borderRadius: '20px',
-        width: '50%',
+        width: '42%',
         border: '2px solid #188dc7',
+        fontSize: '16px',
         "&:hover": {
             color: 'black',
             border: '2px solid #188dc7',
@@ -167,8 +167,12 @@ const PostATasker = () => {
     const handleNextTab = (value) => {
         if (6 > value) {
             setState((prevState) => ({ ...prevState, selectedTab: value + 1 }));
-        } else {
-            setState((prevState) => ({ ...prevState, selectedTab: 0 }));
+        }
+    }
+
+    const handleBackTab = (value) => {
+        if (0 < value) {
+            setState((prevState) => ({ ...prevState, selectedTab: value - 1 }));
         }
     }
 
@@ -417,7 +421,14 @@ const PostATasker = () => {
                     </Box>
                 </div>
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                    <button onClick={() => { handleNextTab(state.selectedTab) }} className={classes.LoginBtn}>Next</button>
+                    <div className={`d-flex w-50 justify-content-${state.selectedTab > 0 && state.selectedTab < 6 ? 'between' : 'center'}`}>
+                        {state.selectedTab > 0 &&
+                            <button onClick={() => { handleBackTab(state.selectedTab) }} className={classes.PostATaskerNext}>Back</button>
+                        }
+                        {state.selectedTab < 6 &&
+                            <button onClick={() => { handleNextTab(state.selectedTab) }} className={classes.PostATaskerNext}>Next</button>
+                        }
+                    </div>
                 </div>
             </div>
         </>

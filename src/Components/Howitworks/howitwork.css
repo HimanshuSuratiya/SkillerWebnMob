@@ -227,6 +227,22 @@
     margin: auto;
 }
 
+.how-it-works-learn-more-btn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.how-it-works-learn-more-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
 
 /* Rating & Reviews*/
 .rating-and-reviews-inner {

@@ -15,7 +15,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import EmailIcon from '@mui/icons-material/Email';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -265,7 +264,7 @@ const Howitwork = () => {
                                         </div>
                                         <div>
                                             <div className='d-flex justify-content-center mb-4'>
-                                                <button className='contact-us-btn'>Learn more</button>
+                                                <button className='how-it-works-learn-more-btn'>Learn more</button>
                                             </div>
                                             <p className='terms-conditions'>*Terms and Conditions apply. Included Task activities only. Excesses apply for
                                                 Taskers. <a className="help-center">Learn more about Skiller Insurance</a>
@@ -414,7 +413,7 @@ const Howitwork = () => {
                                                         <p className='communication-inner-text'>Once complete, you’ll simply need to release the payment. We’ll then transfer the task payment to the Tasker’s verified bank account.</p>
                                                     </div>
                                                     <div className="mt-2">
-                                                        <button className='btn btn-primary btn-lg btn-block contact-us-btn'>Learn more</button>
+                                                        <button className='btn btn-primary btn-lg btn-block how-it-works-learn-more-btn'>Learn more</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -13,12 +13,15 @@ import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
+
+
         color: '#ffffff',
         marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
         transition: '.5s',
         borderRadius: '20px',
+        fontSize: '16px',
         border: '2px solid #188dc7',
         "&:hover": {
             color: 'black',

@@ -14,10 +14,10 @@ import "../Animation.css";
 const useStyles = makeStyles(() => ({
     NextBtn: {
         color: '#ffffff',
-        marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
         transition: '.5s',
+        fontSize: '16px',
         borderRadius: '20px',
         border: '2px solid #188dc7',
         "&:hover": {
@@ -63,7 +63,7 @@ const ForgetPassword = () => {
                         <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                             {state.emailScreen &&
                                 <div>
-                                    <h3 className='p-0 m-0'>Enter your mobile number or email</h3>
+                                    <h3>Enter your mobile number or email</h3>
                                     <p>We will send you a OTP message</p>
                                     <div className="form-outline">
                                         <TextField
@@ -99,6 +99,7 @@ const ForgetPassword = () => {
                                         >
                                             <Grid item spacing={3} justify="center">
                                                 <OtpInput
+                                                    numInputs={5}
                                                     separator={
                                                         <span>
                                                             <strong>.</strong>

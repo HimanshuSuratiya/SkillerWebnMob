@@ -17,10 +17,10 @@ import Menu from "../../Menu/Menu";
 const useStyles = makeStyles(() => ({
     otpButtons: {
         color: '#ffffff',
-        marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
         transition: '.5s',
+        fontSize: '16px',
         borderRadius: '20px',
         border: '2px solid #188dc7',
         "&:hover": {
@@ -88,8 +88,10 @@ const OtpVerification = () => {
                                         <a>Resend OTP</a>
                                     </div>
                                     <div className="d-flex justify-content-center">
-                                        <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Skip</button>
-                                        <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { setRegisterType(true) }}>Verify</button>
+                                        <div className="w-50 d-flex justify-content-evenly">
+                                            <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Skip</button>
+                                            <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { setRegisterType(true) }}>Verify</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +110,7 @@ const OtpVerification = () => {
                                         </RadioGroup>
                                     </FormControl>
                                 </div>
-                                <div className="d-flex justify-content-center">
+                                <div className="d-flex justify-content-center my-2">
                                     <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}><ArrowRightAltIcon /> Continue</button>
                                 </div>
                             </div>

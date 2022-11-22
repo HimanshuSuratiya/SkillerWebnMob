@@ -31,10 +31,10 @@ const Profile = () => {
                                                 <h4>John Doe</h4>
                                                 <p className="text-secondary mb-1">Full Stack Developer</p>
                                                 <p className="text-muted font-size-sm mb-0">Bay Area, San Francisco, CA</p>
-                                                <Stack>
+                                                <Stack className="my-2">
                                                     <Rating className="d-flex justify-content-center" style={{ color: '#188dc7' }} name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
                                                 </Stack>
-                                                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                                                <div className="d-flex justify-content-between">
                                                     <button className="profileFollowBtn">Follow</button>
                                                     <button className="profileMessageBtn">Message</button>
                                                 </div>
@@ -121,64 +121,8 @@ const Profile = () => {
                                         </div>
                                         <hr />
                                         <div className="row">
-                                            <div className="">
-                                                <a className="profileMessageBtn p-o m-0" target="__blank" href="https://www.skiller.com">Edit</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row gutters-sm">
-                                    <div className="col-sm-6 mb-3">
-                                        <div className="card h-100">
-                                            <div className="card-body">
-                                                <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                                <small>Web Design</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "50%", ariaValuenow: "80", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Website Markup</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "72%", ariaValuenow: "72", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>One Page</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "89%", ariaValuenow: "89", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Mobile Template</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "55%", ariaValuenow: "55", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Backend API</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "66%", ariaValuenow: "66", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 mb-3">
-                                        <div className="card h-100">
-                                            <div className="card-body">
-                                                <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                                <small>Web Design</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "80%", ariaValuenow: "80", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Website Markup</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "72%", ariaValuenow: "72", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>One Page</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "89%", ariaValuenow: "89", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Mobile Template</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "55%", ariaValuenow: "55", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
-                                                <small>Backend API</small>
-                                                <div className="progress mb-3" style={{ height: "5px" }}>
-                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: "66%", ariaValuenow: "66", ariaValuemin: "0", ariaValuemax: "100" }}></div>
-                                                </div>
+                                            <div>
+                                                <button className="profileMessageBtn">Edit</button>
                                             </div>
                                         </div>
                                     </div>

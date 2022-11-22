@@ -212,10 +212,10 @@ const Menu = (props) => {
                                             InputProps={{ endAdornment: <SearchIcon /> }}
                                         />
                                     </form>
-                                    <div className="ps-4">
+                                    <div className="ms-4 d-flex justify-content-center align-items-center">
                                         <NavLink to="/notification">
-                                            <Badge badgeContent={4} color="primary">
-                                                <NotificationsActiveIcon style={{ fontSize: '40px', color: '#fff', cursor: 'pointer' }} />
+                                            <Badge badgeContent={4} color="error" className="notification-badge">
+                                                <NotificationsActiveIcon style={{ fontSize: '28px', color: '#fff', cursor: 'pointer' }} />
                                             </Badge>
                                         </NavLink>
                                     </div>

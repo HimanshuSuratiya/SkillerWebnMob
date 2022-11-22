@@ -34,39 +34,22 @@
     margin-top: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .RequestQuoteBtn {
     color: #ffffff;
     border: 2px solid #188dc7;
     padding: 4px 20px;
     background: #188dc7;
     transition: .5s;
-    margin-left: 11px;
     border-radius: 20px;
+    font-size: 16px;
 }
 
 .RequestQuoteBtn:hover {
     color: black;
     border: 2px solid #188dc7;
     background: #8fc1e2;
+}
+
+.category-verified-badges {
+    color: #188dc7;
 }

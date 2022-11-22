@@ -12,10 +12,10 @@ import Menu from "../../Menu/Menu";
 const useStyles = makeStyles(() => ({
     SignupBtn: {
         color: '#ffffff',
-        marginLeft: '11px',
         background: '#188dc7',
         padding: '4px 20px',
         transition: '.5s',
+        fontSize: '16px',
         borderRadius: '20px',
         border: '2px solid #188dc7',
         "&:hover": {

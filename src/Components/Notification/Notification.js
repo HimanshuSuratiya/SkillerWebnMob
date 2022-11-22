@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Images from '../../Images/Image';
 import { Accordion } from "react-bootstrap";
 import DeleteForever from '@material-ui/icons/DeleteForever';
+import Footer from "../Footer/Footer";
 import "./Notification.css";
 
 const Notification = () => {
@@ -20,7 +21,7 @@ const Notification = () => {
                                     <div className="col-lg-12">
                                         <div className="faq-accordian-main-area notification-arrow-hide-parents">
                                             <div className="accordion accordion-" id="accordionFlushExample">
-                                                <Accordion defaultActiveKey="0">
+                                                <Accordion>
                                                     <Accordion.Item eventKey="0">
                                                         <h2 className="accordion-header" id="flush-headingOne">
                                                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -177,13 +178,11 @@ const Notification = () => {
                                     </div>
                                 </div>
                             </div>
-                            <footer className="footer text-center"> 2021 © Ample Admin brought to you by <a
-                                href="https://www.wrappixel.com/">wrappixel.com</a>
-                            </footer>
                         </div>
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };

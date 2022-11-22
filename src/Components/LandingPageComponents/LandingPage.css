@@ -799,6 +799,11 @@ header.header .navbar {
     margin-top: 11px !important;
 }
 
+.notification-badge span.MuiBadge-badge {
+    height: 17px;
+    font-size: 12px;
+}
+
 .navbar-brand img {
     height: 40px;
 }
@@ -815,7 +820,6 @@ header.header .navbar {
     width: 100%;
     padding: 15px 20px;
 }
-
 
 .more-menu-area .CategoriesList {
     display: inherit;
@@ -892,17 +896,19 @@ a.navbar-brand {
     background: #188dc7;
     color: #ffffff;
     border-radius: 20px;
-    padding: 4px 20px;
+    padding: 3px 20px;
     font-size: 13px;
     font-weight: 600;
     margin-top: 7px;
     transition: .5s;
     line-height: 23px;
+    border: 0.5px solid #8fc1e2;
 }
 
 .navigation .navbar-nav .nav-item .nav-link.postATaskbtn:hover {
     color: #fff;
     background: #8fc1e2;
+    border: 0.5px solid #fff;
 }
 
 .navbar-expand-md .navbar-nav .dropdown-menu {
@@ -2154,17 +2160,6 @@ span.input-group-append button:hover {
     width: 100%;
 
 }
-
-/* .clientbox:before {
-    font-family: "fontAwesome";
-    content: "\f10e";
-    font-size: 35px;
-    font-size: 2.33333rem;
-    color: #8fc1e2;
-    position: absolute;
-    right: 50px;
-    top: 45px;
-} */
 
 .ourclientTestimonials .swiper-slide {
     background: #fff;
