@@ -48,7 +48,7 @@
 }
 
 .posted-area {
-    line-height: 14px;
+    line-height: 20px;
 }
 
 .circular-progress {
@@ -59,7 +59,7 @@
 }
 
 .icon-size {
-    font-size: 35px;
+    font-size: 40px !important;
 }
 
 .make-an-offer-btn {
