@@ -102,7 +102,7 @@ const DetailPage = ({ setDetail }) => {
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Brunzo Z.</h4>
-                                    <p className='p-0 m-0'>New!</p>
+                                    <p className='m-0 new-comment'>New !</p>
                                     <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ const DetailPage = ({ setDetail }) => {
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Mohammed  I.</h4>
-                                    <p className='p-0 m-0'>New!</p>
+                                    <p className='m-0 new-comment'>New !</p>
                                     <div className='d-flex align-items-center justify-content-end'>
                                         <Rating className='p-0 m-0 ratingFont' name="read-only" value={4} readOnly />
                                         <span className='ratingNumberFont'>(65)</span>
@@ -129,7 +129,7 @@ const DetailPage = ({ setDetail }) => {
                                 <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Jordan  K.</h4>
-                                    <p className='p-0 m-0'>New!</p>
+                                    <p className='m-0 new-comment'>New !</p>
                                     <div className='d-flex align-items-center justify-content-end'>
                                         <Rating className='p-0 m-0 ratingFont' name="read-only" value={5} readOnly />
                                         <span className='ratingNumberFont'>(165)</span>
@@ -140,25 +140,22 @@ const DetailPage = ({ setDetail }) => {
                             <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>About 2 days ago</p>
                         </div>
                     </div>
-                    <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
-                        <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
-                        <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
-                    </div>
-                    <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
-                        <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
-                        <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
-                    </div>
-                    <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
-                        <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
-                        <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
-                    </div>
-                    <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2 heading-color'>Details</h5>
-                        <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational design</p>
-                        <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
+                    <div className='task-detail-area'>
+                        <div className='py-2'>
+                            <h5 className='p-0 px-2 heading-color detail'>Details</h5>
+                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
+                            <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
+                        </div>
+                        <div className='py-2'>
+                            <h5 className='p-0 px-2 heading-color detail'>Details</h5>
+                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
+                            <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
+                        </div>
+                        <div className='py-2'>
+                            <h5 className='p-0 px-2 heading-color detail'>Details</h5>
+                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
+                            <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
+                        </div>
                     </div>
                 </div>
             </div>

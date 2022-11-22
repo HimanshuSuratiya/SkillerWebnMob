@@ -10,6 +10,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useParams } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 import "./CategoriesPost.css"
 
 const CategoriesPost = () => {
@@ -125,6 +126,7 @@ const CategoriesPost = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 };

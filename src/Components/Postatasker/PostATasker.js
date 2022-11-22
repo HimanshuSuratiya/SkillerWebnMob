@@ -23,6 +23,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useNavigate } from 'react-router-dom';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -145,6 +146,7 @@ function getStyles(name, personName, theme) {
 const PostATasker = () => {
     const theme = useTheme();
     const classes = useStyles();
+    let navigate = useNavigate();
     const [state, setState] = useState(defaultState)
     const [personName, setPersonName] = useState([]);
 
@@ -421,12 +423,14 @@ const PostATasker = () => {
                     </Box>
                 </div>
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                    <div className={`d-flex w-50 justify-content-${state.selectedTab > 0 && state.selectedTab < 6 ? 'between' : 'center'}`}>
+                    <div className={`d-flex w-50 justify-content-${state.selectedTab > 0 ? 'between' : 'center'}`}>
                         {state.selectedTab > 0 &&
                             <button onClick={() => { handleBackTab(state.selectedTab) }} className={classes.PostATaskerNext}>Back</button>
                         }
-                        {state.selectedTab < 6 &&
+                        {state.selectedTab < 6 ?
                             <button onClick={() => { handleNextTab(state.selectedTab) }} className={classes.PostATaskerNext}>Next</button>
+                            :
+                            <button onClick={() => { navigate('/') }} className={classes.PostATaskerNext}>Submit</button>
                         }
                     </div>
                 </div>

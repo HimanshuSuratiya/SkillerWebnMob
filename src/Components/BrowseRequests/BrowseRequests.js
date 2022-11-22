@@ -429,7 +429,7 @@ const BrowseRequests = () => {
                     <TextField
                         variant="outlined"
                         size="small"
-                        placeholder={'Search : '}
+                        placeholder={'Search'}
                         InputProps={{ endAdornment: <SearchIcon /> }}
                     />
                 </div>

@@ -4,6 +4,11 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
+import { NavLink } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import PhoneIcon from '@mui/icons-material/Phone';
+import AttachEmailIcon from '@mui/icons-material/AttachEmail';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const Footer = () => {
     return (
@@ -24,47 +29,38 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-6  m-b30">
+                        <div className="col-lg-4 col-md-6 col-sm-6  m-b30 d-flex justify-content-center">
                             <div className="sf-site-link sf-widget-link">
                                 <h4 className="sf-f-title">Site Links</h4>
                                 <ul>
-                                    <li><a href="#!">Blog</a></li>
-                                    <li><a href="#!">Contact Us</a></li>
-                                    <li><a href="#!">Jobs</a></li>
-                                    <li><a href="#!">Categories</a></li>
+                                    <li><NavLink to="/"><KeyboardDoubleArrowRightIcon /> Home</NavLink></li>
+                                    <li><NavLink to="/contact-us"><KeyboardDoubleArrowRightIcon /> Contact Us</NavLink></li>
+                                    <li><NavLink to="/how-it-works"><KeyboardDoubleArrowRightIcon /> How it works</NavLink></li>
+                                    <li><NavLink to="/"><KeyboardDoubleArrowRightIcon /> Privacy Policy</NavLink></li>
+                                    <li><NavLink to="/"><KeyboardDoubleArrowRightIcon /> Terms & Conditions</NavLink></li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6  m-b30">
+                        <div className="col-lg-4 col-md-6 col-sm-6  m-b30 d-flex justify-content-center">
                             <div className="sf-site-link sf-widget-cities">
-                                <h4 className="sf-f-title">Popular Cities</h4>
+                                <h4 className="sf-f-title">Popular Categories</h4>
                                 <ul>
-                                    <li><a href="#!">Ballston Lake</a></li>
-                                    <li><a href="#!">Batumi</a></li>
-                                    <li><a href="#!">Brooklyn</a></li>
-                                    <li><a href="#!">Cambridge</a></li>
+                                    <li><NavLink to="/category/Ballston Lake"><KeyboardDoubleArrowRightIcon /> Ballston Lake</NavLink></li>
+                                    <li><NavLink to="/category/Batumi"><KeyboardDoubleArrowRightIcon /> Batumi</NavLink></li>
+                                    <li><NavLink to="/category/Brooklyn"><KeyboardDoubleArrowRightIcon /> Brooklyn</NavLink></li>
+                                    <li><NavLink to="/category/Cambridge"><KeyboardDoubleArrowRightIcon /> Cambridge</NavLink></li>
+                                    <li><NavLink to="/category/Accountants"><KeyboardDoubleArrowRightIcon /> Accountants</NavLink></li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6  m-b30">
-                            <div className="sf-site-link sf-widget-categories">
-                                <h4 className="sf-f-title">Categories</h4>
-                                <ul>
-                                    <li><a href="#!">Car Service</a></li>
-                                    <li><a href="#!">House Cleaning</a></li>
-                                    <li><a href="#!">Transport</a></li>
-                                    <li><a href="#!">Yoga Classes</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6  m-b30">
+                        <div className="col-lg-4 col-md-6 col-sm-6  m-b30 d-flex justify-content-center">
                             <div className="sf-site-link sf-widget-contact">
                                 <h4 className="sf-f-title">Contact Info</h4>
                                 <ul>
-                                    <li>India</li>
-                                    <li>+91 000 000 0000</li>
-                                    <li>+91 000 000 0000</li>
-                                    <li>info@Skiller.com</li>
+                                    <li><HomeIcon /> Sector - 55 Noida Pincode - 201301 </li>
+                                    <li><PhoneIcon /> +91 123 456 7890</li>
+                                    <li><PhoneIcon /> +91 123 456 7890</li>
+                                    <li><AttachEmailIcon /> info@Skiller.com</li>
                                 </ul>
                             </div>
                         </div>

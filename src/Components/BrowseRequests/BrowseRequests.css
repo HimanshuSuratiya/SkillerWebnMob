@@ -44,6 +44,7 @@
 
 .left-main-Div::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgb(195, 195, 195);
+    border-radius: 20px;
 }
 
 .left-main-Div::-webkit-scrollbar-thumb {

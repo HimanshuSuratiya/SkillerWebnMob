@@ -91,7 +91,7 @@ const OtpVerification = () => {
                                     </div>
                                     <div className="d-flex justify-content-center">
                                         <div className="w-50 d-flex justify-content-evenly">
-                                            <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`}>Skip</button>
+                                            <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { setRegisterType(true) }}>Skip</button>
                                             <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { setRegisterType(true) }}>Verify</button>
                                         </div>
                                     </div>
