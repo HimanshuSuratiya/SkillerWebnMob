@@ -212,12 +212,79 @@ const Menu = (props) => {
                                             InputProps={{ endAdornment: <SearchIcon /> }}
                                         />
                                     </form>
-                                    <div className="ms-4 d-flex justify-content-center align-items-center">
-                                        <NavLink to="/notification">
-                                            <Badge badgeContent={4} color="error" className="notification-badge">
-                                                <NotificationsActiveIcon style={{ fontSize: '28px', color: '#fff', cursor: 'pointer' }} />
-                                            </Badge>
-                                        </NavLink>
+                                    <div className="ms-2 d-flex justify-content-center align-items-center">
+                                        <div className="d-flex user-detail-main-area">
+                                            <div className="user-img-area Notification-dropdown">
+                                                <div className="font-awesome-size">
+                                                    <Badge badgeContent={4} color="error" className="notification-badge">
+                                                        <NotificationsActiveIcon style={{ fontSize: '28px', color: '#fff', cursor: 'pointer' }} />
+                                                    </Badge>
+                                                </div>
+                                                <div className="Notification-dropdown-content Notification-dropdown-massege-box-area">
+                                                    <div className="px-2 d-flex align-items-center justify-content-between">
+                                                        <h5 className="p-0 m-0">Notifications</h5>
+                                                        <button className="notification-clear-all-btn">Clear all</button>
+                                                    </div>
+                                                    <Divider className="my-2" style={{ backgroundColor: 'gray' }} />
+                                                    <div>
+                                                        <div>
+                                                            <div className="d-flex p-2 align-items-center justify-content-center">
+                                                                <div>
+                                                                    <Avatar alt="Remy Sharp" src={Images.one} />
+                                                                </div>
+                                                                <div className="px-2 w-100">
+                                                                    <div className="d-flex justify-content-between">
+                                                                        <h6 className="p-0 m-0">Naveen Kumar</h6>
+                                                                        <p className="p-0 m-0 notification-date">23 Nov 2022</p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className="p-0 m-0 main-notification-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <Divider className="my-2" style={{ backgroundColor: 'gray' }} />
+                                                        </div>
+                                                        <div>
+                                                            <div className="d-flex p-2 align-items-center justify-content-center">
+                                                                <div>
+                                                                    <Avatar alt="Remy Sharp" src={Images.three} />
+                                                                </div>
+                                                                <div className="px-2 w-100">
+                                                                    <div className="d-flex justify-content-between">
+                                                                        <h6 className="p-0 m-0">Neelam shukla</h6>
+                                                                        <p className="p-0 m-0 notification-date">15 Sep 2022</p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className="p-0 m-0 main-notification-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <Divider className="my-2" style={{ backgroundColor: 'gray' }} />
+                                                        </div>
+                                                        <div>
+                                                            <div className="d-flex p-2 align-items-center justify-content-center">
+                                                                <div>
+                                                                    <Avatar alt="Remy Sharp" src={Images.two} />
+                                                                </div>
+                                                                <div className="px-2 w-100">
+                                                                    <div className="d-flex justify-content-between">
+                                                                        <h6 className="p-0 m-0">Himanshu Suratiya</h6>
+                                                                        <p className="p-0 m-0 notification-date">15 Aug 2012</p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className="p-0 m-0 main-notification-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <Divider className="my-2" style={{ backgroundColor: 'gray' }} />
+                                                        </div>
+                                                    </div>
+                                                    <div className="px-2">
+                                                        <NavLink to="/notification"><button className="notification-view-all-notification-btn">View all Notification</button></NavLink>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <>
                                         <Stack direction="row" spacing={2}>
