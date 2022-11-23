@@ -15,6 +15,7 @@ import Notification from "./Components/Notification/Notification";
 import BrowseRequests from "./Components/BrowseRequests/BrowseRequests";
 import MyTasks from "./Components/MyTasks/MyTasks";
 import ForgetPassword from "./Components/Loginandcreateaccount/ForgetPassword/ForgetPassword";
+import UserProfile from "./Components/UserProfile/UserProfile";
 
 const App = () => {
   useEffect(() => {
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="/my-tasks" element={<MyTasks />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Rating from '@mui/material/Rating';
+import { NavLink } from 'react-router-dom';
 
 const DetailPage = ({ setDetail }) => {
     const [moreOption, setMoreOption] = useState('');
@@ -99,7 +100,9 @@ const DetailPage = ({ setDetail }) => {
                         <h5 className='p-0 m-0 px-2 heading-color'>Offers</h5>
                         <div className='pt-2 pb-5'>
                             <div className='p-0 m-0 px-2 d-flex align-items-center'>
-                                <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                <NavLink to="/user-profile">
+                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                </NavLink>
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Brunzo Z.</h4>
                                     <p className='m-0 new-comment'>New !</p>
