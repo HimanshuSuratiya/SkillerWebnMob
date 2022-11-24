@@ -1,6 +1,50 @@
-.user-profile-image img {
-    height: 260px;
-    width: 100%;
-    border-radius: 8px;
-    padding: 2px;
+.user-profile-online-btn {
+    color: #1dbf73;
+    border: 1px solid #1dbf73;
+    padding: 1px 20px;
+    background: #fff;
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.user-profile-online-btn:hover {
+    color: #ffffff;
+    border: 1px solid #188dc7;
+    background: #1dbf73;
+}
+
+.user-profile-contect-me {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 20px;
+    background: #188dc7;
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.user-profile-contect-me:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
+
+.user-profile-skill {
+    display: inline-block;
+    border-radius: 10px;
+    min-width: 40px;
+    text-align: center;
+    padding: 5px 12px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #e4e5e7;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.user-profile-skill:hover {
+    border-radius: 25px;
+    border: 1px solid #188dc7;
+    cursor: pointer;
 }

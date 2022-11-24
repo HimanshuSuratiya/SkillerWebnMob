@@ -104,19 +104,10 @@ const Profile = () => {
                                             <TextField
                                                 fullWidth
                                                 variant='outlined'
-                                                defaultValue="(320) 380-4539"
-                                                size='large'
-                                                label={'Mobile'}
-                                            />
-                                        </div>
-                                        <hr />
-                                        <div className="row m-0">
-                                            <TextField
-                                                fullWidth
-                                                variant='outlined'
+                                                type="password"
                                                 defaultValue="Bay Area, San Francisco, CA"
                                                 size='large'
-                                                label={'Address'}
+                                                label={'Password'}
                                             />
                                         </div>
                                         <hr />
