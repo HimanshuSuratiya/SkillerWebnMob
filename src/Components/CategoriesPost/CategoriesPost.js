@@ -12,6 +12,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import "./CategoriesPost.css"
+import { NavLink } from 'react-router-dom';
 
 const CategoriesPost = () => {
     let { name } = useParams()
@@ -79,11 +80,13 @@ const CategoriesPost = () => {
                                     <>
                                         <div className='p-4 main-category-profile-card'>
                                             <div className='d-flex justify-content-between align-items-center'>
-                                                <Avatar
-                                                    alt="Remy Sharp"
-                                                    src={item.img}
-                                                    sx={{ width: 65, height: 65 }}
-                                                />
+                                                <NavLink to="/user-profile">
+                                                    <Avatar
+                                                        alt="Remy Sharp"
+                                                        src={item.img}
+                                                        sx={{ width: 65, height: 65 }}
+                                                    />
+                                                </NavLink>
                                                 <div className='text-right'>
                                                     <h5 className='p-0 m-0'>{item.name}</h5>
                                                     <p className='p- m-0'>{item.lastName}</p>

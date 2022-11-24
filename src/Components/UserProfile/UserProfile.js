@@ -18,6 +18,7 @@ import AssistantPhotoIcon from '@mui/icons-material/AssistantPhoto';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import Badge from '@mui/material/Badge';
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import Footer from "../Footer/Footer";
 
 const UserProfile = () => {
@@ -63,6 +64,42 @@ const UserProfile = () => {
         },
     }));
 
+
+    const reviewData = [
+        {
+            name: 'Oriolgabalda',
+            imgsource: Images.one,
+            country: 'Spain',
+            rateValue: 4.5,
+            mainText: 'Philippa is the best person you will ever find on Fiverr!! Positive, great attitude, always willing to help, communicative, great to talk to. The result has been waaay better than what I could ever expect. A lot of detailed documentation, always',
+            timeStatus: '2 days ago',
+        },
+        {
+            name: 'Pitman991',
+            imgsource: Images.two,
+            country: 'Germany',
+            rateValue: 5,
+            mainText: 'Ich bin noch relativ neu in der Welt der Dating Apps und bin recht naiv an die Sache herangegangen. Philippa hat mir neben wertvollen Anregungen vor allem ehrliches Feedback gegeben, mit dem ich mein Profil bestimmt werde verbessern können. Ich kann den Gig also nur empfehlen.',
+            timeStatus: '3 days ago',
+        },
+        {
+            name: 'Miguelgimene819',
+            imgsource: Images.six,
+            country: 'India',
+            rateValue: 4.5,
+            mainText: 'Very straightforward and satisfying',
+            timeStatus: '5 days ago',
+        },
+        {
+            name: 'Nenadpa',
+            imgsource: Images.seven,
+            country: 'Austria',
+            rateValue: 4,
+            mainText: 'Highly profesional and top feedback. A deep insight on what do to and maybe not to do. Full PDF Review about everything, from photos to bio to tipps and tricks all included. 10/10 would date',
+            timeStatus: '1 week ago',
+        },
+    ]
+
     return (
         <>
             <Menu />
@@ -70,10 +107,10 @@ const UserProfile = () => {
                 <Banner text="User Profile" />
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-4 p-2' style={{ backgroundColor: '' }}>
-                            <div className='p-4' style={{ border: '1px solid black', borderRadius: '5px' }}>
+                        <div className='col-lg-4 p-2'>
+                            <div className='p-4 main-left-user-profile-card'>
                                 <div className='d-flex align-items-center justify-content-between'>
-                                    <FavoriteBorderIcon style={{ fontSize: '18px' }} />
+                                    <FavoriteBorderIcon className='icon-common-class' />
                                     <button className='user-profile-online-btn'>Online</button>
                                 </div>
                                 <div>
@@ -95,7 +132,7 @@ const UserProfile = () => {
                                         <p className='p-0 m-0'>Helping people with dating</p>
                                         <div className='d-flex align-items-center justify-content-center'>
                                             <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
-                                            <p className='p-0 m-0'>4.5 (86 reviews)</p>
+                                            <p className='p-0 m-0 user-profile-font-weight'>4.5 (86 reviews)</p>
                                         </div>
                                         <button className='user-profile-contect-me w-75'>Contact Me</button>
                                     </div>
@@ -103,24 +140,24 @@ const UserProfile = () => {
                                 <Divider className='my-2' style={{ backgroundColor: 'gray' }} />
                                 <div>
                                     <div className='d-flex align-items-center justify-content-between'>
-                                        <p> <LocationOnIcon /> From</p>
-                                        <p>Germany</p>
+                                        <p> <LocationOnIcon className='icon-common-class' /> From</p>
+                                        <p className='user-profile-font-weight'>Germany</p>
                                     </div>
                                     <div className='d-flex align-items-center justify-content-between'>
-                                        <p> <PersonIcon /> Member since</p>
-                                        <p>Apr 2022</p>
+                                        <p> <PersonIcon className='icon-common-class' /> Member since</p>
+                                        <p className='user-profile-font-weight'>Apr 2022</p>
                                     </div>
                                     <div className='d-flex align-items-center justify-content-between'>
-                                        <p> <SendIcon /> Last Delivery</p>
-                                        <p>2 days</p>
+                                        <p> <SendIcon className='icon-common-class' /> Last Delivery</p>
+                                        <p className='user-profile-font-weight'>2 days</p>
                                     </div>
                                     <div className='d-flex align-items-center justify-content-between'>
-                                        <p> <ToggleOnIcon /> last Online</p>
-                                        <p>3 hours ago</p>
+                                        <p> <ToggleOnIcon className='icon-common-class' /> last Online</p>
+                                        <p className='user-profile-font-weight'>3 hours ago</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className='p-4 my-4' style={{ border: '1px solid black', borderRadius: '5px' }}>
+                            <div className='p-4 my-4 main-left-user-profile-card'>
                                 <h4>Languages</h4>
                                 <p className='p-0 m-0'>English  - Native/Bilingual</p>
                                 <p className='p-0 m-0'>German (Deutsch) - Native/Bilingual</p>
@@ -143,179 +180,109 @@ const UserProfile = () => {
                             </div>
                         </div>
                         <div className='col-lg-8 p-2'>
-                            <div className='p-3'>
+                            <div className='p-4 main-left-user-profile-card'>
                                 <div>
-                                    <h3 className='p-0 m-0'>Brunzo Z.'s Gigs</h3>
-                                    <p>Descriptions...</p>
-                                    <p>Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge! Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge! Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge!</p>
+                                    <h3>About</h3>
+                                    <p className='p-0 m-0 description-text'>Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge! Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge! Hi everyone! My name is Brunzo Z. and I am a fashion student and part-time model from Germany. As I love traveling and exploring new places, I have used online dating apps a lot myself during the last few years. After thousands of matches and dozens of dates, I want to share my experiences and help you guys to get more matches and better dates on tinder, bumble and hinge!</p>
                                 </div>
                                 <div>
-                                    <div className='d-flex align-items-center'>
-                                        <h3 className='p-0 m-0 pe-3'>86 reviews as seller</h3>
+                                    <div className='d-flex align-items-center review-heading-seller'>
+                                        <h3 className='p-0 pe-3'>86 reviews as seller</h3>
                                         <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
-                                        <p className='p-0 m-0'>4.5</p>
+                                        <p className='p-0 m-0 user-profile-font-weight'>4.5</p>
                                     </div>
                                     <div className='w-100 d-flex'>
-                                        <div className='w-50 p-2'>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
-                                                <p className='p-0 m-0'>4.5 star</p>
+                                        <div className='w-50 py-2'>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
+                                                <p className='p-0 m-0 user-profile-font-weight'>4.5 star</p>
                                                 <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={95} />
-                                                <p className='p-0 m-0'>(86)</p>
+                                                <p className='p-0 m-0 user-profile-font-weight'>(86)</p>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
-                                                <p className='p-0 m-0'>4.5 star</p>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
+                                                <p className='p-0 m-0 user-profile-font-weight'>4.5 star</p>
                                                 <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={5} />
-                                                <p className='p-0 m-0'>(12)</p>
+                                                <p className='p-0 m-0 user-profile-font-weight'>(12)</p>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
-                                                <p className='p-0 m-0'>3.0 star</p>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
+                                                <p className='p-0 m-0 user-profile-font-weight'>3.0 star</p>
                                                 <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={0} />
-                                                <p className='p-0 m-0'>(0)</p>
+                                                <p className='p-0 m-0 user-profile-font-weight'>(0)</p>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
-                                                <p className='p-0 m-0'>2.0 star</p>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
+                                                <p className='p-0 m-0 user-profile-font-weight'>2.0 star</p>
                                                 <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={0} />
-                                                <p className='p-0 m-0'>(0)</p>
+                                                <p className='p-0 m-0 user-profile-font-weight'>(0)</p>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
-                                                <p className='p-0 m-0'>1.0 star</p>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
+                                                <p className='p-0 m-0 user-profile-font-weight'>1.0 star</p>
                                                 <BorderLinearProgress style={{ width: '70%' }} variant="determinate" value={0} />
-                                                <p className='p-0 m-0'>(0)</p>
+                                                <p className='p-0 m-0 user-profile-font-weight'>(0)</p>
                                             </div>
                                         </div>
                                         <div className='w-50 p-2'>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
                                                 <p className='p-0 m-0'>Rating Breakdown</p>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
                                                 <p className='p-0 m-0'>Seller communication level</p>
                                                 <div className='d-flex justify-content-center align-items-center'>
                                                     <StarBorderIcon className='me-2' style={{ color: '#faaf00' }} />
-                                                    <p className='p-0 m-0'>5</p>
+                                                    <p className='p-0 m-0 user-profile-font-weight'>5</p>
                                                 </div>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
                                                 <p className='p-0 m-0'>Recommend to a friend</p>
                                                 <div className='d-flex justify-content-center align-items-center'>
                                                     <StarBorderIcon className='me-2' style={{ color: '#faaf00' }} />
-                                                    <p className='p-0 m-0'>5</p>
+                                                    <p className='p-0 m-0 user-profile-font-weight'>5</p>
                                                 </div>
                                             </div>
-                                            <div className='my-2 d-flex justify-content-between align-items-center'>
+                                            <div className='my-1 d-flex justify-content-between align-items-center'>
                                                 <p className='p-0 m-0'>Service as described</p>
                                                 <div className='d-flex justify-content-center align-items-center'>
                                                     <StarBorderIcon className='me-2' style={{ color: '#faaf00' }} />
-                                                    <p className='p-0 m-0'>5</p>
+                                                    <p className='p-0 m-0 user-profile-font-weight'>5</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <Divider className='my-4' style={{ backgroundColor: 'gray' }} />
                                 <div>
                                     <div>
-                                        <div className='d-flex'>
-                                            <div className='py-4 pe-4'>
-                                                <Avatar
-                                                    alt="Remy Sharp"
-                                                    src="/static/images/avatar/1.jpg"
-                                                    sx={{ width: 50, height: 50 }}
-                                                />
-                                            </div>
-                                            <div className='py-4'>
-                                                <h5 className='p-0 m-0'>oriolgabalda</h5>
-                                                <p className='p-0 m-0'><AssistantPhotoIcon /> Spain</p>
-                                                <div className='d-flex align-items-center'>
-                                                    <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
-                                                    <p className='p-0 m-0'>4.5 | 2 days ago</p>
-                                                </div>
-                                                <p className='p-0 m-0'>Philippa is the best person you will ever find on Fiverr!! Positive, great attitude, always willing to help, communicative, great to talk to. The result has been waaay better than what I could ever expect. A lot of detailed documentation, always... See more</p>
-                                                <div className='d-flex align-items-center'>
-                                                    <p className='p-0 m-0 pe-2'>Helpful?</p>
-                                                    <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px' }} /> Yes</p>
-                                                    <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px' }} /> No</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <Divider className='my-4' style={{ backgroundColor: 'gray' }} />
-                                        <div>
-                                            <div className='d-flex'>
-                                                <div className='py-4 pe-4'>
-                                                    <Avatar
-                                                        alt="Remy Sharp"
-                                                        src={Images.two}
-                                                        sx={{ width: 50, height: 50 }}
-                                                    />
-                                                </div>
-                                                <div className='py-4'>
-                                                    <h5 className='p-0 m-0'>pitman991</h5>
-                                                    <p className='p-0 m-0'><AssistantPhotoIcon /> Germany</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
-                                                        <p className='p-0 m-0'>5 | 3 days ago</p>
+                                        {reviewData.map((item) => {
+                                            return (
+                                                <>
+                                                    <div>
+                                                        <Divider className='my-2' style={{ backgroundColor: 'gray' }} />
+                                                        <div className='d-flex'>
+                                                            <div className='py-2 pe-2'>
+                                                                <Avatar
+                                                                    alt="Remy Sharp"
+                                                                    src={item.imgsource}
+                                                                    sx={{ width: 50, height: 50 }}
+                                                                />
+                                                            </div>
+                                                            <div className='py-2 w-100'>
+                                                                <div className='d-flex justify-content-between align-items-between'>
+                                                                    <h5 className='p-0 m-0'>{item.name}</h5>
+                                                                    <p className='p-0 m-0 status-day-review'> <AccessAlarmIcon style={{ fontSize: '18px', marginRight: '3px' }} />{item.timeStatus}</p>
+                                                                </div>
+                                                                <p className='p-0 m-0 user-profile-flag-text-area'><AssistantPhotoIcon style={{ fontSize: '18px' }} />{item.country}</p>
+                                                                <div className='d-flex align-items-center rating-icon-star'>
+                                                                    <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
+                                                                </div>
+                                                                <p className='p-0 user-review-text'>{item.mainText}</p>
+                                                                <div className='d-flex align-items-center helpful'>
+                                                                    <p className='p-0 m-0 pe-2'>Helpful?</p>
+                                                                    <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px', color: '#188dc7' }} /> Yes</p>
+                                                                    <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px', color: '#188dc7' }} /> No</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <p className='p-0 m-0'>Ich bin noch relativ neu in der Welt der Dating Apps und bin recht naiv an die Sache herangegangen. Philippa hat mir neben wertvollen Anregungen vor allem ehrliches Feedback gegeben, mit dem ich mein Profil bestimmt werde verbessern können. Ich kann den Gig also nur empfehlen.</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <p className='p-0 m-0 pe-2'>Helpful?</p>
-                                                        <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px' }} /> Yes</p>
-                                                        <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px' }} /> No</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <Divider className='my-4' style={{ backgroundColor: 'gray' }} />
-                                        </div>
-                                        <div>
-                                            <div className='d-flex'>
-                                                <div className='py-4 pe-4'>
-                                                    <Avatar
-                                                        alt="Remy Sharp"
-                                                        src={Images.three}
-                                                        sx={{ width: 50, height: 50 }}
-                                                    />
-                                                </div>
-                                                <div className='py-4'>
-                                                    <h5 className='p-0 m-0'>miguelgimene819</h5>
-                                                    <p className='p-0 m-0'><AssistantPhotoIcon /> India</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
-                                                        <p className='p-0 m-0'>4.5 | 5 days ago</p>
-                                                    </div>
-                                                    <p className='p-0 m-0'>Very straightforward and satisfying</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <p className='p-0 m-0 pe-2'>Helpful?</p>
-                                                        <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px' }} /> Yes</p>
-                                                        <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px' }} /> No</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <Divider className='my-4' style={{ backgroundColor: 'gray' }} />
-                                        </div>
-                                        <div>
-                                            <div className='d-flex'>
-                                                <div className='py-4 pe-4'>
-                                                    <Avatar
-                                                        alt="Remy Sharp"
-                                                        src={Images.six}
-                                                        sx={{ width: 50, height: 50 }}
-                                                    />
-                                                </div>
-                                                <div className='py-4'>
-                                                    <h5 className='p-0 m-0'>nenadpa</h5>
-                                                    <p className='p-0 m-0'><AssistantPhotoIcon /> Austria</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
-                                                        <p className='p-0 m-0'>4.5 | 1 week ago</p>
-                                                    </div>
-                                                    <p className='p-0 m-0'>Highly profesional and top feedback. A deep insight on what do to and maybe not to do. Full PDF Review about everything, from photos to bio to tipps and tricks all included. 10/10 would date</p>
-                                                    <div className='d-flex align-items-center'>
-                                                        <p className='p-0 m-0 pe-2'>Helpful?</p>
-                                                        <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px' }} /> Yes</p>
-                                                        <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px' }} /> No</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <Divider className='my-4' style={{ backgroundColor: 'gray' }} />
-                                        </div>
+                                                </>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>

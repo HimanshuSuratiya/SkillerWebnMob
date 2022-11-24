@@ -40,7 +40,9 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <div className='p-2 d-flex justify-content-between'>
                             <div className='d-flex align-items-center post-location-data'>
-                                <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2202413/profilepic-dcf6a39c355c95ad9e930b974af69496.jpeg?width=64&height=64" sx={{ width: 45, height: 45 }} />
+                                <NavLink to="/user-profile">
+                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2202413/profilepic-dcf6a39c355c95ad9e930b974af69496.jpeg?width=64&height=64" sx={{ width: 45, height: 45 }} />
+                                </NavLink>
                                 <div className='px-1 posted-area'>
                                     <p className='p-0 m-0'>POSTED BY</p>
                                     <a className='p-0 m-0'>Sarah D.</a>
@@ -114,7 +116,9 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <div className='pt-2 pb-5'>
                             <div className='m-0 px-2 d-flex align-items-center'>
-                                <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                <NavLink to="/user-profile">
+                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                </NavLink>
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Mohammed  I.</h4>
                                     <p className='m-0 new-comment'>New !</p>
@@ -129,7 +133,9 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <div className='pt-2 pb-5'>
                             <div className='m-0 px-2 d-flex align-items-center'>
-                                <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                <NavLink to="/user-profile">
+                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                </NavLink>
                                 <div className='px-4'>
                                     <h4 className='p-0 m-0 heading-color'>Jordan  K.</h4>
                                     <p className='m-0 new-comment'>New !</p>
