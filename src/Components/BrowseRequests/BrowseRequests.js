@@ -10,24 +10,73 @@ import SearchIcon from "@material-ui/icons/Search";
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import CloseIcon from '@mui/icons-material/Close';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import Select from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
+import Slider from '@mui/material/Slider';
 import "./BrowseRequests.css";
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250
+        }
+    }
+};
+
+const names = [
+    "Oliver Hansen",
+    "Van Henry",
+    "April Tucker",
+    "Ralph Hubbard",
+    "Omar Alexander",
+    "Carlos Abbott",
+    "Miriam Wagner",
+    "Bradley Wilkerson",
+    "Virginia Andrews",
+    "Kelly Snyder"
+];
+
+function valuetext(value) {
+    return `${value}°C`;
+}
+
+const defaultState = {
+    category: [],
+    rangeValue: [0, 20],
+    minRangeValue: 0,
+    maxRangeValue: 20,
+}
 
 const BrowseRequests = () => {
     const [detail, setDetail] = useState(false);
-    const [state, setState] = useState({
+    const [state, setState] = useState(defaultState);
+    const [toggleShow, setToggleShow] = useState({
         left: false,
     });
+
+
+    const handleRangeChange = (event, newValue) => {
+        setState((prevState) => ({ ...prevState, rangeValue: newValue, minRangeValue: newValue[0], maxRangeValue: newValue[1] }));
+    };
+
+    const handleMinimumRange = (event) => {
+        setState((prevState) => ({ ...prevState, minRangeValue: event.target.value, rangeValue: [event.target.value, state.maxRangeValue] }));
+    };
+
+    const handleMaximumRange = (event) => {
+        setState((prevState) => ({ ...prevState, maxRangeValue: event.target.value, rangeValue: [state.minRangeValue, event.target.value] }));
+    };
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -37,45 +86,99 @@ const BrowseRequests = () => {
         ) {
             return;
         }
-        setState({ ...state, [anchor]: open });
+        setToggleShow({ ...toggleShow, [anchor]: open });
+    };
+
+    const selectCategory = (event) => {
+        const {
+            target: { value }
+        } = event;
+        setState((prevState) => ({ ...prevState, category: typeof value === "string" ? value.split(",") : value }));
     };
 
     const list = (anchor) => (
         <Box
-            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, marginTop: '60px' }}
+            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 270, marginTop: '60px', padding: '0px 8px' }}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
         >
-            <div className='d-flex justify-content-between align-items-center my-2'>
-                <button className='p-0 m-0 px-2 backBtn d-flex justify-content-between align-items-center'> <KeyboardBackspaceIcon style={{ fontSize: '35px' }} /> <p className='p-0 m-0 px-2'>Back</p></button>
-                <CloseIcon style={{ fontSize: '35px' }} />
+            <div className='d-flex justify-content-end align-items-center py-2 mt-2' onClick={toggleDrawer(anchor, false)}>
+                <ChevronLeftIcon style={{ fontSize: '30px' }} />
             </div>
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+            <Divider style={{ backgroundColor: '#a9a4a4' }} />
+            <div className='d-flex justify-content-center align-items-center my-3'>
+                <FormControl fullWidth size="small">
+                    <InputLabel id="demo-multiple-checkbox-label">Category</InputLabel>
+                    <Select
+                        labelId="demo-multiple-checkbox-label"
+                        id="demo-multiple-checkbox"
+                        multiple
+                        value={state.category}
+                        onChange={selectCategory}
+                        input={<OutlinedInput label="Category" />}
+                        renderValue={(selected) => selected.join(", ")}
+                        MenuProps={MenuProps}
+                    >
+                        {names.map((name) => (
+                            <MenuItem key={name} value={name}>
+                                <Checkbox checked={state.category.indexOf(name) > -1} />
+                                <ListItemText primary={name} />
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
+            <div className='my-3'>
+                <p className='p-0 m-0'>Distance</p>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <Box sx={{ width: 250 }}>
+                        <Slider
+                            getAriaLabel={() => 'Temperature range'}
+                            value={state.rangeValue}
+                            onChange={handleRangeChange}
+                            valueLabelDisplay="auto"
+                            step={20}
+                            getAriaValueText={valuetext}
+                        />
+                        <Box className='d-flex justify-content-between'>
+                            <FormControl sx={{ minWidth: 115 }} size="small">
+                                <InputLabel id="demo-select-small">Min</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={state.minRangeValue}
+                                    label="Min"
+                                    onChange={handleMinimumRange}
+                                >
+                                    <MenuItem value={0}>5 km</MenuItem>
+                                    <MenuItem value={20}>25 km</MenuItem>
+                                    <MenuItem value={40}>50 km</MenuItem>
+                                    <MenuItem value={60}>75 km</MenuItem>
+                                    <MenuItem value={80}>100 km</MenuItem>
+                                    <MenuItem value={100}>125 km</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <span className='d-flex justify-content-center align-items-center'>-</span>
+                            <FormControl sx={{ minWidth: 115 }} size="small">
+                                <InputLabel id="demo-select-small">Max</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={state.maxRangeValue}
+                                    label="Max"
+                                    onChange={handleMaximumRange}
+                                >
+                                    <MenuItem value={0}>10 km</MenuItem>
+                                    <MenuItem value={20}>20 km</MenuItem>
+                                    <MenuItem value={40}>50 km</MenuItem>
+                                    <MenuItem value={60}>70 km</MenuItem>
+                                    <MenuItem value={80}>100 km</MenuItem>
+                                    <MenuItem value={100}>150+ km</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Box>
+                </div>
+            </div>
         </Box>
     );
 
@@ -418,8 +521,7 @@ const BrowseRequests = () => {
                             <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
                             <SwipeableDrawer
                                 anchor={'left'}
-                                open={state['left']}
-                                onClose={toggleDrawer('left', false)}
+                                open={toggleShow['left']}
                                 onOpen={toggleDrawer('left', true)}
                             >
                                 {list('left')}
