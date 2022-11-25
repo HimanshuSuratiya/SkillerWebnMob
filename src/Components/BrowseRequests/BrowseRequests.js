@@ -47,15 +47,22 @@ const names = [
     "Kelly Snyder"
 ];
 
-function valuetext(value) {
-    return `${value}°C`;
+function valuetextDistance(value) {
+    return `${value}`;
+}
+
+function valuetextTaskBudget(value) {
+    return `${value}`;
 }
 
 const defaultState = {
     category: [],
-    rangeValue: [0, 20],
-    minRangeValue: 0,
-    maxRangeValue: 20,
+    distanceRangeValue: [0, 20],
+    taskBudgetRangeValue: [0, 20],
+    distanceMinRangeValue: 0,
+    distanceMaxRangeValue: 20,
+    taskBudgetMinRangeValue: 0,
+    taskBudgetMaxRangeValue: 20,
 }
 
 const BrowseRequests = () => {
@@ -66,16 +73,28 @@ const BrowseRequests = () => {
     });
 
 
-    const handleRangeChange = (event, newValue) => {
-        setState((prevState) => ({ ...prevState, rangeValue: newValue, minRangeValue: newValue[0], maxRangeValue: newValue[1] }));
+    const handleDistanceRangeChange = (event, newValue) => {
+        setState((prevState) => ({ ...prevState, distanceRangeValue: newValue, distanceMinRangeValue: newValue[0], distanceMaxRangeValue: newValue[1] }));
     };
 
-    const handleMinimumRange = (event) => {
-        setState((prevState) => ({ ...prevState, minRangeValue: event.target.value, rangeValue: [event.target.value, state.maxRangeValue] }));
+    const handleDistanceMinimumRange = (event) => {
+        setState((prevState) => ({ ...prevState, distanceMinRangeValue: event.target.value, distanceRangeValue: [event.target.value, state.distanceMaxRangeValue] }));
     };
 
-    const handleMaximumRange = (event) => {
-        setState((prevState) => ({ ...prevState, maxRangeValue: event.target.value, rangeValue: [state.minRangeValue, event.target.value] }));
+    const handleDistanceMaximumRange = (event) => {
+        setState((prevState) => ({ ...prevState, distanceMaxRangeValue: event.target.value, distanceRangeValue: [state.distanceMinRangeValue, event.target.value] }));
+    };
+
+    const handleTaskBudgetRangeChange = (event, newValue) => {
+        setState((prevState) => ({ ...prevState, taskBudgetRangeValue: newValue, taskBudgetMinRangeValue: newValue[0], taskBudgetMaxRangeValue: newValue[1] }));
+    };
+
+    const handleTaskBudgetMinimumRange = (event) => {
+        setState((prevState) => ({ ...prevState, taskBudgetMinRangeValue: event.target.value, taskBudgetRangeValue: [event.target.value, state.taskBudgetMaxRangeValue] }));
+    };
+
+    const handleTaskBudgetMaximumRange = (event) => {
+        setState((prevState) => ({ ...prevState, taskBudgetMaxRangeValue: event.target.value, taskBudgetRangeValue: [state.taskBudgetMinRangeValue, event.target.value] }));
     };
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -133,11 +152,10 @@ const BrowseRequests = () => {
                     <Box sx={{ width: 250 }}>
                         <Slider
                             getAriaLabel={() => 'Temperature range'}
-                            value={state.rangeValue}
-                            onChange={handleRangeChange}
-                            valueLabelDisplay="auto"
+                            value={state.distanceRangeValue}
+                            onChange={handleDistanceRangeChange}
                             step={20}
-                            getAriaValueText={valuetext}
+                            getAriaValueText={valuetextDistance}
                         />
                         <Box className='d-flex justify-content-between'>
                             <FormControl sx={{ minWidth: 115 }} size="small">
@@ -145,9 +163,9 @@ const BrowseRequests = () => {
                                 <Select
                                     labelId="demo-select-small"
                                     id="demo-select-small"
-                                    value={state.minRangeValue}
+                                    value={state.distanceMinRangeValue}
                                     label="Min"
-                                    onChange={handleMinimumRange}
+                                    onChange={handleDistanceMinimumRange}
                                 >
                                     <MenuItem value={0}>5 km</MenuItem>
                                     <MenuItem value={20}>25 km</MenuItem>
@@ -163,9 +181,9 @@ const BrowseRequests = () => {
                                 <Select
                                     labelId="demo-select-small"
                                     id="demo-select-small"
-                                    value={state.maxRangeValue}
+                                    value={state.distanceMaxRangeValue}
                                     label="Max"
-                                    onChange={handleMaximumRange}
+                                    onChange={handleDistanceMaximumRange}
                                 >
                                     <MenuItem value={0}>10 km</MenuItem>
                                     <MenuItem value={20}>20 km</MenuItem>
@@ -173,6 +191,67 @@ const BrowseRequests = () => {
                                     <MenuItem value={60}>70 km</MenuItem>
                                     <MenuItem value={80}>100 km</MenuItem>
                                     <MenuItem value={100}>150+ km</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Box>
+                </div>
+            </div>
+            <div className='my-3'>
+                <p className='p-0 m-0'>Task Budget</p>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <Box sx={{ width: 250 }}>
+                        <Slider
+                            getAriaLabel={() => 'Temperature range'}
+                            value={state.taskBudgetRangeValue}
+                            onChange={handleTaskBudgetRangeChange}
+                            step={10}
+                            getAriaValueText={valuetextTaskBudget}
+                        />
+                        <Box className='d-flex justify-content-between'>
+                            <FormControl sx={{ minWidth: 115 }} size="small">
+                                <InputLabel id="demo-select-small">Min</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={state.taskBudgetMinRangeValue}
+                                    label="Min"
+                                    onChange={handleTaskBudgetMinimumRange}
+                                >
+                                    <MenuItem value={0}>$5</MenuItem>
+                                    <MenuItem value={10}>$10</MenuItem>
+                                    <MenuItem value={20}>$50</MenuItem>
+                                    <MenuItem value={30}>$100</MenuItem>
+                                    <MenuItem value={40}>$200</MenuItem>
+                                    <MenuItem value={50}>$500</MenuItem>
+                                    <MenuItem value={60}>$1000</MenuItem>
+                                    <MenuItem value={70}>$1500</MenuItem>
+                                    <MenuItem value={80}>$2000</MenuItem>
+                                    <MenuItem value={90}>$5000</MenuItem>
+                                    <MenuItem value={100}>$9999</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <span className='d-flex justify-content-center align-items-center'>-</span>
+                            <FormControl sx={{ minWidth: 115 }} size="small">
+                                <InputLabel id="demo-select-small">Max</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={state.taskBudgetMaxRangeValue}
+                                    label="Max"
+                                    onChange={handleTaskBudgetMaximumRange}
+                                >
+                                    <MenuItem value={0}>$5</MenuItem>
+                                    <MenuItem value={10}>$10</MenuItem>
+                                    <MenuItem value={20}>$50</MenuItem>
+                                    <MenuItem value={30}>$100</MenuItem>
+                                    <MenuItem value={40}>$200</MenuItem>
+                                    <MenuItem value={50}>$500</MenuItem>
+                                    <MenuItem value={60}>$1000</MenuItem>
+                                    <MenuItem value={70}>$1500</MenuItem>
+                                    <MenuItem value={80}>$2000</MenuItem>
+                                    <MenuItem value={90}>$5000</MenuItem>
+                                    <MenuItem value={100}>$9999</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
