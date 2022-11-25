@@ -90,3 +90,14 @@
     border: 2px solid #188dc7;
     background: #8fc1e2;
 }
+
+.browser-request-range-slider .css-eg0mwd-MuiSlider-thumb {
+    width: 14px;
+    height: 14px;
+}
+
+.filter-heading {
+    margin-bottom: 10px !important;
+    color: #000;
+    font-size: 20px;
+}

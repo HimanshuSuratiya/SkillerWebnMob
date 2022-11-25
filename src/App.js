@@ -16,6 +16,7 @@ import BrowseRequests from "./Components/BrowseRequests/BrowseRequests";
 import MyTasks from "./Components/MyTasks/MyTasks";
 import ForgetPassword from "./Components/Loginandcreateaccount/ForgetPassword/ForgetPassword";
 import UserProfile from "./Components/UserProfile/UserProfile";
+import "./App.css";
 
 const App = () => {
   useEffect(() => {
