@@ -109,7 +109,8 @@ const defaultState = {
     selectedTab: 0,
     learningMethod: 1,
     learningMethodTab: 0,
-    location: '',
+    Country: '',
+    city: '',
     catergory: '',
     dateTime: dayjs(new Date()),
 }
@@ -158,8 +159,12 @@ const PostATasker = () => {
         setState((prevState) => ({ ...prevState, catergory: event.target.value }));
     };
 
-    const selectLocation = (event) => {
-        setState((prevState) => ({ ...prevState, location: event.target.value }));
+    const selectCity = (event) => {
+        setState((prevState) => ({ ...prevState, city: event.target.value }));
+    };
+
+    const selectCountry = (event) => {
+        setState((prevState) => ({ ...prevState, Country: event.target.value }));
     };
 
     const selectLearningMethod = (event) => {
@@ -194,6 +199,11 @@ const PostATasker = () => {
             typeof value === 'string' ? value.split(',') : value,
         );
     };
+
+    const handlePostTask = () => {
+        let isLogin = localStorage.getItem('isLogin');
+        parseInt(isLogin) ? navigate('/') : alert('Please login first'); navigate('/login');
+    }
 
     return (
         <>
@@ -230,7 +240,7 @@ const PostATasker = () => {
                         </Tabs>
                         <TabPanel value={state.selectedTab} index={0} style={{ overflow: 'auto', width: '85%' }}>
                             <div style={{ width: '100%' }}>
-                                <h5 className='py-2'>Let's start with the basics</h5>
+                                <h5 className='py-2'>Please enter the task title and its description</h5>
                                 <TextField
                                     className='mt-2'
                                     label="Post Title * "
@@ -272,20 +282,39 @@ const PostATasker = () => {
                             </div>
                             <div style={{ width: '100%' }} className="mt-4">
                                 <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">Select Your Location</InputLabel>
+                                    <InputLabel id="demo-simple-select-label">Select Your Country</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-                                        value={state.location}
-                                        label="Select Your Location"
-                                        onChange={selectLocation}
+                                        value={state.Country}
+                                        label="Select Your Country"
+                                        onChange={selectCountry}
                                     >
-                                        <MenuItem value={1}>{"Location-1"}</MenuItem>
-                                        <MenuItem value={2}>{"Location-2"}</MenuItem>
-                                        <MenuItem value={3}>{"Location-3"}</MenuItem>
-                                        <MenuItem value={4}>{"Location-4"}</MenuItem>
-                                        <MenuItem value={5}>{"Location-5"}</MenuItem>
-                                        <MenuItem value={6}>{"Location-6"}</MenuItem>
+                                        <MenuItem value={1}>{"Country-1"}</MenuItem>
+                                        <MenuItem value={2}>{"Country-2"}</MenuItem>
+                                        <MenuItem value={3}>{"Country-3"}</MenuItem>
+                                        <MenuItem value={4}>{"Country-4"}</MenuItem>
+                                        <MenuItem value={5}>{"Country-5"}</MenuItem>
+                                        <MenuItem value={6}>{"Country-6"}</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+                            <div style={{ width: '100%' }} className="mt-4">
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">Select Your City</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={state.city}
+                                        label="Select Your City"
+                                        onChange={selectCity}
+                                    >
+                                        <MenuItem value={1}>{"City-1"}</MenuItem>
+                                        <MenuItem value={2}>{"City-2"}</MenuItem>
+                                        <MenuItem value={3}>{"City-3"}</MenuItem>
+                                        <MenuItem value={4}>{"City-4"}</MenuItem>
+                                        <MenuItem value={5}>{"City-5"}</MenuItem>
+                                        <MenuItem value={6}>{"City-6"}</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
@@ -297,22 +326,9 @@ const PostATasker = () => {
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DateTimePicker
-                                                label="Date & Time"
+                                                label="Order Due Date"
                                                 value={state.dateTime}
                                                 onChange={handleDateChange}
-                                                renderInput={(params) => <TextField {...params} />}
-                                            />
-                                        </Stack>
-                                    </LocalizationProvider>
-                                </div>
-                            </div>
-                            <div style={{ width: '100%' }}>
-                                <div className='mt-4'>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <Stack spacing={3}>
-                                            <DateTimePicker
-                                                label="Order Due Date"
-                                                minDate={new Date()}
                                                 renderInput={(params) => <TextField {...params} />}
                                             />
                                         </Stack>
@@ -388,7 +404,6 @@ const PostATasker = () => {
                                 <MenuItem value={0}>{"Select Your Learning Method"}</MenuItem>
                                 <MenuItem value={1}>{"Text"}</MenuItem>
                                 <MenuItem value={2}>{"Phone call"}</MenuItem>
-                                <MenuItem value={3}>{"Chat"}</MenuItem>
                             </Select>
                             {state.learningMethod != 0 ?
                                 <Box sx={{ width: '100%', backgroundColor: '' }}>
@@ -396,7 +411,6 @@ const PostATasker = () => {
                                         <Tabs value={state.learningMethodTab} onChange={handleLearningMethodTab} aria-label="basic tabs example">
                                             <Tab label="Text" {...a11yProps(0)} />
                                             <Tab label="Phone call" {...a11yProps(1)} />
-                                            <Tab label="Chat" {...a11yProps(2)} />
                                         </Tabs>
                                     </Box>
                                     <TabPanel value={state.learningMethodTab} index={0} style={{ overflow: 'auto', width: '100%' }}>
@@ -410,9 +424,6 @@ const PostATasker = () => {
                                     </TabPanel>
                                     <TabPanel value={state.learningMethodTab} index={1} style={{ overflow: 'auto', width: '100%' }}>
                                         <h5>Google hangout, zoom, teams, phone call, up to 1 hour or 3 calls</h5>
-                                    </TabPanel>
-                                    <TabPanel value={state.learningMethodTab} index={2} style={{ overflow: 'auto', width: '100%' }}>
-                                        <h5>chat with the service provider to teach you, up to 1 day, whatsapp, teams, local platform</h5>
                                     </TabPanel>
                                 </Box>
                                 : ''}
@@ -430,7 +441,7 @@ const PostATasker = () => {
                         {state.selectedTab < 6 ?
                             <button onClick={() => { handleNextTab(state.selectedTab) }} className={classes.PostATaskerNext}>Next</button>
                             :
-                            <button onClick={() => { navigate('/') }} className={classes.PostATaskerNext}>Submit</button>
+                            <button onClick={() => { handlePostTask() }} className={classes.PostATaskerNext}>Submit</button>
                         }
                     </div>
                 </div>
