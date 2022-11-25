@@ -149,7 +149,7 @@ const BrowseRequests = () => {
             <div className='my-3'>
                 <p className='p-0 m-0'>Distance</p>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <Box sx={{ width: 250 }}>
+                    <Box sx={{ width: 240 }}>
                         <Slider
                             getAriaLabel={() => 'Temperature range'}
                             value={state.distanceRangeValue}
@@ -200,7 +200,7 @@ const BrowseRequests = () => {
             <div className='my-3'>
                 <p className='p-0 m-0'>Task Budget</p>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <Box sx={{ width: 250 }}>
+                    <Box sx={{ width: 240 }}>
                         <Slider
                             getAriaLabel={() => 'Temperature range'}
                             value={state.taskBudgetRangeValue}
