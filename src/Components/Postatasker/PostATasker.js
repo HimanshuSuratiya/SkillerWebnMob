@@ -24,6 +24,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
+import MultiImageInput from "react-multiple-image-input";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -150,6 +151,13 @@ const PostATasker = () => {
     let navigate = useNavigate();
     const [state, setState] = useState(defaultState)
     const [personName, setPersonName] = useState([]);
+    const [images, setImages] = useState({});
+
+    const crop = {
+        unit: "%",
+        aspect: 4 / 3,
+        width: "100"
+    };
 
     const handleLearningMethodTab = (event, newValue) => {
         setState((prevState) => ({ ...prevState, learningMethodTab: newValue, learningMethod: newValue + 1 }));
@@ -428,8 +436,16 @@ const PostATasker = () => {
                                 </Box>
                                 : ''}
                         </TabPanel>
-                        <TabPanel value={state.selectedTab} index={6}>
-                            Item Seven
+                        <TabPanel value={state.selectedTab} index={6} style={{ overflow: 'auto', width: '100%' }}>
+                            <h4>Add Image</h4>
+                            <MultiImageInput
+                                images={images}
+                                setImages={setImages}
+                                max={5}
+                                allowCrop={false}
+                                theme={"light"}
+                                cropConfig={{ crop, ruleOfThirds: true }}
+                            />
                         </TabPanel>
                     </Box>
                 </div>

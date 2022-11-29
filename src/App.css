@@ -1,3 +1,8 @@
 .main-search-bar .MuiInput-underline:after {
     border-bottom: none !important;
 }
+
+.lmMaya {
+    border-radius: 8px;
+    border: 2px solid #c4c4c4 !important;
+}
