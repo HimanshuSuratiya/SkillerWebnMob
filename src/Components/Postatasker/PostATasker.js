@@ -25,6 +25,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 import MultiImageInput from "react-multiple-image-input";
+import { Upload, Button } from "antd";
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
+import "./PostATasker.css";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -145,6 +148,8 @@ function getStyles(name, personName, theme) {
     };
 }
 
+const { Dragger } = Upload;
+
 const PostATasker = () => {
     const theme = useTheme();
     const classes = useStyles();
@@ -152,6 +157,7 @@ const PostATasker = () => {
     const [state, setState] = useState(defaultState)
     const [personName, setPersonName] = useState([]);
     const [images, setImages] = useState({});
+    const [fileList, setFileList] = useState([]);
 
     const crop = {
         unit: "%",
@@ -212,6 +218,22 @@ const PostATasker = () => {
         let isLogin = localStorage.getItem('isLogin');
         parseInt(isLogin) ? navigate('/') : alert('Please login first'); navigate('/login');
     }
+
+    const handleBeforeUpload = (file) => {
+        setFileList([...fileList, file]);
+        return false;
+    };
+
+    const handleChangeFiles = ({ fileList, file }) => {
+        console.log("ON_CHANGE_FILES:", file);
+        setFileList([...fileList]);
+    };
+
+    const handleRemove = (selectedFile) => {
+        return fileList.filter((file) => {
+            return selectedFile.uid !== file.uid;
+        });
+    };
 
     return (
         <>
@@ -428,6 +450,36 @@ const PostATasker = () => {
                                             <p>o Steps</p>
                                             <p>o Expected result</p>
                                             <p>o Verification of expected result</p>
+                                        </div>
+                                        <div className='post-a-tasker-upload-file-section-area'>
+                                            <Dragger
+                                                {...{
+                                                    fileList,
+                                                    defaultFileList: fileList,
+                                                    onRemove: handleRemove,
+                                                    beforeUpload: handleBeforeUpload,
+                                                    multiple: true,
+                                                    onChange: handleChangeFiles,
+                                                    listType: "picture",
+                                                    progress: { showInfo: true },
+                                                    data: (file) => {
+                                                        console.log("DATA:", file);
+                                                    }
+                                                }}
+                                            >
+                                                <p className="ant-upload-drag-icon p-0 m-0 d-flex justify-content-center"> <DriveFolderUploadIcon style={{ fontSize: '45px' }} /> </p>
+                                                <p className="ant-upload-text p-0 m-0 d-flex justify-content-center">Click or drag file to this area to upload  </p>
+                                                <p className="ant-upload-hint p-0 m-0 d-flex justify-content-center">Support for a single or bulk upload. Strictly prohibit from uploading
+                                                    company data or other band files
+                                                </p>
+                                            </Dragger>
+                                            <button
+                                                className='upload-files-btn'
+                                                type="primary"
+                                                disabled={fileList.length === 0}
+                                            >
+                                                Upload files
+                                            </button>
                                         </div>
                                     </TabPanel>
                                     <TabPanel value={state.learningMethodTab} index={1} style={{ overflow: 'auto', width: '100%' }}>
