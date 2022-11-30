@@ -135,3 +135,7 @@
 .task-detail-area p {
     line-height: 20px !important;
 }
+
+.react-photo-gallery--gallery img {
+    border-radius: 5px;
+}

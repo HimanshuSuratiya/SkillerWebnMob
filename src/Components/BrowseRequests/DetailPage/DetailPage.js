@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import "./DetailPage.css";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Avatar from '@mui/material/Avatar';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -12,12 +11,64 @@ import Select from '@mui/material/Select';
 import Rating from '@mui/material/Rating';
 import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import CategoryIcon from '@mui/icons-material/Category';
+import Images from "../../../Images/Image";
+import SchoolIcon from '@mui/icons-material/School';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import TranslateIcon from '@mui/icons-material/Translate';
+
+const photos = [
+    {
+        src: Images.one,
+        width: 3,
+        height: 3
+    },
+    {
+        src: Images.two,
+        width: 1,
+        height: 1
+    },
+    {
+        src: Images.three,
+        width: 3,
+        height: 4
+    },
+    {
+        src: Images.four,
+        width: 3,
+        height: 4
+    },
+    {
+        src: Images.five,
+        width: 3,
+        height: 4
+    },
+    {
+        src: Images.six,
+        width: 3,
+        height: 3
+    },
+];
 
 const DetailPage = ({ setDetail }) => {
     const [moreOption, setMoreOption] = useState('');
+    const [currentImage, setCurrentImage] = useState(0);
+    const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
     const handleChangeMoreOption = (event) => {
         setMoreOption(event.target.value);
+    };
+
+    // const openLightbox = useCallback((event, { photo, index }) => {
+    //     setCurrentImage(index);
+    //     setViewerIsOpen(true);
+    // }, []);
+
+    const closeLightbox = () => {
+        setCurrentImage(0);
+        setViewerIsOpen(false);
     };
 
     return (
@@ -46,7 +97,7 @@ const DetailPage = ({ setDetail }) => {
                                 </div>
                             </div>
                             <div className='d-flex align-items-center post-location-data w-50'>
-                                <EventIcon className='icon-size' />
+                                <CategoryIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
                                     <p className='p-0 m-0'>CATEGORY</p>
                                     <a className='p-0 m-0'>Accountants , Bakers</a>
@@ -71,25 +122,34 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <div className='d-flex'>
                             <div className='d-flex px-2 align-items-center post-location-data w-50'>
-                                <EventIcon className='icon-size' />
+                                <TranslateIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
                                     <p className='p-0 m-0'>LANGUAGE</p>
                                     <a className='p-0 m-0'>English , Spanis</a>
                                 </div>
                             </div>
                             <div className='d-flex align-items-center post-location-data w-50'>
-                                <EventIcon className='icon-size' />
+                                <SchoolIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
                                     <p className='p-0 m-0'>SKILLS</p>
                                     <a className='p-0 m-0'>React.js, javscript, html</a>
                                 </div>
                             </div>
                         </div>
+                        <div className='d-flex'>
+                            <div className='d-flex px-2 align-items-center post-location-data w-50'>
+                                <LocalLibraryIcon className='icon-size' />
+                                <div className='px-1 posted-area'>
+                                    <p className='p-0 m-0'>LEARNING METHOD</p>
+                                    <a className='p-0 m-0'>Phone calls</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className='col-lg-4 py-2'>
-                        <div className='' style={{ border: '1px solid black', borderRadius: '4px' }}>
-                            <h4 className='p-0 m-0 py-2 d-flex align-item-center justify-content-center heading-color'>Task Budget</h4>
-                            <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '32px' }}>$50</p>
+                        <div className='py-3' style={{ border: '1px solid black', borderRadius: '4px' }}>
+                            <h3 className='p-0 m-0 py-3 d-flex align-item-center justify-content-center heading-color'>Task Budget</h3>
+                            <p className='p-0 m-0 py-1 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$50</p>
                             <div className="d-flex justify-content-center py-2">
                                 <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' >Make an offer</button>
                             </div>
@@ -120,8 +180,26 @@ const DetailPage = ({ setDetail }) => {
                         <h5 className='p-0 m-0 heading-color'>Description</h5>
                         <p className='p-0 m-0'>Your task may be impacted. See Safety Centre for info. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     </div>
-                    <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
-                    <div className='py-3'>
+                    <div className='p-2'>
+                        <h4 className='p-0 m-0 py-2 heading-color'>PHOTOS</h4>
+                        <Gallery photos={photos} />
+                        <ModalGateway>
+                            {viewerIsOpen ? (
+                                <Modal onClose={closeLightbox}>
+                                    <Carousel
+                                        currentIndex={currentImage}
+                                        views={photos.map((x) => ({
+                                            ...x,
+                                            srcset: x.srcSet,
+                                            caption: x.title
+                                        }))}
+                                    />
+                                </Modal>
+                            ) : null}
+                        </ModalGateway>
+                    </div>
+                    <Divider className='mx-2 my-5' style={{ backgroundColor: '#a9a4a4' }} />
+                    <div className='py-3 pt-0'>
                         <h4 className='p-0 m-0 px-2 heading-color'>OFFERS</h4>
                         <div className='py-4'>
                             <div className='p-0 m-0 px-2 d-flex align-items-center'>
