@@ -3,8 +3,6 @@ import "./DetailPage.css";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Avatar from '@mui/material/Avatar';
-import DoneIcon from '@mui/icons-material/Done';
-import CircularProgress from '@mui/material/CircularProgress';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EventIcon from '@mui/icons-material/Event';
 import InputLabel from '@mui/material/InputLabel';
@@ -12,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Rating from '@mui/material/Rating';
+import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 const DetailPage = ({ setDetail }) => {
@@ -28,18 +27,16 @@ const DetailPage = ({ setDetail }) => {
                     <div className='col-lg-8'>
                         <div className='d-flex align-items-center justify-content-between task-status-main-area p-2'>
                             <div className='d-flex align-items-center task-status-area'>
-                                <p className='task-status d-flex align-items-center'><DoneIcon style={{ fontSize: '20px', color: '#fff' }} /> Open</p>
-                                <p className='task-status d-flex align-items-center'><CircularProgress className='circular-progress' /> Assigned</p>
-                                <p className='task-status d-flex align-items-center'><CircularProgress className='circular-progress' /> Completed</p>
+                                <p className='task-status d-flex align-items-center'>On progress</p>
                             </div>
-                            <p className='follow-user d-flex align-items-center'><FavoriteBorderIcon className="follow-icon" /> Follow</p>
+                            <p className='follow-user d-flex align-items-center'>Cancel</p>
                         </div>
                         <div className='p-2'>
                             <h4 className='task-status-heading text-uppercase heading-color'>Embroidery knitted or heated onto Christmas stockings</h4>
                             <p className='p-0 m-0 d-flex returntomap align-items-center' onClick={() => { setDetail(false) }}><ArrowBackIcon className="follow-icon" /> Return to map</p>
                         </div>
-                        <div className='p-2 d-flex justify-content-between'>
-                            <div className='d-flex align-items-center post-location-data'>
+                        <div className='d-flex'>
+                            <div className='d-flex align-items-center post-location-data w-50'>
                                 <NavLink to="/user-profile">
                                     <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2202413/profilepic-dcf6a39c355c95ad9e930b974af69496.jpeg?width=64&height=64" sx={{ width: 45, height: 45 }} />
                                 </NavLink>
@@ -48,24 +45,45 @@ const DetailPage = ({ setDetail }) => {
                                     <a className='p-0 m-0'>Sarah D.</a>
                                 </div>
                             </div>
-                            <div className='d-flex align-items-center post-location-data'>
-                                <LocationOnIcon className='icon-size' />
-                                <div className='px-1 posted-area'>
-                                    <p className='p-0 m-0'>LOCATION</p>
-                                    <a className='p-0 m-0'>Remote</a>
-                                </div>
-                            </div>
-                            <div className='d-flex align-items-center post-location-data'>
+                            <div className='d-flex align-items-center post-location-data w-50'>
                                 <EventIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
-                                    <p className='p-0 m-0'>DUE DATE</p>
-                                    <a className='p-0 m-0'>Sat,19th Nov 2022</a>
+                                    <p className='p-0 m-0'>CATEGORY</p>
+                                    <a className='p-0 m-0'>Accountants , Bakers</a>
                                 </div>
                             </div>
                         </div>
-                        <div className='p-2'>
-                            <h5 className='p-0 m-0 heading-color'>GOVERNMENT COVID-19 RESTRICTIONS HAVE CHANGED.</h5>
-                            <p className='p-0 m-0'>Your task may be impacted. See Safety Centre for info.</p>
+                        <div className='d-flex'>
+                            <div className='px-2 d-flex align-items-center post-location-data w-50'>
+                                <LocationOnIcon className='icon-size' />
+                                <div className='px-1 posted-area'>
+                                    <p className='p-0 m-0'>LOCATION</p>
+                                    <a className='p-0 m-0'>Kensington Park SA</a>
+                                </div>
+                            </div>
+                            <div className='d-flex align-items-center post-location-data w-50'>
+                                <EventIcon className='icon-size' />
+                                <div className='px-1 posted-area'>
+                                    <p className='p-0 m-0'>ORDER DUE DATE</p>
+                                    <a className='p-0 m-0'>Sat,19th Nov 2022 4:44 PM</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex px-2 align-items-center post-location-data w-50'>
+                                <EventIcon className='icon-size' />
+                                <div className='px-1 posted-area'>
+                                    <p className='p-0 m-0'>LANGUAGE</p>
+                                    <a className='p-0 m-0'>English , Spanis</a>
+                                </div>
+                            </div>
+                            <div className='d-flex align-items-center post-location-data w-50'>
+                                <EventIcon className='icon-size' />
+                                <div className='px-1 posted-area'>
+                                    <p className='p-0 m-0'>SKILLS</p>
+                                    <a className='p-0 m-0'>React.js, javscript, html</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='col-lg-4 py-2'>
@@ -98,9 +116,14 @@ const DetailPage = ({ setDetail }) => {
                     </div>
                 </div>
                 <div>
+                    <div className='p-2'>
+                        <h5 className='p-0 m-0 heading-color'>Description</h5>
+                        <p className='p-0 m-0'>Your task may be impacted. See Safety Centre for info. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
                     <div className='py-3'>
-                        <h5 className='p-0 m-0 px-2 heading-color'>Offers</h5>
-                        <div className='pt-2 pb-5'>
+                        <h4 className='p-0 m-0 px-2 heading-color'>OFFERS</h4>
+                        <div className='py-4'>
                             <div className='p-0 m-0 px-2 d-flex align-items-center'>
                                 <NavLink to="/user-profile">
                                     <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
@@ -114,7 +137,8 @@ const DetailPage = ({ setDetail }) => {
                             <p className='p-0 m-0 px-2'>I have many years of experience</p>
                             <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>About 1 hour ago</p>
                         </div>
-                        <div className='pt-2 pb-5'>
+                        <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div className='py-4'>
                             <div className='m-0 px-2 d-flex align-items-center'>
                                 <NavLink to="/user-profile">
                                     <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
@@ -131,7 +155,8 @@ const DetailPage = ({ setDetail }) => {
                             <p className='p-0 m-0 px-2'>Hi, I have 2 tonne van, I have blankets and straps needed, happy to do the job, I’ll look after your stuff, I’ve done furniture removal before, check my 5 star customers feedback</p>
                             <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>About 20 mins ago</p>
                         </div>
-                        <div className='pt-2 pb-5'>
+                        <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div className='py-4'>
                             <div className='m-0 px-2 d-flex align-items-center'>
                                 <NavLink to="/user-profile">
                                     <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
@@ -148,6 +173,7 @@ const DetailPage = ({ setDetail }) => {
                             <p className='p-0 m-0 px-2'>Two removalists with a large 4 ton van with a manual ramp too load up heavy items, all the moving equipment, tie downs, safety blankets, trolleys, dollys. We are fully insured. Price includes all expenses on my end,  includes AirTasker fee, Fuel, Labour, GST, Dumping fees.</p>
                             <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>About 2 days ago</p>
                         </div>
+                        <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
                     </div>
                     <div className='task-detail-area'>
                         <div className='py-2'>
