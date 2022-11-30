@@ -104,10 +104,10 @@
 
 .my-task-single-line-card {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .my-task-single-card-width {
-    width: 30%;
+    width: 32.5%;
 }

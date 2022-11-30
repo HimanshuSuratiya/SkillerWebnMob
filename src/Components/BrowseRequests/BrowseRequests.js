@@ -21,6 +21,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import Slider from '@mui/material/Slider';
+import Tooltip from '@mui/material/Tooltip';
+import ListIcon from '@mui/icons-material/List';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import "./BrowseRequests.css";
 
 const ITEM_HEIGHT = 48;
@@ -63,6 +66,8 @@ const defaultState = {
     distanceMaxRangeValue: 40,
     taskBudgetMinRangeValue: 10,
     taskBudgetMaxRangeValue: 40,
+    location: '',
+    showMap: false,
 }
 
 const BrowseRequests = () => {
@@ -131,6 +136,10 @@ const BrowseRequests = () => {
         setState((prevState) => ({ ...prevState, category: typeof value === "string" ? value.split(",") : value }));
     };
 
+    const selectLocation = (event) => {
+        setState((prevState) => ({ ...prevState, location: event.target.value }));
+    };
+
     const list = (anchor) => (
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 270, marginTop: '60px', padding: '0px 15px' }}
@@ -165,8 +174,8 @@ const BrowseRequests = () => {
                     </FormControl>
                 </div>
             </div>
-            <Divider className='mt-4 mb-3' style={{ backgroundColor: '#a9a4a4' }} />
-            <div className=''>
+            <Divider className='mt-3 mb-3' style={{ backgroundColor: '#a9a4a4' }} />
+            <div>
                 <h4 className='p-0 m-0 filter-heading'>Distance</h4>
                 <div className='d-flex justify-content-center align-items-center'>
                     <Box sx={{ width: 240 }}>
@@ -218,7 +227,7 @@ const BrowseRequests = () => {
                     </Box>
                 </div>
             </div>
-            <Divider className='my-4' style={{ backgroundColor: '#a9a4a4' }} />
+            <Divider className='my-3' style={{ backgroundColor: '#a9a4a4' }} />
             <div className=''>
                 <h4 className='p-0 m-0 filter-heading'>Task Budget</h4>
                 <div className='d-flex justify-content-center align-items-center'>
@@ -279,6 +288,34 @@ const BrowseRequests = () => {
                             </FormControl>
                         </Box>
                     </Box>
+                </div>
+            </div>
+            <Divider className='my-3' style={{ backgroundColor: '#a9a4a4' }} />
+            <div className='my-2'>
+                <h4 className='p-0 m-0 filter-heading'>Location</h4>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <FormControl size="small" fullWidth>
+                        <InputLabel id="demo-select-small">Location</InputLabel>
+                        <Select
+
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            value={state.location}
+                            label="Location"
+                            onChange={selectLocation}
+                        >
+                            <MenuItem value=""><em>None</em></MenuItem>
+                            <MenuItem value={10}>Location-1</MenuItem>
+                            <MenuItem value={20}>Location-2</MenuItem>
+                            <MenuItem value={30}>Location-3</MenuItem>
+                            <MenuItem value={40}>Location-4</MenuItem>
+                            <MenuItem value={50}>Location-5</MenuItem>
+                            <MenuItem value={60}>Location-6</MenuItem>
+                            <MenuItem value={70}>Location-7</MenuItem>
+                            <MenuItem value={80}>Location-8</MenuItem>
+                            <MenuItem value={90}>Location-9</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
             </div>
         </Box>
@@ -616,35 +653,48 @@ const BrowseRequests = () => {
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='d-flex justify-content-between align-items-center' style={{ marginLeft: '50px', width: '32%', padding: '0px 36px 0px 36px' }}>
-                    <div>
-                        <React.Fragment key={'left'}>
-                            <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
-                            <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
-                            <SwipeableDrawer
-                                anchor={'left'}
-                                open={toggleShow['left']}
-                                onOpen={toggleDrawer('left', true)}
-                            >
-                                {list('left')}
-                            </SwipeableDrawer>
-                        </React.Fragment>
+                <div className='container px-5'>
+                    <div className='d-flex justify-content-between align-items-center'>
+                        <div className='d-flex justify-content-between align-items-center' style={{ width: '33%' }}>
+                            <div>
+                                <React.Fragment key={'left'}>
+                                    <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
+                                    <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
+                                    <SwipeableDrawer
+                                        anchor={'left'}
+                                        open={toggleShow['left']}
+                                        onOpen={toggleDrawer('left', true)}
+                                    >
+                                        {list('left')}
+                                    </SwipeableDrawer>
+                                </React.Fragment>
+                            </div>
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                placeholder={'Search'}
+                                InputProps={{ endAdornment: <SearchIcon /> }}
+                            />
+                        </div>
+                        <div>
+                            {state.showMap ?
+                                <Tooltip title="List">
+                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
+                                </Tooltip> : <Tooltip title="Map">
+                                    <TravelExploreIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
+                                </Tooltip>
+                            }
+                        </div>
                     </div>
-                    <TextField
-                        variant="outlined"
-                        size="small"
-                        placeholder={'Search'}
-                        InputProps={{ endAdornment: <SearchIcon /> }}
-                    />
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
-                        <div className='row'>
-                            <div className='col-lg-4 left-main-Div'>
-                                {TaskData.map((item) => {
-                                    return (
-                                        <>
+                        {state.showMap ?
+                            <div className='row'>
+                                <div className='col-lg-4 left-main-Div'>
+                                    {TaskData.map((item) => {
+                                        return (
                                             <div className='m-2 rounded card-main-div' onClick={() => { setDetail(true) }}>
                                                 <div className='px-2 d-flex justify-content-between align-items-center'>
                                                     <h4 className='px-1 m-0 '>{item.taskName}</h4>
@@ -671,22 +721,55 @@ const BrowseRequests = () => {
                                                     <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                 </div>
                                             </div>
-                                        </>
-                                    )
-                                })}
+                                        )
+                                    })}
+                                </div>
+                                <div className='col-lg-8 right-main-div'>
+                                    {detail
+                                        ? <DetailPage setDetail={setDetail} /> : state.showMap &&
+                                        <p style={{ height: '100%', width: '100%' }}>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
+                                            </iframe>
+                                        </p>
+                                    }
+                                </div>
                             </div>
-                            <div className='col-lg-8 right-main-div'>
-                                {detail
-                                    ?
-                                    <DetailPage setDetail={setDetail} />
-                                    :
-                                    <p style={{ height: '100%', width: '100%' }}>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
-                                        </iframe>
-                                    </p>
-                                }
+                            :
+                            <div className='row'>
+                                <div className='left-main-Div my-task-single-line-card'>
+                                    {TaskData.map((item) => {
+                                        return (
+                                            <div className='m-2 rounded card-main-div my-task-single-card-width' onClick={() => { setDetail(true); setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }}>
+                                                <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                    <span className='px-1 dollerPrice'>${item.price}</span>
+                                                </div>
+                                                <div className='px-2 my-1 d-flex justify-content-between'>
+                                                    <div className='d-flex flex-column'>
+                                                        <div className='d-flex align-items-center'>
+                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                        </div>
+                                                        <div className='d-flex align-items-center'>
+                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                        </div>
+                                                        <div className='d-flex align-items-center'>
+                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <Avatar src="/broken-image.jpg" />
+                                                    </div>
+                                                </div>
+                                                <Divider style={{ backgroundColor: 'gray' }} />
+                                                <div className='px-2'>
+                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </section>

@@ -60,6 +60,7 @@ const defaultState = {
     taskBudgetRangeValue: [10, 40],
     distanceMinRangeValue: 20,
     distanceMaxRangeValue: 40,
+    location: '',
     taskBudgetMinRangeValue: 10,
     taskBudgetMaxRangeValue: 40,
 }
@@ -129,6 +130,10 @@ const MyTasks = () => {
         setState((prevState) => ({ ...prevState, category: typeof value === "string" ? value.split(",") : value }));
     };
 
+    const selectLocation = (event) => {
+        setState((prevState) => ({ ...prevState, location: event.target.value }));
+    };
+
     const list = (anchor) => (
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 270, marginTop: '60px', padding: '0px 15px' }}
@@ -163,8 +168,8 @@ const MyTasks = () => {
                     </FormControl>
                 </div>
             </div>
-            <Divider className='mt-4 mb-3' style={{ backgroundColor: '#a9a4a4' }} />
-            <div className=''>
+            <Divider className='mt-3 mb-3' style={{ backgroundColor: '#a9a4a4' }} />
+            <div>
                 <h4 className='p-0 m-0 filter-heading'>Distance</h4>
                 <div className='d-flex justify-content-center align-items-center'>
                     <Box sx={{ width: 240 }}>
@@ -216,7 +221,7 @@ const MyTasks = () => {
                     </Box>
                 </div>
             </div>
-            <Divider className='my-4' style={{ backgroundColor: '#a9a4a4' }} />
+            <Divider className='my-3' style={{ backgroundColor: '#a9a4a4' }} />
             <div className=''>
                 <h4 className='p-0 m-0 filter-heading'>Task Budget</h4>
                 <div className='d-flex justify-content-center align-items-center'>
@@ -277,6 +282,34 @@ const MyTasks = () => {
                             </FormControl>
                         </Box>
                     </Box>
+                </div>
+            </div>
+            <Divider className='my-3' style={{ backgroundColor: '#a9a4a4' }} />
+            <div className='my-2'>
+                <h4 className='p-0 m-0 filter-heading'>Location</h4>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <FormControl size="small" fullWidth>
+                        <InputLabel id="demo-select-small">Location</InputLabel>
+                        <Select
+
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            value={state.location}
+                            label="Location"
+                            onChange={selectLocation}
+                        >
+                            <MenuItem value=""><em>None</em></MenuItem>
+                            <MenuItem value={10}>Location-1</MenuItem>
+                            <MenuItem value={20}>Location-2</MenuItem>
+                            <MenuItem value={30}>Location-3</MenuItem>
+                            <MenuItem value={40}>Location-4</MenuItem>
+                            <MenuItem value={50}>Location-5</MenuItem>
+                            <MenuItem value={60}>Location-6</MenuItem>
+                            <MenuItem value={70}>Location-7</MenuItem>
+                            <MenuItem value={80}>Location-8</MenuItem>
+                            <MenuItem value={90}>Location-9</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
             </div>
         </Box>
@@ -637,39 +670,37 @@ const MyTasks = () => {
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
-                    <div className='container py-4'>
+                    <div className='container px-5'>
                         <div className='row'>
                             <div className='left-main-Div my-task-single-line-card'>
                                 {TaskData.map((item) => {
                                     return (
-                                        <>
-                                            <div className='m-2 rounded card-main-div my-task-single-card-width'>
-                                                <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                    <span className='px-1 dollerPrice'>${item.price}</span>
-                                                </div>
-                                                <div className='px-2 my-1 d-flex justify-content-between'>
-                                                    <div className='d-flex flex-column'>
-                                                        <div className='d-flex align-items-center'>
-                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                        </div>
+                                        <div className='m-2 rounded card-main-div my-task-single-card-width'>
+                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                <span className='px-1 dollerPrice'>${item.price}</span>
+                                            </div>
+                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                <div className='d-flex flex-column'>
+                                                    <div className='d-flex align-items-center'>
+                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
-                                                        <Avatar src="/broken-image.jpg" />
+                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
                                                     </div>
                                                 </div>
-                                                <Divider style={{ backgroundColor: 'gray' }} />
-                                                <div className='px-2'>
-                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                <div className='d-flex align-items-center'>
+                                                    <Avatar src="/broken-image.jpg" />
                                                 </div>
                                             </div>
-                                        </>
+                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                            <div className='px-2'>
+                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                            </div>
+                                        </div>
                                     )
                                 })}
                             </div>
