@@ -488,7 +488,7 @@ const PostATasker = () => {
                                 </Box>
                                 : ''}
                         </TabPanel>
-                        <TabPanel value={state.selectedTab} index={6} style={{ overflow: 'auto', width: '100%' }}>
+                        <TabPanel className="image-tab-panel" value={state.selectedTab} index={6} style={{ overflow: 'auto', width: '100%' }}>
                             <h4>Add Image</h4>
                             <MultiImageInput
                                 images={images}

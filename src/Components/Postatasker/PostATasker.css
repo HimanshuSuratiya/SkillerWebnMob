@@ -52,3 +52,8 @@
     border: 2px solid #188dc7;
     background: #8fc1e2;
 }
+
+.image-tab-panel .MuiBox-root .MuiTypography-root .sc-AxiKw {
+    border-radius: 8px;
+    border: 2px solid #c4c4c4 !important;
+}
