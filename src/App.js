@@ -51,6 +51,7 @@ const App = () => {
         <Route path="/my-tasks" element={<MyTasks />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/search-posts" element={<BrowseRequests />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
