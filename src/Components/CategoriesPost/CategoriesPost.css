@@ -8,8 +8,10 @@
     border: 1px solid #cdcdcd87;
     box-shadow: rgb(17 17 26 / 5%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 0px 8px;
     border-radius: 10px;
-    width: 27%;
+    width: 345px;
     margin: 10px;
+    height: 435px;
+    position: relative;
 }
 
 .main-category-profile-card:hover {
@@ -31,7 +33,9 @@
 }
 
 .requestBtnDiv {
-    margin-top: 20px;
+    position: absolute;
+    bottom: 25px;
+    width: 86%;
 }
 
 .RequestQuoteBtn {

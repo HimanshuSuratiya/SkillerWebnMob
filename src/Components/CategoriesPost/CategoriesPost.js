@@ -72,7 +72,7 @@ const CategoriesPost = () => {
             <Menu />
             <section >
                 <Banner imgSource={'https://img.freepik.com/free-psd/e-learning-banner-design-template_23-2149113592.jpg?w=2000'} text={name} />
-                <div className='p-4 container'>
+                <div className='p-4 container-fluid'>
                     <div>
                         <div className='one-box-card-area'>
                             {viewPostCategoryData.map((item) => {
@@ -119,7 +119,7 @@ const CategoriesPost = () => {
                                                 </div>
                                             </div>
                                             <div className='d-flex align-items-center justify-content-center requestBtnDiv'>
-                                                <button className='btn btn-primary btn-lg btn-block RequestQuoteBtn' >Request a Quote</button>
+                                                <button className='RequestQuoteBtn' >Request a Quote</button>
                                             </div>
                                         </div>
                                     </>
