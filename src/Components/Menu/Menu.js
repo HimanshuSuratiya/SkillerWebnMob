@@ -98,7 +98,7 @@ const Menu = (props) => {
                                     <li className="nav-item">
                                         <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                     </li>
-                                    <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
+                                    <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
                                     <li className="nav-item dropdown">
                                         <a className={`nav-link dropdown ${state.categories}`} data-bs-toggle="dropdown" onClick={() => {
                                             setState(prevState => ({ ...prevState, categories: state.categories === '' ? 'show' : '', moreMenu: '' }));
@@ -199,8 +199,8 @@ const Menu = (props) => {
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
                                     <li className="nav-item"><NavLink className="nav-link" to="/browse-requests">Browse requests</NavLink></li>
+                                    <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
                                 </ul>
                                 <div className="d-flex">
                                     <form>
@@ -329,11 +329,6 @@ const Menu = (props) => {
                                                                                 My Profile
                                                                             </MenuItem>
                                                                         </NavLink>
-                                                                        <NavLink to="/help">
-                                                                            <MenuItem onClick={handleClose}>
-                                                                                Help
-                                                                            </MenuItem>
-                                                                        </NavLink>
                                                                         <NavLink to="/notification">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 Notification
@@ -347,6 +342,11 @@ const Menu = (props) => {
                                                                         <NavLink to="/search-posts">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 Search posts
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/help">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Help
                                                                             </MenuItem>
                                                                         </NavLink>
                                                                         <Divider style={{ backgroundColor: 'gray' }} />
@@ -383,7 +383,7 @@ const Menu = (props) => {
                                     <li className="nav-item">
                                         <NavLink className="nav-link postATaskbtn" aria-current="page" to="/post-a-task">Post a task</NavLink>
                                     </li>
-                                    <li className="nav-item"><NavLink className="nav-link" to="/contact-us">Contact Us</NavLink></li>
+                                    <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
                                     <li className="nav-item dropdown">
                                         <a className={`nav-link dropdown ${state.categories}`} data-bs-toggle="dropdown" onClick={() => {
                                             setState(prevState => ({ ...prevState, categories: state.categories === '' ? 'show' : '', moreMenu: '' }));
@@ -484,7 +484,7 @@ const Menu = (props) => {
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="nav-item"><NavLink className="nav-link" to="/how-it-works">How it works</NavLink></li>
+                                    <li className="nav-item"><NavLink className="nav-link" to="/browse-requests">Browse requests</NavLink></li>
                                     <Stack direction="row" spacing={2}>
                                         <div>
                                             <Button
@@ -528,14 +528,14 @@ const Menu = (props) => {
                                                                     aria-labelledby="composition-button"
                                                                     onKeyDown={handleListKeyDown}
                                                                 >
-                                                                    <NavLink to="/browse-requests">
-                                                                        <MenuItem onClick={handleClose}>
-                                                                            Browse requests
-                                                                        </MenuItem>
-                                                                    </NavLink>
                                                                     <NavLink to="/help">
                                                                         <MenuItem onClick={handleClose}>
                                                                             Help
+                                                                        </MenuItem>
+                                                                    </NavLink>
+                                                                    <NavLink to="/contact-us">
+                                                                        <MenuItem onClick={handleClose}>
+                                                                            Contact-us
                                                                         </MenuItem>
                                                                     </NavLink>
                                                                 </MenuList>
