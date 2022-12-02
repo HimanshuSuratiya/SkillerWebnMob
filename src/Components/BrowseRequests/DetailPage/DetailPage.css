@@ -139,3 +139,7 @@
 .react-photo-gallery--gallery img {
     border-radius: 5px;
 }
+
+.dialog-comment .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    width: 465px;
+}

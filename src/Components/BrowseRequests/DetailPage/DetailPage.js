@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import "./DetailPage.css";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Avatar from '@mui/material/Avatar';
@@ -18,6 +18,10 @@ import Images from "../../../Images/Image";
 import SchoolIcon from '@mui/icons-material/School';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import TranslateIcon from '@mui/icons-material/Translate';
+import PropTypes from 'prop-types';
+import { TextareaAutosize } from '@mui/material';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
 
 const photos = [
     {
@@ -52,19 +56,61 @@ const photos = [
     },
 ];
 
+const emails = ['username@gmail.com', 'user02@gmail.com'];
+
+function SimpleDialog(props) {
+    const { onClose, selectedValue, open } = props;
+
+    const handleClose = () => {
+        onClose(selectedValue);
+    };
+
+    return (
+        <Dialog onClose={handleClose} open={open} className="dialog-comment">
+            <DialogTitle className="p-0 px-3 py-2">Please enter your comment ?</DialogTitle>
+            <Divider style={{ backgroundColor: '#a9a4a4' }} />
+            <div className='p-3'>
+                <TextareaAutosize
+                    className='p-2'
+                    aria-label="minimum height"
+                    minRows={2}
+                    style={{ width: '100%' }}
+                    placeholder="Please type about something..."
+                />
+            </div>
+            <div className='d-flex align-items-center justify-content-end px-3 mb-3'>
+                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3' onClick={handleClose}>Cancel</button>
+                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClose}>Submit</button>
+            </div>
+        </Dialog>
+    );
+}
+
+SimpleDialog.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+    selectedValue: PropTypes.string.isRequired,
+};
+
 const DetailPage = ({ setDetail }) => {
     const [moreOption, setMoreOption] = useState('');
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState(emails[1]);
 
     const handleChangeMoreOption = (event) => {
         setMoreOption(event.target.value);
     };
 
-    // const openLightbox = useCallback((event, { photo, index }) => {
-    //     setCurrentImage(index);
-    //     setViewerIsOpen(true);
-    // }, []);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (value) => {
+        setOpen(false);
+        setSelectedValue(value);
+    };
 
     const closeLightbox = () => {
         setCurrentImage(0);
@@ -200,16 +246,25 @@ const DetailPage = ({ setDetail }) => {
                     </div>
                     <Divider className='mx-2 my-5' style={{ backgroundColor: '#a9a4a4' }} />
                     <div className='py-3 pt-0'>
-                        <h4 className='p-0 m-0 px-2 heading-color'>OFFERS</h4>
+                        <h4 className='p-0 m-0 px-2 heading-color'>BIDS</h4>
                         <div className='py-4'>
-                            <div className='p-0 m-0 px-2 d-flex align-items-center'>
-                                <NavLink to="/user-profile">
-                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
-                                </NavLink>
-                                <div className='px-4'>
-                                    <h4 className='p-0 m-0 heading-color'>Brunzo Z.</h4>
-                                    <p className='m-0 new-comment'>New !</p>
-                                    <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
+                            <div className='p-0 m-0 px-2 d-flex align-items-center justify-content-between'>
+                                <div className='d-flex'>
+                                    <NavLink to="/user-profile">
+                                        <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5441221/image-89efc0365cc985ed1656290545d9c015.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                    </NavLink>
+                                    <div className='px-4'>
+                                        <h4 className='p-0 m-0 heading-color'>Brunzo Z.</h4>
+                                        <p className='m-0 new-comment'>New !</p>
+                                        <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
+                                    </div>
+                                </div>
+                                <div className='my-2'>
+                                    <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$40</p>
+                                    <div>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpen}>Reject</button>
+                                    </div>
                                 </div>
                             </div>
                             <p className='p-0 m-0 px-2'>I have many years of experience</p>
@@ -217,16 +272,25 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
                         <div className='py-4'>
-                            <div className='m-0 px-2 d-flex align-items-center'>
-                                <NavLink to="/user-profile">
-                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
-                                </NavLink>
-                                <div className='px-4'>
-                                    <h4 className='p-0 m-0 heading-color'>Mohammed  I.</h4>
-                                    <p className='m-0 new-comment'>New !</p>
-                                    <div className='d-flex align-items-center justify-content-end'>
-                                        <Rating className='p-0 m-0 ratingFont' name="read-only" value={4} readOnly />
-                                        <span className='ratingNumberFont'>(65)</span>
+                            <div className='m-0 px-2 d-flex align-items-center justify-content-between'>
+                                <div className='d-flex'>
+                                    <NavLink to="/user-profile">
+                                        <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/1243367/image-830d0c54d494305f887b46065b48fccd.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                    </NavLink>
+                                    <div className='px-4'>
+                                        <h4 className='p-0 m-0 heading-color'>Mohammed  I.</h4>
+                                        <p className='m-0 new-comment'>New !</p>
+                                        <div className='d-flex align-items-center justify-content-end'>
+                                            <Rating className='p-0 m-0 ratingFont' name="read-only" value={4} readOnly />
+                                            <span className='ratingNumberFont'>(65)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='my-2'>
+                                    <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$45</p>
+                                    <div>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpen}>Reject</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,16 +299,25 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
                         <div className='py-4'>
-                            <div className='m-0 px-2 d-flex align-items-center'>
-                                <NavLink to="/user-profile">
-                                    <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
-                                </NavLink>
-                                <div className='px-4'>
-                                    <h4 className='p-0 m-0 heading-color'>Jordan  K.</h4>
-                                    <p className='m-0 new-comment'>New !</p>
-                                    <div className='d-flex align-items-center justify-content-end'>
-                                        <Rating className='p-0 m-0 ratingFont' name="read-only" value={5} readOnly />
-                                        <span className='ratingNumberFont'>(165)</span>
+                            <div className='m-0 px-2 d-flex align-items-center justify-content-between'>
+                                <div className='d-flex'>
+                                    <NavLink to="/user-profile">
+                                        <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/5113175/daf2201a-c641-4b30-9615-1f52d88b1eb8-04da006b57a894675d67ccda1006dc66.jpg?width=136&height=136" sx={{ width: 65, height: 65 }} />
+                                    </NavLink>
+                                    <div className='px-4'>
+                                        <h4 className='p-0 m-0 heading-color'>Jordan  K.</h4>
+                                        <p className='m-0 new-comment'>New !</p>
+                                        <div className='d-flex align-items-center justify-content-end'>
+                                            <Rating className='p-0 m-0 ratingFont' name="read-only" value={5} readOnly />
+                                            <span className='ratingNumberFont'>(165)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='my-2'>
+                                    <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$38</p>
+                                    <div>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
+                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpen}>Reject</button>
                                     </div>
                                 </div>
                             </div>
@@ -256,22 +329,22 @@ const DetailPage = ({ setDetail }) => {
                     <div className='task-detail-area'>
                         <div className='py-2'>
                             <h5 className='p-0 px-2 heading-color detail'>Details</h5>
-                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
+                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizationalI need the help of a professional with a background in learning and development or organizationalI need the help of a professional with a background in learning and development or organizational</p>
                             <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                         </div>
                         <div className='py-2'>
-                            <h5 className='p-0 px-2 heading-color detail'>Details</h5>
-                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
-                            <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
-                        </div>
-                        <div className='py-2'>
-                            <h5 className='p-0 px-2 heading-color detail'>Details</h5>
+                            <h5 className='p-0 px-2 heading-color detail'>About</h5>
                             <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizational</p>
                             <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <SimpleDialog
+                selectedValue={selectedValue}
+                open={open}
+                onClose={handleClose}
+            />
         </>
     );
 };

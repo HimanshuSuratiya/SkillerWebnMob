@@ -679,7 +679,7 @@ const BrowseRequests = () => {
                         <div>
                             {state.showMap ?
                                 <Tooltip title="List">
-                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
+                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setDetail(false) }} style={{ fontSize: '40px' }} />
                                 </Tooltip> : <Tooltip title="Map">
                                     <TravelExploreIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
                                 </Tooltip>
