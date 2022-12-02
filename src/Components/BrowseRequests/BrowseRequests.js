@@ -77,7 +77,6 @@ const BrowseRequests = () => {
         left: false,
     });
 
-
     const handleDistanceRangeChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, distanceRangeValue: newValue, distanceMinRangeValue: newValue[0], distanceMaxRangeValue: newValue[1] }));
     };
@@ -139,6 +138,13 @@ const BrowseRequests = () => {
     const selectLocation = (event) => {
         setState((prevState) => ({ ...prevState, location: event.target.value }));
     };
+
+    const setActiveClass = (id) => {
+        console.log(id, 'aaa')
+        let selectedCard = document.getElementById(`browse-card-${id}`)
+        selectedCard.classList.add("active-card");
+        console.log(selectedCard, 'card')
+    }
 
     const list = (anchor) => (
         <Box
@@ -297,7 +303,6 @@ const BrowseRequests = () => {
                     <FormControl size="small" fullWidth>
                         <InputLabel id="demo-select-small">Location</InputLabel>
                         <Select
-
                             labelId="demo-select-small"
                             id="demo-select-small"
                             value={state.location}
@@ -690,86 +695,53 @@ const BrowseRequests = () => {
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
-                        {state.showMap ?
-                            <div className='row'>
-                                <div className='col-lg-4 left-main-Div'>
-                                    {TaskData.map((item) => {
-                                        return (
-                                            <div className='m-2 rounded card-main-div' onClick={() => { setDetail(true) }}>
-                                                <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                    <span className='px-1 dollerPrice'>${item.price}</span>
-                                                </div>
-                                                <div className='px-2 my-1 d-flex justify-content-between'>
-                                                    <div className='d-flex flex-column'>
-                                                        <div className='d-flex align-items-center'>
-                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                        </div>
+                        <div className='row'>
+                            <div className={`${state.showMap ? 'col-lg-4 left-main-Div' : 'left-main-Div my-task-single-line-card'}`}>
+                                {TaskData.map((item, index) => {
+                                    return (
+                                        <div key={index} id={`browse-card-${index}`} className={`${state.showMap ? 'm-2 rounded card-main-div' : 'm-2 rounded card-main-div my-task-single-card-width'}`} onClick={() => { if (state.showMap) { setActiveClass(index); setDetail(true) } else { setActiveClass(index); setDetail(true); setState((prevState) => ({ ...prevState, showMap: !state.showMap })); } }}>
+                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                <span className='px-1 dollerPrice'>${item.price}</span>
+                                            </div>
+                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                <div className='d-flex flex-column'>
+                                                    <div className='d-flex align-items-center'>
+                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
-                                                        <Avatar src="/broken-image.jpg" />
+                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
                                                     </div>
                                                 </div>
-                                                <Divider style={{ backgroundColor: 'gray' }} />
-                                                <div className='px-2'>
-                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                <div className='d-flex align-items-center'>
+                                                    <Avatar src="/broken-image.jpg" />
                                                 </div>
                                             </div>
-                                        )
-                                    })}
-                                </div>
+                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                            <div className='px-2'>
+                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            {detail ?
                                 <div className='col-lg-8 right-main-div'>
-                                    {detail
-                                        ? <DetailPage setDetail={setDetail} /> : state.showMap &&
-                                        <p style={{ height: '100%', width: '100%' }}>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
-                                            </iframe>
-                                        </p>
-                                    }
+                                    <DetailPage setDetail={setDetail} />
                                 </div>
-                            </div>
-                            :
-                            <div className='row'>
-                                <div className='left-main-Div my-task-single-line-card'>
-                                    {TaskData.map((item) => {
-                                        return (
-                                            <div className='m-2 rounded card-main-div my-task-single-card-width' onClick={() => { setDetail(true); setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }}>
-                                                <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                    <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                    <span className='px-1 dollerPrice'>${item.price}</span>
-                                                </div>
-                                                <div className='px-2 my-1 d-flex justify-content-between'>
-                                                    <div className='d-flex flex-column'>
-                                                        <div className='d-flex align-items-center'>
-                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                        </div>
-                                                        <div className='d-flex align-items-center'>
-                                                            <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <Avatar src="/broken-image.jpg" />
-                                                    </div>
-                                                </div>
-                                                <Divider style={{ backgroundColor: 'gray' }} />
-                                                <div className='px-2'>
-                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                                :
+                                state.showMap &&
+                                <div className='col-lg-8 right-main-div'>
+                                    <p style={{ height: '100%', width: '100%' }}>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sin!4v1668591563864!5m2!1sen!2sin" style={{ border: '0', height: '100%', width: '100%', allowfullScreen: "", loading: "lazy", referrerolicy: "no-referrer-when-downgrade" }}>
+                                        </iframe>
+                                    </p>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
             </section>

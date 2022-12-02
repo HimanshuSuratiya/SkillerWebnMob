@@ -112,3 +112,7 @@
 .my-task-single-card-width {
     width: 378.3px;
 }
+
+.active-card {
+    border: 2px solid #188dc7;
+}
