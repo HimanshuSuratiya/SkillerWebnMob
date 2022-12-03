@@ -68,6 +68,7 @@ const defaultState = {
     taskBudgetMaxRangeValue: 40,
     location: '',
     showMap: false,
+    activeClassId: 'browse-card-3',
 }
 
 const BrowseRequests = () => {
@@ -140,10 +141,16 @@ const BrowseRequests = () => {
     };
 
     const setActiveClass = (id) => {
-        console.log(id, 'aaa')
         let selectedCard = document.getElementById(`browse-card-${id}`)
-        selectedCard.classList.add("active-card");
-        console.log(selectedCard, 'card')
+        let allSelectCard = document.querySelectorAll('.card-main-div');
+        allSelectCard.forEach(item => {
+            if (item.id === selectedCard.id) {
+                item.style.border = '2px solid #188dc7';
+                item.style.boxShadow = 'rgb(24 141 199 / 40%) 5px 5px,rgba(24, 141, 199, 0.3) 10px 10px';
+            } else {
+                item.style = 'none';
+            }
+        });
     }
 
     const list = (anchor) => (
