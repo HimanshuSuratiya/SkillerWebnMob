@@ -112,3 +112,13 @@
 .my-task-single-card-width {
     width: 378.3px;
 }
+
+.my-task-main-tabs-area .MuiTabs-flexContainer.css-heg063-MuiTabs-flexContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-task-tab-panel .MuiBox-root {
+    padding: 10px 0px;
+}

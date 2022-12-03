@@ -21,6 +21,9 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import Slider from '@mui/material/Slider';
 import "../BrowseRequests/BrowseRequests.css";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -67,6 +70,7 @@ const defaultState = {
 
 const MyTasks = () => {
     const [state, setState] = useState(defaultState);
+    const [value, setValue] = React.useState(0);
     const [toggleShow, setToggleShow] = useState({
         left: false,
     });
@@ -133,6 +137,36 @@ const MyTasks = () => {
     const selectLocation = (event) => {
         setState((prevState) => ({ ...prevState, location: event.target.value }));
     };
+
+    function TabPanel(props) {
+        const { children, value, index, ...other } = props;
+        return (
+            <div
+                role="tabpanel"
+                hidden={value !== index}
+                id={`simple-tabpanel-${index}`}
+                aria-labelledby={`simple-tab-${index}`}
+                {...other}
+            >
+                {value === index && (
+                    <Box sx={{ p: 3 }}>
+                        <Typography>{children}</Typography>
+                    </Box>
+                )}
+            </div>
+        );
+    }
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    function a11yProps(index) {
+        return {
+            id: `simple-tab-${index}`,
+            "aria-controls": `simple-tabpanel-${index}`
+        };
+    }
 
     const list = (anchor) => (
         <Box
@@ -317,30 +351,12 @@ const MyTasks = () => {
 
     const TaskData = [
         {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
             taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Cancel',
             offers: 7,
         },
         {
@@ -349,7 +365,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Complete',
             offers: 11,
         },
         {
@@ -358,43 +374,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -403,7 +383,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -412,7 +392,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -430,7 +410,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -448,7 +428,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -457,7 +437,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -466,7 +446,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -484,7 +464,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -502,7 +482,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -511,7 +491,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -520,7 +500,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -538,7 +518,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -556,7 +536,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -565,7 +545,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -574,8 +554,80 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Cancel',
+            offers: 4,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Cancel',
+            offers: 11,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Cancel',
+            offers: 4,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Cancel',
+            offers: 7,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Cancel',
+            offers: 11,
+        },
+        {
+            taskName: 'Move furniture around the house to have laminate layed',
+            price: 100,
+            location: 'Queenstown SA',
+            remote: 'Remote',
+            date: 'Fri, 2 Dec',
+            status: 'Cancel',
+            offers: 7,
+        },
+        {
+            taskName: 'Repair plantation shutter',
+            price: 150,
+            location: 'Prospect SA',
+            remote: 'Remote',
+            date: 'Thu, 17 Nov',
+            status: 'Cancel',
+            offers: 4,
+        },
+        {
+            taskName: 'Photo correction',
+            price: 40,
+            location: 'Kensington Park SA',
+            remote: 'Remote',
+            date: 'Web, 16 Nov',
+            status: 'Pending',
+            offers: 11,
         },
         {
             taskName: 'Repair plantation shutter',
@@ -587,30 +639,12 @@ const MyTasks = () => {
             offers: 4,
         },
         {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
             taskName: 'Move furniture around the house to have laminate layed',
             price: 100,
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Cancel',
             offers: 7,
         },
         {
@@ -619,7 +653,7 @@ const MyTasks = () => {
             location: 'Kensington Park SA',
             remote: 'Remote',
             date: 'Web, 16 Nov',
-            status: 'Open',
+            status: 'Pending',
             offers: 11,
         },
         {
@@ -628,7 +662,7 @@ const MyTasks = () => {
             location: 'Queenstown SA',
             remote: 'Remote',
             date: 'Fri, 2 Dec',
-            status: 'Done',
+            status: 'Complete',
             offers: 7,
         },
         {
@@ -637,7 +671,7 @@ const MyTasks = () => {
             location: 'Prospect SA',
             remote: 'Remote',
             date: 'Thu, 17 Nov',
-            status: 'Assigned',
+            status: 'Cancel',
             offers: 4,
         },
     ]
@@ -672,38 +706,168 @@ const MyTasks = () => {
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
                         <div className='row'>
-                            <div className='left-main-Div my-task-single-line-card'>
-                                {TaskData.map((item) => {
-                                    return (
-                                        <div className='m-2 rounded card-main-div my-task-single-card-width'>
-                                            <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                <span className='px-1 dollerPrice'>${item.price}</span>
-                                            </div>
-                                            <div className='px-2 my-1 d-flex justify-content-between'>
-                                                <div className='d-flex flex-column'>
-                                                    <div className='d-flex align-items-center'>
-                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                            <Box className='p-0 m-0' style={{ borderRadius: '5px' }}>
+                                <Box sx={{ bgcolor: "background.paper" }} style={{ backgroundColor: 'rgb(236, 236, 236)' }}>
+                                    <Tabs
+                                        className='my-task-main-tabs-area'
+                                        value={value}
+                                        onChange={handleChange}
+                                        variant="scrollable"
+                                        scrollButtons
+                                        allowScrollButtonsMobile
+                                        aria-label="scrollable force tabs example"
+                                    >
+                                        <Tab label="Pending" {...a11yProps(0)} />
+                                        <Tab label="Assigned" {...a11yProps(1)} />
+                                        <Tab label="Cancel" {...a11yProps(2)} />
+                                        <Tab label="Complete" {...a11yProps(3)} />
+                                    </Tabs>
+                                </Box>
+                                <TabPanel value={value} index={0} className="my-task-tab-panel">
+                                    <div className='left-main-Div my-task-single-line-card'>
+                                        {TaskData.map((item) => {
+                                            if (item.status === 'Pending') {
+                                                return (
+                                                    <div className='rounded card-main-div my-task-single-card-width'>
+                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                            <span className='px-1 dollerPrice'>${item.price}</span>
+                                                        </div>
+                                                        <div className='px-2 my-1 d-flex justify-content-between'>
+                                                            <div className='d-flex flex-column'>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='d-flex align-items-center'>
+                                                                <Avatar src="/broken-image.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <Divider style={{ backgroundColor: 'gray' }} />
+                                                        <div className='px-2'>
+                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                        </div>
                                                     </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                </TabPanel>
+                                <TabPanel value={value} index={1} className="my-task-tab-panel">
+                                    <div className='left-main-Div my-task-single-line-card'>
+                                        {TaskData.map((item) => {
+                                            if (item.status === 'Assigned') {
+                                                return (
+                                                    <div className='rounded card-main-div my-task-single-card-width'>
+                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                            <span className='px-1 dollerPrice'>${item.price}</span>
+                                                        </div>
+                                                        <div className='px-2 my-1 d-flex justify-content-between'>
+                                                            <div className='d-flex flex-column'>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='d-flex align-items-center'>
+                                                                <Avatar src="/broken-image.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <Divider style={{ backgroundColor: 'gray' }} />
+                                                        <div className='px-2'>
+                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                        </div>
                                                     </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                </TabPanel>
+                                <TabPanel value={value} index={2} className="my-task-tab-panel">
+                                    <div className='left-main-Div my-task-single-line-card'>
+                                        {TaskData.map((item) => {
+                                            if (item.status === 'Cancel') {
+                                                return (
+                                                    <div className='rounded card-main-div my-task-single-card-width'>
+                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                            <span className='px-1 dollerPrice'>${item.price}</span>
+                                                        </div>
+                                                        <div className='px-2 my-1 d-flex justify-content-between'>
+                                                            <div className='d-flex flex-column'>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='d-flex align-items-center'>
+                                                                <Avatar src="/broken-image.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <Divider style={{ backgroundColor: 'gray' }} />
+                                                        <div className='px-2'>
+                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className='d-flex align-items-center'>
-                                                    <Avatar src="/broken-image.jpg" />
-                                                </div>
-                                            </div>
-                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                            <div className='px-2'>
-                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                </TabPanel>
+                                <TabPanel value={value} index={3} className="my-task-tab-panel">
+                                    <div className='left-main-Div my-task-single-line-card'>
+                                        {TaskData.map((item) => {
+                                            if (item.status === 'Complete') {
+                                                return (
+                                                    <div className='rounded card-main-div my-task-single-card-width'>
+                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                            <span className='px-1 dollerPrice'>${item.price}</span>
+                                                        </div>
+                                                        <div className='px-2 my-1 d-flex justify-content-between'>
+                                                            <div className='d-flex flex-column'>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='d-flex align-items-center'>
+                                                                <Avatar src="/broken-image.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <Divider style={{ backgroundColor: 'gray' }} />
+                                                        <div className='px-2'>
+                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                </TabPanel>
+                            </Box>
                         </div>
                     </div>
                 </div>
