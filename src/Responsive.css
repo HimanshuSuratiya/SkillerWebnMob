@@ -92,3 +92,18 @@
 }
 
 /* Contact-us-Responsive */
+
+
+
+
+
+/* Browse Rquest and my task and search post Responsive */
+
+@media only screen and (max-width: 1265px) {
+    .my-task-single-line-card {
+        display: flex;
+        justify-content: space-evenly !important;
+    }
+}
+
+/* Browse Rquest and my task and search post Responsive */

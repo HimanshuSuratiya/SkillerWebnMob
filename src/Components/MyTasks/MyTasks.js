@@ -729,26 +729,28 @@ const MyTasks = () => {
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='d-flex justify-content-between align-items-center' style={{ marginLeft: '50px', width: '32%', padding: '0px 36px 0px 36px' }}>
-                    <div>
-                        <React.Fragment key={'left'}>
-                            <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
-                            <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
-                            <SwipeableDrawer
-                                anchor={'left'}
-                                open={toggleShow['left']}
-                                onOpen={toggleDrawer('left', true)}
-                            >
-                                {list('left')}
-                            </SwipeableDrawer>
-                        </React.Fragment>
+                <div className='container'>
+                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '0px 25px' }}>
+                        <div>
+                            <React.Fragment key={'left'}>
+                                <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
+                                <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
+                                <SwipeableDrawer
+                                    anchor={'left'}
+                                    open={toggleShow['left']}
+                                    onOpen={toggleDrawer('left', true)}
+                                >
+                                    {list('left')}
+                                </SwipeableDrawer>
+                            </React.Fragment>
+                        </div>
+                        <TextField
+                            variant="outlined"
+                            size="small"
+                            placeholder={'Search'}
+                            InputProps={{ endAdornment: <SearchIcon /> }}
+                        />
                     </div>
-                    <TextField
-                        variant="outlined"
-                        size="small"
-                        placeholder={'Search'}
-                        InputProps={{ endAdornment: <SearchIcon /> }}
-                    />
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>

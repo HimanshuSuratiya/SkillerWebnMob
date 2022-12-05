@@ -665,37 +665,37 @@ const BrowseRequests = () => {
             <Menu color={'#8fc1e2'} />
             <section style={{ marginTop: '70px' }}>
                 <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
-                <div className='container px-5'>
-                    <div className='d-flex justify-content-between align-items-center'>
-                        <div className='d-flex justify-content-between align-items-center' style={{ width: '33%' }}>
-                            <div>
-                                <React.Fragment key={'left'}>
-                                    <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
-                                    <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
-                                    <SwipeableDrawer
-                                        anchor={'left'}
-                                        open={toggleShow['left']}
-                                        onOpen={toggleDrawer('left', true)}
-                                    >
-                                        {list('left')}
-                                    </SwipeableDrawer>
-                                </React.Fragment>
-                            </div>
+                <div className='container'>
+                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '0px 25px' }}>
+                        <div style={{ paddingLeft: '10px' }}>
+                            <React.Fragment key={'left'}>
+                                <FilterListIcon onClick={toggleDrawer('left', true)} style={{ cursor: 'pointer' }} />
+                                <Button onClick={toggleDrawer('left', true)}>{'Filter'}</Button>
+                                <SwipeableDrawer
+                                    anchor={'left'}
+                                    open={toggleShow['left']}
+                                    onOpen={toggleDrawer('left', true)}
+                                >
+                                    {list('left')}
+                                </SwipeableDrawer>
+                            </React.Fragment>
+                        </div>
+                        <div className='d-flex align-items-center justify-content-between' style={{ width: '290px' }}>
                             <TextField
                                 variant="outlined"
                                 size="small"
                                 placeholder={'Search'}
                                 InputProps={{ endAdornment: <SearchIcon /> }}
                             />
-                        </div>
-                        <div>
-                            {state.showMap ?
-                                <Tooltip title="List">
-                                    <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setDetail(false) }} style={{ fontSize: '40px' }} />
-                                </Tooltip> : <Tooltip title="Map">
-                                    <TravelExploreIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
-                                </Tooltip>
-                            }
+                            <div>
+                                {state.showMap ?
+                                    <Tooltip title="List">
+                                        <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); setDetail(false) }} style={{ fontSize: '40px' }} />
+                                    </Tooltip> : <Tooltip title="Map">
+                                        <TravelExploreIcon onClick={() => { setState((prevState) => ({ ...prevState, showMap: !state.showMap })); }} style={{ fontSize: '40px' }} />
+                                    </Tooltip>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
