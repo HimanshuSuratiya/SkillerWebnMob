@@ -113,7 +113,7 @@
     width: 378.3px;
 }
 
-.my-task-main-tabs-area .MuiTabs-flexContainer.css-heg063-MuiTabs-flexContainer {
+.my-task-main-tabs-area .MuiTabs-flexContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
