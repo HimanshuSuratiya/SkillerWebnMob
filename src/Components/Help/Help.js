@@ -9,7 +9,6 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { borderRadius } from '@mui/system';
 import RaiseTicket from "./RaiseTicket";
 
 const Accordion = styled((props) => (
@@ -61,7 +60,6 @@ const useStyles = makeStyles(() => ({
         padding: '4px 20px',
         fontSize: '16px',
         transition: '.5s',
-        marginTop: '18px',
         borderRadius: '20px',
         border: '2px solid #188dc7',
         "&:hover": {
@@ -69,6 +67,10 @@ const useStyles = makeStyles(() => ({
             border: '2px solid #188dc7',
             background: '#8fc1e2',
         },
+    },
+
+    help_page_main_accordian_heading: {
+        fontWeight: '600 !important'
     },
 }));
 
@@ -88,16 +90,16 @@ const Help = () => {
                 <Banner imgSource={Images.help} text="Help" />
                 <div className="help py-5">
                     <div className='container'>
-                        <div className='px-2 d-flex justify-content-between'>
-                            <h3 className='px-1 m-0 mb-3'>Frequently Asked Questions</h3>
+                        <div className='px-2 d-flex align-items-center justify-content-between'>
+                            <h3 className='px-1 m-0 main-help-frequently-asked'>Frequently Asked Questions</h3>
                             <button className={`btn btn-primary btn-lg btn-block ${classes.Raise}`} onClick={() => { setPopUp(!popUp) }}>Raise ticket</button>
                         </div>
                         <Accordion className={classes.main_accordion_help} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                <Typography>How do I apply to teach on Eduline ?</Typography>
+                                <Typography className={`${classes.help_page_main_accordian_heading} help-page-main-accordian-heading`}>How do I apply to teach on Eduline ?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography className={classes.main_accordion_answer}>
+                                <Typography className={`${classes.main_accordion_answer} help-page-main-text`} >
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                     malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
                                     sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
@@ -107,7 +109,7 @@ const Help = () => {
                         </Accordion>
                         <Accordion className={classes.main_accordion_help} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                             <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                                <Typography>Can I track the volume of tickets associated with various labels ?</Typography>
+                                <Typography className={`${classes.help_page_main_accordian_heading} help-page-main-accordian-heading`}>Can I track the volume of tickets associated with various labels ?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography className={classes.main_accordion_answer}>
@@ -120,7 +122,7 @@ const Help = () => {
                         </Accordion>
                         <Accordion className={classes.main_accordion_help} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                             <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                                <Typography>Do I need teaching experience ?</Typography>
+                                <Typography className={`${classes.help_page_main_accordian_heading} help-page-main-accordian-heading`}>Do I need teaching experience ?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography className={classes.main_accordion_answer}>
@@ -133,7 +135,7 @@ const Help = () => {
                         </Accordion>
                         <Accordion className={classes.main_accordion_help} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                             <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-                                <Typography> Can I teach more than one language ?</Typography>
+                                <Typography className={`${classes.help_page_main_accordian_heading} help-page-main-accordian-heading`}> Can I teach more than one language ?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography className={classes.main_accordion_answer}>
@@ -146,7 +148,7 @@ const Help = () => {
                         </Accordion>
                         <Accordion className={classes.main_accordion_help} expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                             <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-                                <Typography>How much can I expect to earn from private lessons ?</Typography>
+                                <Typography className={`${classes.help_page_main_accordian_heading} help-page-main-accordian-heading`}>How much can I expect to earn from private lessons ?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography className={classes.main_accordion_answer}>
