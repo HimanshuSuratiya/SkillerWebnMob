@@ -94,11 +94,7 @@
 /* Contact-us-Responsive */
 
 
-
-
-
 /* Browse Rquest and my task and search post Responsive */
-
 @media only screen and (max-width: 1265px) {
     .my-task-single-line-card {
         display: flex;
@@ -107,3 +103,29 @@
 }
 
 /* Browse Rquest and my task and search post Responsive */
+
+
+/* Profile Responsive */
+@media only screen and (max-width: 992px) {
+    .profileFollowBtn {
+        color: #000;
+        border: 2px solid #188dc7;
+        padding: 2px 15px;
+        background: #fff;
+        transition: .5s;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .profileMessageBtn {
+        color: #ffffff;
+        border: 2px solid #188dc7;
+        padding: 2px 15px;
+        background: #188dc7;
+        transition: .5s;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+}
+
+/* Profile Responsive */
