@@ -129,3 +129,55 @@
 }
 
 /* Profile Responsive */
+
+
+/* Notification Responsive */
+@media only screen and (max-width: 768px) {
+    .notification-heading-main-area h2 {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .notification-heading-main-area p {
+        font-size: 14px;
+    }
+
+    .notification-dlt-main-area .MuiSvgIcon-root {
+        font-size: 22px;
+    }
+
+    .notification-main-text-area {
+        line-height: 22px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .notification-heading-main-area h2 {
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .notification-heading-main-area p {
+        font-size: 12px;
+    }
+
+    .notification-dlt-main-area .MuiSvgIcon-root {
+        font-size: 20px;
+    }
+
+    .faq-accordian-main-area .accordion-button {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .notification-user-img img {
+        width: 69px;
+        height: 55px;
+    }
+
+    .notification-main-text-area {
+        line-height: 20px;
+        font-size: 12px;
+    }
+}
+
+/* Notification Responsive */

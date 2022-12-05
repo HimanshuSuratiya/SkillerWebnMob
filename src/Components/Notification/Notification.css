@@ -114,3 +114,7 @@ button:focus:not(:focus-visible) {
     color: #188dc7 !important;
     font-weight: 700;
 }
+
+.notification-main-text-area {
+    line-height: 25px;
+}
