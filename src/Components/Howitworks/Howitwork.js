@@ -10,7 +10,6 @@ import TaskIcon from '@mui/icons-material/Task';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import GroupIcon from '@mui/icons-material/Group';
-import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -41,16 +40,10 @@ function TabPanel(props) {
     );
 }
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-};
-
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
+        "aria-controls": `simple-tabpanel-${index}`
     };
 }
 
@@ -184,12 +177,20 @@ const Howitwork = () => {
                     <div className='how-work-bg-gray'>
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                <Tabs
+                                    className='my-task-main-tabs-area'
+                                    value={value}
+                                    onChange={handleChange}
+                                    variant="scrollable"
+                                    scrollButtons
+                                    allowScrollButtonsMobile
+                                    aria-label="scrollable force tabs example"
+                                >
                                     <Tab label="post your tasker" {...a11yProps(0)} />
                                     <Tab label="customer support" {...a11yProps(1)} />
                                     <Tab label="Rating & reviews" {...a11yProps(2)} />
-                                    <Tab label="Communication" {...a11yProps(2)} />
-                                    <Tab label="skiller pay" {...a11yProps(2)} />
+                                    <Tab label="Communication" {...a11yProps(3)} />
+                                    <Tab label="skiller pay" {...a11yProps(4)} />
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
