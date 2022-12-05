@@ -22,6 +22,7 @@ import PropTypes from 'prop-types';
 import { TextareaAutosize } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
+import CloseIcon from '@mui/icons-material/Close';
 
 const photos = [
     {
@@ -67,7 +68,10 @@ function SimpleDialog(props) {
 
     return (
         <Dialog onClose={handleClose} open={open} className="dialog-comment">
-            <DialogTitle className="p-0 px-3 py-2">Please enter your comment ?</DialogTitle>
+            <div className='d-flex align-items-center justify-content-between'>
+                <DialogTitle className="p-0 px-3 py-2">Please enter your comment ?</DialogTitle>
+                <CloseIcon className='me-2' style={{ fontSize: '35px', cursor: 'pointer' }} onClick={handleClose} />
+            </div>
             <Divider style={{ backgroundColor: '#a9a4a4' }} />
             <div className='p-3'>
                 <TextareaAutosize

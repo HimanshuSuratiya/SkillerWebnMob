@@ -122,3 +122,38 @@
 .my-task-tab-panel .MuiBox-root {
     padding: 10px 0px;
 }
+
+.my-task-re-post-btn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 1px 10px;
+    background: #188dc7;
+    transition: .5s;
+    border-radius: 20px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.my-task-re-post-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}
+
+.please-confirm-my-task-re-post-btn {
+    color: #ffffff;
+    border: 2px solid #188dc7;
+    padding: 4px 15px;
+    background: #188dc7;
+    transition: .5s;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.please-confirm-my-task-re-post-btn:hover {
+    color: black;
+    border: 2px solid #188dc7;
+    background: #8fc1e2;
+}

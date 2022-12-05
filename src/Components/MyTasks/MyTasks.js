@@ -24,6 +24,10 @@ import "../BrowseRequests/BrowseRequests.css";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import PropTypes from 'prop-types';
+import CloseIcon from '@mui/icons-material/Close';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -68,13 +72,16 @@ const defaultState = {
     taskBudgetMaxRangeValue: 40,
 }
 
+const emails = ['username@gmail.com', 'user02@gmail.com'];
+
 const MyTasks = () => {
     const [state, setState] = useState(defaultState);
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+    const [open, setOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState(emails[1]);
     const [toggleShow, setToggleShow] = useState({
         left: false,
     });
-
 
     const handleDistanceRangeChange = (event, newValue) => {
         setState((prevState) => ({ ...prevState, distanceRangeValue: newValue, distanceMinRangeValue: newValue[0], distanceMaxRangeValue: newValue[1] }));
@@ -167,6 +174,47 @@ const MyTasks = () => {
             "aria-controls": `simple-tabpanel-${index}`
         };
     }
+
+    function SimpleDialog(props) {
+        const { onClose, selectedValue, open } = props;
+
+        const handleClose = () => {
+            onClose(selectedValue);
+        };
+
+        return (
+            <Dialog onClose={handleClose} open={open} className="dialog-comment">
+                <div className='d-flex align-items-center justify-content-between'>
+                    <DialogTitle className="p-0 px-3 py-2">Please confirm</DialogTitle>
+                    <CloseIcon className='me-2' style={{ fontSize: '35px', cursor: 'pointer' }} onClick={handleClose} />
+                </div>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <div className='p-3'>
+                    <p className='m-0'>Are you sure you want to repost with the same details ?</p>
+                </div>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <div className='d-flex align-items-center justify-content-end px-3 mb-3'>
+                    <button className='btn btn-primary btn-lg btn-block please-confirm-my-task-re-post-btn' onClick={handleClose}>Cancel</button>
+                    <button className='btn btn-primary btn-lg btn-block please-confirm-my-task-re-post-btn' onClick={handleClose}>Repost</button>
+                </div>
+            </Dialog>
+        );
+    }
+
+    SimpleDialog.propTypes = {
+        onClose: PropTypes.func.isRequired,
+        open: PropTypes.bool.isRequired,
+        selectedValue: PropTypes.string.isRequired,
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (value) => {
+        setOpen(false);
+        setSelectedValue(value);
+    };
 
     const list = (anchor) => (
         <Box
@@ -822,8 +870,15 @@ const MyTasks = () => {
                                                             </div>
                                                         </div>
                                                         <Divider style={{ backgroundColor: 'gray' }} />
-                                                        <div className='px-2'>
-                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                        <div className='px-2 d-flex align-items-center justify-content-between'>
+                                                            <div>
+                                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                            </div>
+                                                            <div>
+                                                                <button className='my-task-re-post-btn' onClick={handleClickOpen}>
+                                                                    Repost
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 )
@@ -872,6 +927,11 @@ const MyTasks = () => {
                     </div>
                 </div>
             </section>
+            <SimpleDialog
+                selectedValue={selectedValue}
+                open={open}
+                onClose={handleClose}
+            />
         </>
     )
 }
