@@ -21,17 +21,19 @@ import "./Responsive.css";
 
 const App = () => {
   useEffect(() => {
-    if (localStorage.getItem('isLogin') === null) {
-      localStorage.setItem('isLogin', 0)
+    const LoginData = { users: [{ email: 'skillseeker@gmail.com', password: '12345@', type: 'skillseeker' }, { email: 'skillprovider@gmail.com', password: '12345@', type: 'skillprovider' }] }
+    if (localStorage.getItem('isLoginType') === null) {
+      localStorage.setItem('isLoginType', 'guest')
     } else {
-      if (parseInt(localStorage.getItem('isLogin')) === 1) {
-        localStorage.setItem('isLogin', 1)
+      if (localStorage.getItem('isLoginType') === 'skillseeker') {
+        localStorage.setItem('isLoginType', 'skillseeker')
+      } else if (localStorage.getItem('isLoginType') === 'skillprovider') {
+        localStorage.setItem('isLoginType', 'skillprovider')
       } else {
-        localStorage.setItem('isLogin', 0)
+        localStorage.setItem('isLoginType', 'guest')
       }
     }
-    localStorage.setItem('email', 'adminskiller@gmail.com')
-    localStorage.setItem('password', '12345@')
+    localStorage.setItem('LoginData', JSON.stringify(LoginData));
   }, [])
 
   return (

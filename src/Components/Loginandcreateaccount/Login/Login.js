@@ -71,11 +71,20 @@ const Login = () => {
     }
 
     const handleLogin = () => {
-        if (localStorage.getItem("email") === state.email && localStorage.getItem("password") === state.password) {
-            localStorage.setItem("isLogin", 1)
-            navigate("/");
-        } else {
-            alert('something went wrong please tray again after some time')
+        const users = JSON.parse(localStorage.getItem("LoginData"));
+        for (let i = 0; i < users.users.length; i++) {
+            if (users.users[i].email === state.email && users.users[i].password === state.password) {
+                if (users.users[i].type === 'skillseeker') {
+                    localStorage.setItem("isLoginType", 'skillseeker')
+                    navigate("/");
+                } else if (users.users[i].type === 'skillprovider') {
+                    localStorage.setItem("isLoginType", 'skillprovider')
+                    navigate("/");
+                }
+                break
+            } else if (users.users.length === i + 1) {
+                alert('something went wrong please tray again after some time')
+            }
         }
     }
 

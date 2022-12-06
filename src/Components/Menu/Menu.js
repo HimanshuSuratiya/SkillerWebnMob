@@ -73,7 +73,7 @@ const Menu = (props) => {
     });
 
     const handleLogout = () => {
-        localStorage.setItem("isLogin", 0)
+        localStorage.setItem("isLoginType", 'guest')
         navigate("/login");
     }
 
@@ -84,7 +84,7 @@ const Menu = (props) => {
     return (
         <>
             <header className="header">
-                {parseInt(localStorage.getItem("isLogin")) ?
+                {localStorage.getItem("isLoginType") === 'skillseeker' &&
                     <nav style={{ backgroundColor: `${props.color}` }} className="navbar navbar-expand-md " id="navArea">
                         <div className="container-fluid">
                             <NavLink className="navbar-brand" to='/'>
@@ -369,7 +369,8 @@ const Menu = (props) => {
                             </div>
                         </div>
                     </nav>
-                    :
+                }
+                {localStorage.getItem("isLoginType") === 'guest' &&
                     <nav style={{ backgroundColor: `${props.color}` }} className="navbar navbar-expand-md " id="navArea">
                         <div className="container-fluid">
                             <NavLink className="navbar-brand" to='/'>
