@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import CategoryIcon from '@mui/icons-material/Category';
-import Images from "../../../Images/Image";
+import Images from "../../Images/Image";
 import SchoolIcon from '@mui/icons-material/School';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import TranslateIcon from '@mui/icons-material/Translate';
@@ -96,7 +96,7 @@ SimpleDialog.propTypes = {
     selectedValue: PropTypes.string.isRequired,
 };
 
-const DetailPage = ({ setDetail }) => {
+const DetailPage = ({ setDetail, Map }) => {
     const [moreOption, setMoreOption] = useState('');
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -134,7 +134,7 @@ const DetailPage = ({ setDetail }) => {
                         </div>
                         <div className='p-2'>
                             <h4 className='task-status-heading text-uppercase heading-color'>Embroidery knitted or heated onto Christmas stockings</h4>
-                            <p className='p-0 m-0 d-flex returntomap align-items-center' onClick={() => { setDetail(false) }}><ArrowBackIcon className="follow-icon" /> Return to map</p>
+                            {Map && <p className='p-0 m-0 d-flex returntomap align-items-center' onClick={() => { setDetail(false) }}><ArrowBackIcon className="follow-icon" /> Return to map</p>}
                         </div>
                         <div className='d-flex'>
                             <div className='d-flex align-items-center post-location-data w-50'>

@@ -28,6 +28,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
+import DetailPage from "../DetailPage/DetailPage";
+import Tooltip from '@mui/material/Tooltip';
+import ListIcon from '@mui/icons-material/List';
+import Images from '../../Images/Image';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -70,6 +74,7 @@ const defaultState = {
     location: '',
     taskBudgetMinRangeValue: 10,
     taskBudgetMaxRangeValue: 40,
+    showDetail: false,
 }
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
@@ -744,187 +749,209 @@ const MyTasks = () => {
                                 </SwipeableDrawer>
                             </React.Fragment>
                         </div>
-                        <TextField
-                            variant="outlined"
-                            size="small"
-                            placeholder={'Search'}
-                            InputProps={{ endAdornment: <SearchIcon /> }}
-                        />
+                        <div>
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                placeholder={'Search'}
+                                InputProps={{ endAdornment: <SearchIcon /> }}
+                            />
+                            <Tooltip title="List">
+                                <ListIcon onClick={() => { setState((prevState) => ({ ...prevState, showDetail: false })) }} style={{ fontSize: '40px' }} />
+                            </Tooltip>
+                        </div>
                     </div>
                 </div>
                 <Divider className='my-1' style={{ backgroundColor: '#a9a4a4' }} />
                 <div className='BrowseRequest'>
                     <div className='container px-5'>
                         <div className='row'>
-                            <Box className='p-0 m-0' style={{ borderRadius: '5px' }}>
-                                <Box sx={{ bgcolor: "background.paper" }} style={{ backgroundColor: 'rgb(236, 236, 236)' }}>
-                                    <Tabs
-                                        className='my-task-main-tabs-area'
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="scrollable"
-                                        scrollButtons
-                                        allowScrollButtonsMobile
-                                        aria-label="scrollable force tabs example"
-                                    >
-                                        <Tab label="Pending" {...a11yProps(0)} />
-                                        <Tab label="Assigned" {...a11yProps(1)} />
-                                        <Tab label="Cancel" {...a11yProps(2)} />
-                                        <Tab label="Complete" {...a11yProps(3)} />
-                                    </Tabs>
-                                </Box>
-                                <TabPanel value={value} index={0} className="my-task-tab-panel">
-                                    <div className='left-main-Div my-task-single-line-card'>
-                                        {TaskData.map((item) => {
-                                            if (item.status === 'Pending') {
-                                                return (
-                                                    <div className='rounded card-main-div my-task-single-card-width'>
-                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                            <span className='px-1 dollerPrice'>${item.price}</span>
-                                                        </div>
-                                                        <div className='px-2 my-1 d-flex justify-content-between'>
-                                                            <div className='d-flex flex-column'>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                            <div className={`p-0 ${state.showDetail ? 'col-lg-4' : 'col-lg-12'}`}>
+                                <Box className='p-0 m-0' style={{ borderRadius: '5px' }}>
+                                    <Box sx={{ bgcolor: "background.paper" }} style={{ backgroundColor: 'rgb(236, 236, 236)' }}>
+                                        <Tabs
+                                            className='my-task-main-tabs-area'
+                                            value={value}
+                                            onChange={handleChange}
+                                            variant="scrollable"
+                                            scrollButtons
+                                            allowScrollButtonsMobile
+                                            aria-label="scrollable force tabs example"
+                                        >
+                                            <Tab label="Pending" {...a11yProps(0)} />
+                                            <Tab label="Assigned" {...a11yProps(1)} />
+                                            <Tab label="Cancelled" {...a11yProps(2)} />
+                                            <Tab label="Completed" {...a11yProps(3)} />
+                                        </Tabs>
+                                    </Box>
+                                    <TabPanel value={value} index={0} className="my-task-tab-panel">
+                                        <div className='left-main-Div my-task-single-line-card'>
+                                            {TaskData.map((item, index) => {
+                                                if (item.status === 'Pending') {
+                                                    return (
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                <span className='px-1 dollerPrice'>${item.price}</span>
+                                                            </div>
+                                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                <div className='d-flex flex-column'>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    </div>
                                                                 </div>
                                                                 <div className='d-flex align-items-center'>
-                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    <Avatar src="/broken-image.jpg" />
                                                                 </div>
                                                             </div>
-                                                            <div className='d-flex align-items-center'>
-                                                                <Avatar src="/broken-image.jpg" />
-                                                            </div>
-                                                        </div>
-                                                        <Divider style={{ backgroundColor: 'gray' }} />
-                                                        <div className='px-2'>
-                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                    </div>
-                                </TabPanel>
-                                <TabPanel value={value} index={1} className="my-task-tab-panel">
-                                    <div className='left-main-Div my-task-single-line-card'>
-                                        {TaskData.map((item) => {
-                                            if (item.status === 'Assigned') {
-                                                return (
-                                                    <div className='rounded card-main-div my-task-single-card-width'>
-                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                            <span className='px-1 dollerPrice'>${item.price}</span>
-                                                        </div>
-                                                        <div className='px-2 my-1 d-flex justify-content-between'>
-                                                            <div className='d-flex flex-column'>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                                </div>
-                                                            </div>
-                                                            <div className='d-flex align-items-center'>
-                                                                <Avatar src="/broken-image.jpg" />
-                                                            </div>
-                                                        </div>
-                                                        <Divider style={{ backgroundColor: 'gray' }} />
-                                                        <div className='px-2'>
-                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                    </div>
-                                </TabPanel>
-                                <TabPanel value={value} index={2} className="my-task-tab-panel">
-                                    <div className='left-main-Div my-task-single-line-card'>
-                                        {TaskData.map((item) => {
-                                            if (item.status === 'Cancel') {
-                                                return (
-                                                    <div className='rounded card-main-div my-task-single-card-width'>
-                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                            <span className='px-1 dollerPrice'>${item.price}</span>
-                                                        </div>
-                                                        <div className='px-2 my-1 d-flex justify-content-between'>
-                                                            <div className='d-flex flex-column'>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
-                                                                </div>
-                                                            </div>
-                                                            <div className='d-flex align-items-center'>
-                                                                <Avatar src="/broken-image.jpg" />
-                                                            </div>
-                                                        </div>
-                                                        <Divider style={{ backgroundColor: 'gray' }} />
-                                                        <div className='px-2 d-flex align-items-center justify-content-between'>
-                                                            <div>
+                                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                                            <div className='px-2'>
                                                                 <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                             </div>
-                                                            <div>
-                                                                <button className='my-task-re-post-btn' onClick={handleClickOpen}>
-                                                                    Repost
-                                                                </button>
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={1} className="my-task-tab-panel">
+                                        <div className='left-main-Div my-task-single-line-card'>
+                                            {TaskData.map((item, index) => {
+                                                if (item.status === 'Assigned') {
+                                                    return (
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                <span className='px-1 dollerPrice'>${item.price}</span>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                    </div>
-                                </TabPanel>
-                                <TabPanel value={value} index={3} className="my-task-tab-panel">
-                                    <div className='left-main-Div my-task-single-line-card'>
-                                        {TaskData.map((item) => {
-                                            if (item.status === 'Complete') {
-                                                return (
-                                                    <div className='rounded card-main-div my-task-single-card-width'>
-                                                        <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                            <h4 className='px-1 m-0 '>{item.taskName}</h4>
-                                                            <span className='px-1 dollerPrice'>${item.price}</span>
-                                                        </div>
-                                                        <div className='px-2 my-1 d-flex justify-content-between'>
-                                                            <div className='d-flex flex-column'>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                <div className='d-flex flex-column'>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    </div>
                                                                 </div>
                                                                 <div className='d-flex align-items-center'>
-                                                                    <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                    <Avatar src="/broken-image.jpg" />
+                                                                </div>
+                                                            </div>
+                                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                                            <div className='pt-2 d-flex align-items-center justify-content-between'>
+                                                                <div className='px-2'>
+                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                                </div>
+                                                                <div className='px-2 d-flex align-items-center justify-content-center'>
+                                                                    <Avatar
+                                                                        alt="Remy Sharp"
+                                                                        src={Images.one}
+                                                                        sx={{ width: 24, height: 24 }}
+                                                                    />
+                                                                    <span className='ps-2' style={{ fontSize: '12px' }}>Dein Markash</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={2} className="my-task-tab-panel">
+                                        <div className='left-main-Div my-task-single-line-card'>
+                                            {TaskData.map((item, index) => {
+                                                if (item.status === 'Cancel') {
+                                                    return (
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                <span className='px-1 dollerPrice'>${item.price}</span>
+                                                            </div>
+                                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                <div className='d-flex flex-column'>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    </div>
                                                                 </div>
                                                                 <div className='d-flex align-items-center'>
-                                                                    <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    <Avatar src="/broken-image.jpg" />
                                                                 </div>
                                                             </div>
-                                                            <div className='d-flex align-items-center'>
-                                                                <Avatar src="/broken-image.jpg" />
+                                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                                            <div className='px-2 d-flex align-items-center justify-content-between'>
+                                                                <div>
+                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button className='my-task-re-post-btn' onClick={handleClickOpen}>
+                                                                        Repost
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <Divider style={{ backgroundColor: 'gray' }} />
-                                                        <div className='px-2'>
-                                                            <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel value={value} index={3} className="my-task-tab-panel">
+                                        <div className='left-main-Div my-task-single-line-card'>
+                                            {TaskData.map((item, index) => {
+                                                if (item.status === 'Complete') {
+                                                    return (
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                            <div className='px-2 d-flex justify-content-between align-items-center'>
+                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                <span className='px-1 dollerPrice'>${item.price}</span>
+                                                            </div>
+                                                            <div className='px-2 my-1 d-flex justify-content-between'>
+                                                                <div className='d-flex flex-column'>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
+                                                                    </div>
+                                                                    <div className='d-flex align-items-center'>
+                                                                        <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='d-flex align-items-center'>
+                                                                    <Avatar src="/broken-image.jpg" />
+                                                                </div>
+                                                            </div>
+                                                            <Divider style={{ backgroundColor: 'gray' }} />
+                                                            <div className='px-2'>
+                                                                <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                    </div>
-                                </TabPanel>
-                            </Box>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </TabPanel>
+                                </Box>
+                            </div>
+                            {state.showDetail &&
+                                <div className='col-lg-8 my-task-right-main-div'>
+                                    <DetailPage Map={false} />
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

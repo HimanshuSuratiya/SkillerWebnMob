@@ -4,7 +4,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import Avatar from '@mui/material/Avatar';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-import DetailPage from "./DetailPage/DetailPage";
+import DetailPage from "../DetailPage/DetailPage";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import Box from '@mui/material/Box';
@@ -737,7 +737,7 @@ const BrowseRequests = () => {
                             </div>
                             {detail ?
                                 <div className='col-lg-8 right-main-div'>
-                                    <DetailPage setDetail={setDetail} />
+                                    <DetailPage Map={true} setDetail={setDetail} />
                                 </div>
                                 :
                                 state.showMap &&
