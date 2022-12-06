@@ -175,11 +175,6 @@
 }
 
 /* Customer support  */
-.customer-support-top-image-area {
-    height: 120px;
-    width: 350px;
-}
-
 .customer-support-top-image-area img {
     width: 100%;
     border-radius: 5px;
@@ -188,6 +183,7 @@
 .main-left-right-customer-support {
     background-color: #fff;
     border-radius: 5px;
+    margin-top: 130px;
 }
 
 .customer-support-heading {
@@ -220,11 +216,6 @@
 /* Communication */
 .communication-inner-text {
     font-size: 13px;
-}
-
-.left-right-some-space {
-    width: 47%;
-    margin: auto;
 }
 
 .how-it-works-learn-more-btn {

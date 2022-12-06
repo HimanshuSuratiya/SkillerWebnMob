@@ -155,7 +155,7 @@ const Howitwork = () => {
                         <div className='row'>
                             {howItWorksData.map((item) => {
                                 return (
-                                    <div className='col-4'>
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                         <div className='how-work-box-main'>
                                             <div className='how-work-icon-area'>
                                                 {item.icon}
@@ -178,7 +178,6 @@ const Howitwork = () => {
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs
-                                    className='my-task-main-tabs-area'
                                     value={value}
                                     onChange={handleChange}
                                     variant="scrollable"
@@ -201,7 +200,7 @@ const Howitwork = () => {
                                                 <div className='how-work-heading-area text-start'>
                                                     <div>
                                                         <h2 className='post-task-heading'>Post your task</h2>
-                                                        <p className='post-task-heading-inner-text'>Want your home cleaned or furniture put together? Just tell us about the task you’d like done, suggest a fair budget for a job well done and you’ll start to receive offers from available Taskers.</p>
+                                                        <p className='post-task-heading-inner-text mb-3'>Want your home cleaned or furniture put together? Just tell us about the task you’d like done, suggest a fair budget for a job well done and you’ll start to receive offers from available Taskers.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,48 +227,51 @@ const Howitwork = () => {
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 <section className='pb-4'>
-                                    <div className="container mt-4">
-                                        <div className='d-flex justify-content-center'>
-                                            <div className='mb-4 shadow customer-support-top-image-area'>
-                                                <img src={Images.telephoneSupport} />
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="pt-2 pb-2 col-lg-4 shadow d-flex align-items-center justify-content-center main-left-right-customer-support">
-                                                <div>
-                                                    <div className='d-flex justify-content-center'>
-                                                        <img className="customer-support-icon-image" src={Images.TopRatedIcon} />
-                                                    </div>
-                                                    <div className='d-flex justify-content-center'>
-                                                        <h2 className='customer-support-heading'>Top rated insurance</h2>
-                                                    </div>
+                                    <div className='container mt-4'>
+                                        <div className='row'>
+                                            <div className='col-lg-4'>
+                                                <div className="py-4 shadow d-flex align-items-center justify-content-center main-left-right-customer-support">
                                                     <div>
-                                                        <p className='customer-support-heading-inner-text'>Skiller Insurance is provided by Berkshire Hathaway Specialty Insurance. This means Taskers on skiller are covered for liability to third parties when it comes to personal injury or property damage (terms and conditions apply) - so you can post or earn with peace of mind!*</p>
+                                                        <div className='d-flex justify-content-center'>
+                                                            <img className="customer-support-icon-image" src={Images.TopRatedIcon} />
+                                                        </div>
+                                                        <div className='d-flex justify-content-center'>
+                                                            <h2 className='customer-support-heading text-center'>Top rated insurance</h2>
+                                                        </div>
+                                                        <div>
+                                                            <p className='px-2 customer-support-heading-inner-text'>Skiller Insurance is provided by Berkshire Hathaway Specialty Insurance. This means Taskers on skiller are covered for liability to third parties</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-lg-4 d-flex align-items-center justify-content-center"></div>
-                                            <div className="pt-2 pb-2 shadow col-lg-4 d-flex align-items-center justify-content-center main-left-right-customer-support">
-                                                <div>
-                                                    <div className='d-flex justify-content-center'>
-                                                        <img className="customer-support-icon-image" src={Images.customerSupport} />
-                                                    </div>
-                                                    <div className='d-flex justify-content-center'>
-                                                        <h2 className='customer-support-heading'>Complete customer support</h2>
-                                                    </div>
+                                            <div className='col-lg-4'>
+                                                <div className='my-4 shadow customer-support-top-image-area'>
+                                                    <img src={Images.telephoneSupport} />
+                                                </div>
+                                            </div>
+                                            <div className='col-lg-4'>
+                                                <div className="py-4 shadow d-flex align-items-center justify-content-center main-left-right-customer-support">
                                                     <div>
-                                                        <p className='customer-support-heading-inner-text'>Got a question? Simply search our comprehensive for your answer <a className="help-center">Help Centre </a> . If you’re still stuck then feel free to reach out to our expert Customer Support Team who are more than happy to help.</p>
+                                                        <div className='d-flex justify-content-center'>
+                                                            <img className="customer-support-icon-image" src={Images.customerSupport} />
+                                                        </div>
+                                                        <div className='d-flex justify-content-center'>
+                                                            <h2 className='customer-support-heading text-center'>Complete customer support</h2>
+                                                        </div>
+                                                        <div>
+                                                            <p className='px-2 customer-support-heading-inner-text'>Got a question? Simply search our comprehensive for your answer <a className="help-center">Help Centre </a> . If you’re still stuck then feel free to reach</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div className='d-flex justify-content-center mb-4'>
-                                                <button className='how-it-works-learn-more-btn'>Learn more</button>
+                                            <div>
+                                                <div className='d-flex justify-content-center mb-4'>
+                                                    <button className='how-it-works-learn-more-btn'>Learn more</button>
+                                                </div>
+                                                <p className='terms-conditions'>*Terms and Conditions apply. Included Task activities only. Excesses apply for
+                                                    Taskers. <a className="help-center">Learn more about Skiller Insurance</a>
+                                                </p>
                                             </div>
-                                            <p className='terms-conditions'>*Terms and Conditions apply. Included Task activities only. Excesses apply for
-                                                Taskers. <a className="help-center">Learn more about Skiller Insurance</a>
-                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -379,9 +381,9 @@ const Howitwork = () => {
                             </TabPanel>
                             <TabPanel value={value} index={3}>
                                 <section className='pb-4'>
-                                    <div className="container mt-4">
-                                        <div className="row">
-                                            <div className="px-5 py-3 col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                    <div className='container'>
+                                        <div className='row'>
+                                            <div className='col-lg-6 py-3 d-flex align-items-center justify-content-center'>
                                                 <div className='communication'>
                                                     <div>
                                                         <h3 className='p-0 m-0'>Communication</h3>
@@ -393,7 +395,7 @@ const Howitwork = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                            <div className='col-lg-6 pt-2 pb-2 shadow d-flex align-items-center justify-content-center'>
                                                 <img className='rounded' src={Images.bnrPic} />
                                             </div>
                                         </div>
@@ -402,12 +404,12 @@ const Howitwork = () => {
                             </TabPanel>
                             <TabPanel value={value} index={4}>
                                 <section className='pb-4'>
-                                    <div className="container mt-4">
+                                    <div className="container">
                                         <div className="row">
-                                            <div className="px-5 py-3 col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                            <div className="py-3 col-lg-6 d-flex align-items-center justify-content-center">
                                                 <div className='communication'>
                                                     <div>
-                                                        <h3 className='p-0'>Skiller Pay</h3>
+                                                        <h3 className='p-0 m-0'>Skiller Pay</h3>
                                                         <p className='communication-inner-text'>Skiller Pay is the seamless and secure way to get your tasks completed. Once you accept an offer on a task, the agreed upon amount is held secure with Skiller Pay until the task is complete.</p>
                                                     </div>
                                                     <div className='mt-2'>
@@ -418,7 +420,7 @@ const Howitwork = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center left-right-some-space">
+                                            <div className="pt-2 pb-2 shadow col-lg-6 d-flex align-items-center justify-content-center">
                                                 <img className='rounded' src={Images.card} />
                                             </div>
                                         </div>

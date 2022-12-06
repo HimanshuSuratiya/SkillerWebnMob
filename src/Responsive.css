@@ -205,3 +205,13 @@
 }
 
 /* Help Responsive */
+
+
+/* How its Work Responsive */
+@media only screen and (max-width: 1000px) {
+    .main-left-right-customer-support {
+        margin-top: 0px;
+    }
+}
+
+/* How its Work Responsive */
