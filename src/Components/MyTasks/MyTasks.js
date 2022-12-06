@@ -32,6 +32,7 @@ import DetailPage from "../DetailPage/DetailPage";
 import Tooltip from '@mui/material/Tooltip';
 import ListIcon from '@mui/icons-material/List';
 import Images from '../../Images/Image';
+import { NavLink } from 'react-router-dom';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -825,9 +826,9 @@ const MyTasks = () => {
                                             {TaskData.map((item, index) => {
                                                 if (item.status === 'Assigned') {
                                                     return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width'>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0 '>{item.taskName}</h4>
+                                                                <h4 className='px-1 m-0' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>{item.taskName}</h4>
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
                                                             </div>
                                                             <div className='px-2 my-1 d-flex justify-content-between'>
@@ -851,14 +852,16 @@ const MyTasks = () => {
                                                                 <div className='px-2'>
                                                                     <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                                 </div>
-                                                                <div className='px-2 d-flex align-items-center justify-content-center'>
-                                                                    <Avatar
-                                                                        alt="Remy Sharp"
-                                                                        src={Images.one}
-                                                                        sx={{ width: 24, height: 24 }}
-                                                                    />
-                                                                    <span className='ps-2' style={{ fontSize: '12px' }}>Dein Markash</span>
-                                                                </div>
+                                                                <NavLink to="/user-profile">
+                                                                    <div className='px-2 d-flex align-items-center justify-content-center'>
+                                                                        <Avatar
+                                                                            alt="Remy Sharp"
+                                                                            src={Images.one}
+                                                                            sx={{ width: 24, height: 24 }}
+                                                                        />
+                                                                        <span className='ps-2' style={{ fontSize: '12px' }}>Dein Markash</span>
+                                                                    </div>
+                                                                </NavLink>
                                                             </div>
                                                         </div>
                                                     )
