@@ -13,8 +13,6 @@ import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     LoginBtn: {
-
-
         color: '#ffffff',
         marginLeft: '11px',
         background: '#188dc7',

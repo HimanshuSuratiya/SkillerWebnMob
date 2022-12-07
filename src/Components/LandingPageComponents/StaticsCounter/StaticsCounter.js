@@ -23,7 +23,7 @@ const StaticsCounter = () => {
                                             <CountUp
                                                 start={0}
                                                 end={259}
-                                                duration={2}
+                                                duration={5}
                                             >
                                             </CountUp>
                                         </span>
@@ -35,7 +35,7 @@ const StaticsCounter = () => {
                                             <CountUp
                                                 start={0}
                                                 end={599}
-                                                duration={2}
+                                                duration={5}
                                             >
                                             </CountUp>
                                         </span>
@@ -48,7 +48,7 @@ const StaticsCounter = () => {
                                             <CountUp
                                                 start={0}
                                                 end={1156}
-                                                duration={2}
+                                                duration={5}
                                             >
                                             </CountUp>
                                         </span>
@@ -60,7 +60,7 @@ const StaticsCounter = () => {
                                             <CountUp
                                                 start={0}
                                                 end={2350}
-                                                duration={2}
+                                                duration={5}
                                             >
                                             </CountUp>
                                         </span>
