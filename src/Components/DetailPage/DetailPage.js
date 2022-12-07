@@ -8,7 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import Rating from '@mui/material/Rating';
+import Rating from '@mui/material/Rating';
 import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import Gallery from "react-photo-gallery";
@@ -115,6 +115,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
     const [openBidReject, setOpenBidReject] = useState(false);
     const [selectedValue, setSelectedValue] = useState(emails[1]);
     const [openCancelModal, setOpenCancelModal] = useState(false);
+    const [openCompleteModal, setOpenCompleteModal] = useState(false);
 
     const handleChangeMoreOption = (event) => {
         setMoreOption(event.target.value);
@@ -140,6 +141,14 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
 
     const handleCloseOpenCancelModal = () => {
         setOpenCancelModal(false);
+    };
+
+    const handleClickOpenCompleteModal = () => {
+        setOpenCompleteModal(true);
+    };
+
+    const handleCloseOpenCompleteModal = () => {
+        setOpenCompleteModal(false);
     };
 
     return (
@@ -311,7 +320,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                 <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center' onClick={handleClickOpenCancelModal}>Cancel <CancelPresentationIcon className='ms-2' /></button>
                             </Tooltip>
                             <Tooltip title="Complete" placement="top-start">
-                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center'>Complete <LibraryAddCheckIcon className='ms-2' /></button>
+                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center' onClick={handleClickOpenCompleteModal}>Complete <LibraryAddCheckIcon className='ms-2' /></button>
                             </Tooltip>
                             <Tooltip title="Chat" placement="top-start">
                                 <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center'>Chat <MarkUnreadChatAltIcon className='ms-2' /></button>
@@ -378,6 +387,50 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                 <Divider style={{ backgroundColor: '#a9a4a4' }} />
                 <DialogActions>
                     <button className='make-an-offer-btn' onClick={handleCloseOpenCancelModal} autoFocus>
+                        Cancel
+                    </button>
+                    <button className='make-an-offer-btn' onClick={handleCloseOpenCancelModal} autoFocus>
+                        Submit
+                    </button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                open={openCompleteModal}
+                onClose={handleCloseOpenCompleteModal}
+                aria-labelledby="responsive-dialog-title"
+            >
+                <DialogTitle id="responsive-dialog-title">
+                    {"Complete"}
+                </DialogTitle>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogContent>
+                    <DialogContentText>
+                        <div className='d-flex align-items-center justify-content-between' style={{ width: '300px' }}>
+                            <Avatar
+                                alt="Remy Sharp"
+                                src={Images.two}
+                                sx={{ width: 65, height: 65 }}
+                            />
+                            <div className='text-right'>
+                                <h4 className='task-status-heading text-uppercase heading-color'>Himanshu Suratiya</h4>
+                                <Rating name="half-rating-read" defaultValue={4.5} precision={0.2} readOnly />
+                            </div>
+                        </div>
+                    </DialogContentText>
+                    <TextareaAutosize
+                        className='p-2 mt-4'
+                        aria-label="minimum height"
+                        minRows={2}
+                        style={{ width: '100%' }}
+                        placeholder="Enter your review"
+                    />
+                </DialogContent>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogActions>
+                    <button className='make-an-offer-btn' onClick={handleCloseOpenCompleteModal} autoFocus>
+                        Cancel
+                    </button>
+                    <button className='make-an-offer-btn' onClick={handleCloseOpenCompleteModal} autoFocus>
                         Submit
                     </button>
                 </DialogActions>
