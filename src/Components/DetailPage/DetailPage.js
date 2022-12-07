@@ -8,7 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Rating from '@mui/material/Rating';
+// import Rating from '@mui/material/Rating';
 import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import Gallery from "react-photo-gallery";
@@ -23,6 +23,18 @@ import { TextareaAutosize } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from '@mui/icons-material/Close';
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
+import Tooltip from '@mui/material/Tooltip';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const photos = [
     {
@@ -59,18 +71,18 @@ const photos = [
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
-function SimpleDialog(props) {
+function SimpleBidRejectDialog(props) {
     const { onClose, selectedValue, open } = props;
 
-    const handleClose = () => {
+    const handleBidRejectClose = () => {
         onClose(selectedValue);
     };
 
     return (
-        <Dialog onClose={handleClose} open={open} className="dialog-comment">
+        <Dialog onClose={handleBidRejectClose} open={open} className="dialog-comment">
             <div className='d-flex align-items-center justify-content-between'>
                 <DialogTitle className="p-0 px-3 py-2">Please enter your comment ?</DialogTitle>
-                <CloseIcon className='me-2' style={{ fontSize: '35px', cursor: 'pointer' }} onClick={handleClose} />
+                <CloseIcon className='me-2' style={{ fontSize: '35px', cursor: 'pointer' }} onClick={handleBidRejectClose} />
             </div>
             <Divider style={{ backgroundColor: '#a9a4a4' }} />
             <div className='p-3'>
@@ -83,14 +95,14 @@ function SimpleDialog(props) {
                 />
             </div>
             <div className='d-flex align-items-center justify-content-end px-3 mb-3'>
-                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3' onClick={handleClose}>Cancel</button>
-                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClose}>Submit</button>
+                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3' onClick={handleBidRejectClose}>Cancel</button>
+                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleBidRejectClose}>Submit</button>
             </div>
         </Dialog>
     );
 }
 
-SimpleDialog.propTypes = {
+SimpleBidRejectDialog.propTypes = {
     onClose: PropTypes.func.isRequired,
     open: PropTypes.bool.isRequired,
     selectedValue: PropTypes.string.isRequired,
@@ -100,27 +112,34 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
     const [moreOption, setMoreOption] = useState('');
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
-    const [open, setOpen] = useState(false);
+    const [openBidReject, setOpenBidReject] = useState(false);
     const [selectedValue, setSelectedValue] = useState(emails[1]);
-
-    console.log(cardData, 'cardData')
+    const [openCancelModal, setOpenCancelModal] = useState(false);
 
     const handleChangeMoreOption = (event) => {
         setMoreOption(event.target.value);
     };
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpenBidReject(true);
     };
 
-    const handleClose = (value) => {
-        setOpen(false);
+    const handleBidRejectClose = (value) => {
+        setOpenBidReject(false);
         setSelectedValue(value);
     };
 
     const closeLightbox = () => {
         setCurrentImage(0);
         setViewerIsOpen(false);
+    };
+
+    const handleClickOpenCancelModal = () => {
+        setOpenCancelModal(true);
+    };
+
+    const handleCloseOpenCancelModal = () => {
+        setOpenCancelModal(false);
     };
 
     return (
@@ -251,39 +270,54 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                         </ModalGateway>
                     </div>
                     <Divider className='mx-2 my-5' style={{ backgroundColor: '#a9a4a4' }} />
-                    <div className='py-3 pt-0'>
-                        <h4 className='p-0 m-0 px-2 heading-color'>BIDS</h4>
-                        {cardData.bids.map((item) => {
-                            return (
-                                <>
-                                    <div className='py-4'>
-                                        <div className='p-0 m-0 px-2 d-flex align-items-center justify-content-between'>
-                                            <div className='d-flex'>
-                                                <NavLink to="/user-profile">
-                                                    <Avatar src={item.imgSrc} sx={{ width: 65, height: 65 }} />
-                                                </NavLink>
-                                                <div className='px-4'>
-                                                    <h4 className='p-0 m-0 heading-color'>{item.name}</h4>
-                                                    <p className='m-0 new-comment'>New !</p>
-                                                    <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
+                    {cardData.status === 'Pending' &&
+                        <div className='py-3 pt-0'>
+                            <h4 className='p-0 m-0 px-2 heading-color'>BIDS</h4>
+                            {cardData.bids.map((item) => {
+                                return (
+                                    <>
+                                        <div className='py-4'>
+                                            <div className='p-0 m-0 px-2 d-flex align-items-center justify-content-between'>
+                                                <div className='d-flex'>
+                                                    <NavLink to="/user-profile">
+                                                        <Avatar src={item.imgSrc} sx={{ width: 65, height: 65 }} />
+                                                    </NavLink>
+                                                    <div className='px-4'>
+                                                        <h4 className='p-0 m-0 heading-color'>{item.name}</h4>
+                                                        <p className='m-0 new-comment'>New !</p>
+                                                        <p className='m-0' style={{ border: '1px solid gray', padding: '0px 8px 0px 8px', borderRadius: '10px' }}>AfterPay awailable</p>
+                                                    </div>
+                                                </div>
+                                                <div className='my-2'>
+                                                    <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>{item.budget}</p>
+                                                    <div>
+                                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
+                                                        <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpen}>Reject</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className='my-2'>
-                                                <p className='p-0 m-0 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>{item.budget}</p>
-                                                <div>
-                                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-4' >Accept</button>
-                                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpen}>Reject</button>
-                                                </div>
-                                            </div>
+                                            <p className='p-0 m-0 px-2'>{item.description}</p>
+                                            <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>{item.timeAgo}</p>
                                         </div>
-                                        <p className='p-0 m-0 px-2'>{item.description}</p>
-                                        <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>{item.timeAgo}</p>
-                                    </div>
-                                    <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
-                                </>
-                            )
-                        })}
-                    </div>
+                                        <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
+                                    </>
+                                )
+                            })}
+                        </div>
+                    }
+                    {cardData.status === 'In Progress' &&
+                        <div className='py-3 pt-0 d-flex justify-content-evenly align-items-center'>
+                            <Tooltip title="Cancel" placement="top-start">
+                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center' onClick={handleClickOpenCancelModal}>Cancel <CancelPresentationIcon className='ms-2' /></button>
+                            </Tooltip>
+                            <Tooltip title="Complete" placement="top-start">
+                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center'>Complete <LibraryAddCheckIcon className='ms-2' /></button>
+                            </Tooltip>
+                            <Tooltip title="Chat" placement="top-start">
+                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn me-3 d-flex justify-centent-center align-items-center'>Chat <MarkUnreadChatAltIcon className='ms-2' /></button>
+                            </Tooltip>
+                        </div>
+                    }
                     <div className='task-detail-area'>
                         <div className='py-2'>
                             <h5 className='p-0 px-2 heading-color detail'>Details</h5>
@@ -298,11 +332,56 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                     </div>
                 </div>
             </div>
-            <SimpleDialog
+            <SimpleBidRejectDialog
                 selectedValue={selectedValue}
-                open={open}
-                onClose={handleClose}
+                open={openBidReject}
+                onClose={handleBidRejectClose}
             />
+            <Dialog
+                open={openCancelModal}
+                onClose={handleCloseOpenCancelModal}
+                aria-labelledby="responsive-dialog-title"
+            >
+                <DialogTitle id="responsive-dialog-title">
+                    {"Are you sure .. ?"}
+                </DialogTitle>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogContent>
+                    <p>Cancel Request</p>
+                    <DialogContentText>
+                        <TextareaAutosize
+                            className='p-2'
+                            aria-label="minimum height"
+                            minRows={1}
+                            style={{ width: '100%' }}
+                            placeholder="Enter your remark"
+                        />
+                    </DialogContentText>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography>Terms and condition please read this not</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                                consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                                dapibus ac facilisis in, egestas eget quam.
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                </DialogContent>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogActions>
+                    <button className='make-an-offer-btn' onClick={handleCloseOpenCancelModal} autoFocus>
+                        Submit
+                    </button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 };
