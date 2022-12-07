@@ -33,6 +33,7 @@ import Tooltip from '@mui/material/Tooltip';
 import ListIcon from '@mui/icons-material/List';
 import Images from '../../Images/Image';
 import { NavLink } from 'react-router-dom';
+import TaskData from "../TaskData";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -76,6 +77,7 @@ const defaultState = {
     taskBudgetMinRangeValue: 10,
     taskBudgetMaxRangeValue: 40,
     showDetail: false,
+    cardData: {},
 }
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
@@ -403,333 +405,6 @@ const MyTasks = () => {
         </Box>
     );
 
-    const TaskData = [
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Cancel',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Complete',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Cancel',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Cancel',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Cancel',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Cancel',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Cancel',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Cancel',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Cancel',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Cancel',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Pending',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Complete',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Cancel',
-            offers: 4,
-        },
-    ]
-
     return (
         <>
             <Menu color={'#8fc1e2'} />
@@ -780,7 +455,7 @@ const MyTasks = () => {
                                             aria-label="scrollable force tabs example"
                                         >
                                             <Tab label="Pending" {...a11yProps(0)} />
-                                            <Tab label="Assigned" {...a11yProps(1)} />
+                                            <Tab label="In Progress" {...a11yProps(1)} />
                                             <Tab label="Cancelled" {...a11yProps(2)} />
                                             <Tab label="Completed" {...a11yProps(3)} />
                                         </Tabs>
@@ -790,7 +465,7 @@ const MyTasks = () => {
                                             {TaskData.map((item, index) => {
                                                 if (item.status === 'Pending') {
                                                     return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
                                                                 <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
@@ -824,11 +499,11 @@ const MyTasks = () => {
                                     <TabPanel value={value} index={1} className="my-task-tab-panel">
                                         <div className='left-main-Div my-task-single-line-card'>
                                             {TaskData.map((item, index) => {
-                                                if (item.status === 'Assigned') {
+                                                if (item.status === 'In Progress') {
                                                     return (
                                                         <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width'>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
-                                                                <h4 className='px-1 m-0' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>{item.taskName}</h4>
+                                                                <h4 className='px-1 m-0' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>{item.taskName}</h4>
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
                                                             </div>
                                                             <div className='px-2 my-1 d-flex justify-content-between'>
@@ -874,7 +549,7 @@ const MyTasks = () => {
                                             {TaskData.map((item, index) => {
                                                 if (item.status === 'Cancel') {
                                                     return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
                                                                 <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
@@ -917,7 +592,7 @@ const MyTasks = () => {
                                             {TaskData.map((item, index) => {
                                                 if (item.status === 'Complete') {
                                                     return (
-                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, showDetail: true })); }}>
+                                                        <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
                                                                 <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
@@ -952,7 +627,7 @@ const MyTasks = () => {
                             </div>
                             {state.showDetail &&
                                 <div className='col-lg-8 my-task-right-main-div'>
-                                    <DetailPage Map={false} />
+                                    <DetailPage cardData={state.cardData} Map={false} />
                                 </div>
                             }
                         </div>

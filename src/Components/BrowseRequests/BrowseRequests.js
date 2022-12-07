@@ -24,6 +24,7 @@ import Slider from '@mui/material/Slider';
 import Tooltip from '@mui/material/Tooltip';
 import ListIcon from '@mui/icons-material/List';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import TaskData from "../TaskData";
 import "./BrowseRequests.css";
 
 const ITEM_HEIGHT = 48;
@@ -69,6 +70,7 @@ const defaultState = {
     location: '',
     showMap: false,
     activeClassId: 'browse-card-3',
+    cardData: {},
 }
 
 const BrowseRequests = () => {
@@ -333,333 +335,6 @@ const BrowseRequests = () => {
         </Box>
     );
 
-    const TaskData = [
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Photo correction',
-            price: 40,
-            location: 'Kensington Park SA',
-            remote: 'Remote',
-            date: 'Web, 16 Nov',
-            status: 'Open',
-            offers: 11,
-        },
-        {
-            taskName: 'Move furniture around the house to have laminate layed',
-            price: 100,
-            location: 'Queenstown SA',
-            remote: 'Remote',
-            date: 'Fri, 2 Dec',
-            status: 'Done',
-            offers: 7,
-        },
-        {
-            taskName: 'Repair plantation shutter',
-            price: 150,
-            location: 'Prospect SA',
-            remote: 'Remote',
-            date: 'Thu, 17 Nov',
-            status: 'Assigned',
-            offers: 4,
-        },
-    ]
-
     return (
         <>
             <Menu color={'#8fc1e2'} />
@@ -706,7 +381,7 @@ const BrowseRequests = () => {
                             <div className={`${state.showMap ? 'col-lg-4 left-main-Div' : 'left-main-Div my-task-single-line-card'}`}>
                                 {TaskData.map((item, index) => {
                                     return (
-                                        <div key={index} id={`browse-card-${index}`} className={`${state.showMap ? 'm-2 rounded card-main-div' : 'm-2 rounded card-main-div my-task-single-card-width'}`} onClick={() => { if (state.showMap) { setActiveClass(index); setDetail(true) } else { setActiveClass(index); setDetail(true); setState((prevState) => ({ ...prevState, showMap: !state.showMap })); } }}>
+                                        <div key={index} id={`browse-card-${index}`} className={`${state.showMap ? 'm-2 rounded card-main-div' : 'm-2 rounded card-main-div my-task-single-card-width'}`} onClick={() => { if (state.showMap) { setState((prevState) => ({ ...prevState, cardData: item })); setActiveClass(index); setDetail(true) } else { setActiveClass(index); setDetail(true); setState((prevState) => ({ ...prevState, cardData: item, showMap: !state.showMap })); } }}>
                                             <div className='px-2 d-flex justify-content-between align-items-center'>
                                                 <h4 className='px-1 m-0 '>{item.taskName}</h4>
                                                 <span className='px-1 dollerPrice'>${item.price}</span>
@@ -737,7 +412,7 @@ const BrowseRequests = () => {
                             </div>
                             {detail ?
                                 <div className='col-lg-8 right-main-div'>
-                                    <DetailPage Map={true} setDetail={setDetail} />
+                                    <DetailPage cardData={state.cardData} Map={true} setDetail={setDetail} />
                                 </div>
                                 :
                                 state.showMap &&
