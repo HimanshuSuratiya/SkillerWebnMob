@@ -339,6 +339,11 @@ const Menu = (props) => {
                                                                                 My Tasks
                                                                             </MenuItem>
                                                                         </NavLink>
+                                                                        <NavLink to="/past-tasks">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Past Tasks
+                                                                            </MenuItem>
+                                                                        </NavLink>
                                                                         <NavLink to="/search-posts">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 Search posts
@@ -623,6 +628,11 @@ const Menu = (props) => {
                                                                         <NavLink to="/my-tasks">
                                                                             <MenuItem onClick={handleClose}>
                                                                                 My Tasks
+                                                                            </MenuItem>
+                                                                        </NavLink>
+                                                                        <NavLink to="/past-tasks">
+                                                                            <MenuItem onClick={handleClose}>
+                                                                                Past Tasks
                                                                             </MenuItem>
                                                                         </NavLink>
                                                                         <NavLink to="/search-posts">

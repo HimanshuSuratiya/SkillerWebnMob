@@ -16,6 +16,7 @@ import BrowseRequests from "./Components/BrowseRequests/BrowseRequests";
 import MyTasks from "./Components/MyTasks/MyTasks";
 import ForgetPassword from "./Components/Loginandcreateaccount/ForgetPassword/ForgetPassword";
 import UserProfile from "./Components/UserProfile/UserProfile";
+import PastTasks from "./Components/PastTasks/PastTasks";
 import "./App.css";
 import "./Responsive.css";
 
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/notification" element={<Notification />} />
         <Route path="/browse-requests" element={<BrowseRequests />} />
         <Route path="/my-tasks" element={<MyTasks />} />
+        <Route path="/past-tasks" element={<PastTasks />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/search-posts" element={<BrowseRequests />} />

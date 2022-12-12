@@ -590,7 +590,7 @@ const MyTasks = () => {
                                     <TabPanel value={value} index={3} className="my-task-tab-panel">
                                         <div className='left-main-Div my-task-single-line-card'>
                                             {TaskData.map((item, index) => {
-                                                if (item.status === 'Complete') {
+                                                if (item.status === 'Completed') {
                                                     return (
                                                         <div key={index} id={`browse-card-${index}`} className='rounded card-main-div my-task-single-card-width' onClick={() => { setState((prevState) => ({ ...prevState, cardData: item, showDetail: true })); }}>
                                                             <div className='px-2 d-flex justify-content-between align-items-center'>
