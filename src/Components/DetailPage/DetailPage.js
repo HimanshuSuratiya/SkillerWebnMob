@@ -160,7 +160,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                             <div className='d-flex align-items-center task-status-area'>
                                 <p className='task-status d-flex align-items-center'>{cardData.status}</p>
                             </div>
-                            {/* <p className='follow-user d-flex align-items-center'>Cancel</p> */}
+                            {cardData.status === 'Pending' && <p className='follow-user d-flex align-items-center'>Cancel</p>}
                         </div>
                         <div className='p-2'>
                             <h4 className='task-status-heading text-uppercase heading-color'>{cardData.taskName}</h4>
@@ -176,6 +176,19 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.postedBy}</a>
                                 </div>
                             </div>
+                            {cardData.status === 'Complete' &&
+                                <div className='d-flex align-items-center post-location-data w-50'>
+                                    <NavLink to="/user-profile">
+                                        <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2202413/profilepic-dcf6a39c355c95ad9e930b974af69496.jpeg?width=64&height=64" sx={{ width: 45, height: 45 }} />
+                                    </NavLink>
+                                    <div className='px-1 posted-area'>
+                                        <p className='p-0 m-0'>COMPLETED BY</p>
+                                        <a className='p-0 m-0'>{cardData.completedBy}</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div className='d-flex'>
                             <div className='d-flex align-items-center post-location-data w-50'>
                                 <CategoryIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -183,8 +196,6 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.categoryList}</a>
                                 </div>
                             </div>
-                        </div>
-                        <div className='d-flex'>
                             <div className='px-2 d-flex align-items-center post-location-data w-50'>
                                 <LocationOnIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -192,6 +203,8 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.location}</a>
                                 </div>
                             </div>
+                        </div>
+                        <div className='d-flex'>
                             <div className='d-flex align-items-center post-location-data w-50'>
                                 <EventIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -199,8 +212,6 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.date}</a>
                                 </div>
                             </div>
-                        </div>
-                        <div className='d-flex'>
                             <div className='d-flex px-2 align-items-center post-location-data w-50'>
                                 <TranslateIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -208,6 +219,8 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.language}</a>
                                 </div>
                             </div>
+                        </div>
+                        <div className='d-flex'>
                             <div className='d-flex align-items-center post-location-data w-50'>
                                 <SchoolIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -215,8 +228,6 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.skills}</a>
                                 </div>
                             </div>
-                        </div>
-                        <div className='d-flex'>
                             <div className='d-flex px-2 align-items-center post-location-data w-50'>
                                 <LocalLibraryIcon className='icon-size' />
                                 <div className='px-1 posted-area'>
@@ -372,7 +383,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography>Terms and condition please read this not</Typography>
+                            <Typography style={{ color: '#188dc7' }}>Terms and condition please read this not</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>
