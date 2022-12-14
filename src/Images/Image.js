@@ -62,6 +62,7 @@ import forgetPass from "./forgetPass.webp";
 import forgetAnnimation from "./forgetAnnimation.webp";
 import loginAnnimation from "./loginAnnimation.svg";
 import otpAnnimation from "./otpAnnimation.png";
+import paypal from "./paypal.webp";
 
 const Images = {
     Logo,
@@ -128,6 +129,7 @@ const Images = {
     forgetAnnimation,
     loginAnnimation,
     otpAnnimation,
+    paypal,
 };
 
 export default Images;
