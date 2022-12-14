@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import { makeStyles } from "@material-ui/core/styles";
 import FormLabel from '@mui/material/FormLabel';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { Divider } from '@mui/material';
 import "../Animation.css";
 import Banner from "../../Banner/Banner";
 import Footer from "../../Footer/Footer";
@@ -27,6 +28,11 @@ import Typography from "@mui/material/Typography";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Box from '@mui/material/Box';
 import EastIcon from '@mui/icons-material/East';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -78,6 +84,7 @@ const defaultState = {
 const OtpVerification = () => {
     const [state, setState] = useState(defaultState);
     const [value, setValue] = useState(0);
+    const [openCancelModal, setOpenCancelModal] = useState(false);
     let navigate = useNavigate();
     const classes = useStyles();
 
@@ -90,6 +97,14 @@ const OtpVerification = () => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleClickOpenCancelModal = () => {
+        setOpenCancelModal(true);
+    };
+
+    const handleCloseOpenCancelModal = () => {
+        setOpenCancelModal(false);
     };
 
     function a11yProps(index) {
@@ -283,12 +298,12 @@ const OtpVerification = () => {
                                             {value < 1 ?
                                                 <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { if (value < 1) { setValue(value + 1) } }}>Next <EastIcon /></button>
                                                 :
-                                                <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { navigate('/') }}>Continue <EastIcon /></button>
+                                                <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={handleClickOpenCancelModal}>Continue <EastIcon /></button>
                                             }
                                         </div>
                                     }
                                     {state.skillProvider === false &&
-                                        <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={() => { navigate('/') }}><ArrowRightAltIcon /> Continue</button>
+                                        <button className={`btn btn-primary btn-lg btn-block ${classes.otpButtons}`} onClick={handleClickOpenCancelModal}><ArrowRightAltIcon /> Continue</button>
                                     }
                                 </div>
                             </div>
@@ -297,6 +312,34 @@ const OtpVerification = () => {
                 </div>
             </section>
             <Footer />
+            <Dialog
+                open={openCancelModal}
+                onClose={handleCloseOpenCancelModal}
+                aria-labelledby="responsive-dialog-title"
+            >
+                <DialogTitle id="responsive-dialog-title">
+                    {"success"}
+                </DialogTitle>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogContent>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <CheckCircleIcon style={{ fontSize: '150px', color: '#188dc7' }} />
+                    </div>
+                    <div>
+                        <h5>Your Account was Created successfully</h5>
+                        <p>Confirmation Email sent to your Email-Id Skiller@gmail.com</p>
+                    </div>
+                </DialogContent>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogActions className='d-flex justify-content-center align-items-center'>
+                    <button className='make-an-offer-btn' onClick={() => { navigate('/login') }} autoFocus>
+                        Login
+                    </button>
+                    <button className='make-an-offer-btn' onClick={() => { navigate('/') }} autoFocus>
+                        Home
+                    </button>
+                </DialogActions>
+            </Dialog>
         </>
     )
 }
