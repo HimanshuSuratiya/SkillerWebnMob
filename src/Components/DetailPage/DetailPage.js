@@ -176,7 +176,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                     <a className='p-0 m-0'>{cardData.postedBy}</a>
                                 </div>
                             </div>
-                            {cardData.status === 'Complete' &&
+                            {cardData.status === 'Completed' &&
                                 <div className='d-flex align-items-center post-location-data w-50'>
                                     <NavLink to="/user-profile">
                                         <Avatar src="https://eu7cmie.cloudimg.io/v7/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2202413/profilepic-dcf6a39c355c95ad9e930b974af69496.jpeg?width=64&height=64" sx={{ width: 45, height: 45 }} />
