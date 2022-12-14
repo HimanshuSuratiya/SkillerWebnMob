@@ -61,6 +61,30 @@ const Signup = () => {
                                         fullWidth
                                         variant='outlined'
                                         size='large'
+                                        label={'Email'}
+                                    />
+                                </div>
+                                <div className="form-outline mt-3">
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        size='large'
+                                        label={'Password'}
+                                    />
+                                </div>
+                                <div className="form-outline mt-3">
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        size='large'
+                                        label={'Confirm Password'}
+                                    />
+                                </div>
+                                <div className="form-outline mt-3">
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        size='large'
                                         label={'Location'}
                                     />
                                 </div>
