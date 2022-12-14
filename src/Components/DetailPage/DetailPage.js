@@ -34,7 +34,11 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AssistantPhotoIcon from '@mui/icons-material/AssistantPhoto';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
 const photos = [
     {
@@ -241,9 +245,11 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                         <div className='py-3' style={{ border: '1px solid black', borderRadius: '4px' }}>
                             <h3 className='p-0 m-0 py-3 d-flex align-item-center justify-content-center heading-color'>Task Budget</h3>
                             <p className='p-0 m-0 py-1 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$50</p>
-                            <div className="d-flex justify-content-center py-2">
-                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' >Make an offer</button>
-                            </div>
+                            {cardData.status === 'Pending' &&
+                                <div className="d-flex justify-content-center py-2">
+                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' >Make an offer</button>
+                                </div>
+                            }
                         </div>
                         <div className='d-flex justify-content-end py-2'>
                             <p className='p-0 m-0 px-1' style={{ fontWeight: '700' }}>About 1 hour ago</p>
@@ -338,10 +344,46 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                             </Tooltip>
                         </div>
                     }
+                    {cardData.rating &&
+                        <div className='px-2'>
+                            <div className='d-flex'>
+                                <div className='py-2 pe-2'>
+                                    <Avatar
+                                        alt="Remy Sharp"
+                                        src={Images.one}
+                                        sx={{ width: 50, height: 50 }}
+                                    />
+                                </div>
+                                <div className='py-2 w-100'>
+                                    <div className='d-flex justify-content-between align-items-between'>
+                                        <h5 className='p-0 m-0'>Oriolgabalda</h5>
+                                        <p className='p-0 m-0 status-day-review'> <AccessAlarmIcon style={{ fontSize: '18px', marginRight: '3px' }} />2 days ago</p>
+                                    </div>
+                                    <p className='p-0 m-0 user-profile-flag-text-area'><AssistantPhotoIcon style={{ fontSize: '18px' }} />Germany</p>
+                                    <div className='d-flex align-items-center rating-icon-star'>
+                                        <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
+                                    </div>
+                                    <p className='p-0 user-review-text'>Ich bin noch relativ neu in der Welt der Dating Apps und bin recht naiv an die Sache herangegangen. Philippa hat mir neben wertvollen Anregungen vor allem ehrliches Feedback gegeben, mit dem ich mein Profil bestimmt werde verbessern können. Ich kann den Gig also nur empfehlen.</p>
+                                    <div className='d-flex align-items-center helpful'>
+                                        <p className='p-0 m-0 pe-2'>Helpful?</p>
+                                        <p className='p-0 m-0 pe-2'><ThumbUpOffAltIcon style={{ fontSize: '18px', color: '#188dc7' }} /> Yes</p>
+                                        <p className='p-0 m-0'><ThumbDownOffAltIcon style={{ fontSize: '18px', color: '#188dc7' }} /> No</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <Divider className='my-2' style={{ backgroundColor: 'gray' }} />
+                        </div>
+                    }
                     <div className='task-detail-area'>
+                        {cardData.remark &&
+                            <div className='py-2'>
+                                <h4 className='p-0 px-2 detail'>Remark</h4>
+                                <p className='p-0 m-0 px-2'>{cardData.remark}</p>
+                            </div>
+                        }
                         <div className='py-2'>
                             <h5 className='p-0 px-2 heading-color detail'>Details</h5>
-                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizationalI need the help of a professional with a background in learning and development or organizationalI need the help of a professional with a background in learning and development or organizational</p>
+                            <p className='p-0 m-0 px-2'>I need the help of a professional with a background in learning and development or organizationalI need the help of a professional with a background in learning and development or organizational</p>
                             <p className='p-0 m-0 px-2'>Due date: Before Friday, 18 November 2022</p>
                         </div>
                         <div className='py-2'>
