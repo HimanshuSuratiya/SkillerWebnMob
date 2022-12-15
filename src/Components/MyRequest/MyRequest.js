@@ -479,7 +479,7 @@ const MyRequest = () => {
                                                             </div>
                                                             <Divider style={{ backgroundColor: 'gray' }} />
                                                             <div className='pt-2 px-2'>
-                                                                <NavLink to="/user-profile" className="d-flex align-items-center justify-content-between">
+                                                                <NavLink to="/user-profile" className="d-flex align-items-center">
                                                                     <Avatar src={Images.one} />
                                                                     <div>
                                                                         <span className='ps-2' style={{ fontSize: '15px' }}>Dein Markash</span>
@@ -517,7 +517,7 @@ const MyRequest = () => {
                                                             </div>
                                                             <Divider style={{ backgroundColor: 'gray' }} />
                                                             <div className='pt-2 px-2'>
-                                                                <NavLink to="/user-profile" className="d-flex align-items-center justify-content-between">
+                                                                <NavLink to="/user-profile" className="d-flex align-items-center">
                                                                     <Avatar src={Images.one} />
                                                                     <div>
                                                                         <span className='ps-2' style={{ fontSize: '15px' }}>Dein Markash</span>
@@ -541,9 +541,12 @@ const MyRequest = () => {
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
                                                             </div>
                                                             <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                <div className='d-flex flex-column w-100'>
+                                                                    <div className='d-flex align-items-center justify-content-between'>
+                                                                        <div>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <span className='px-2 bg-danger' style={{ color: '#000', borderRadius: '10px' }}>Canceled</span>
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
                                                                         <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
@@ -551,15 +554,6 @@ const MyRequest = () => {
                                                                     <div className='d-flex align-items-center'>
                                                                         <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
                                                                     </div>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
-                                                                </div>
-                                                            </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='px-2 d-flex align-items-center justify-content-between'>
-                                                                <div>
-                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -579,9 +573,12 @@ const MyRequest = () => {
                                                                 <span className='px-1 dollerPrice'>${item.price}</span>
                                                             </div>
                                                             <div className='px-2 my-1 d-flex justify-content-between'>
-                                                                <div className='d-flex flex-column'>
-                                                                    <div className='d-flex align-items-center'>
-                                                                        <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                <div className='d-flex flex-column w-100'>
+                                                                    <div className='d-flex align-items-center justify-content-between'>
+                                                                        <div>
+                                                                            <LanguageIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.remote} </span>
+                                                                        </div>
+                                                                        <span className='px-2 bg-success' style={{ color: '#fff', borderRadius: '10px' }}>Archived</span>
                                                                     </div>
                                                                     <div className='d-flex align-items-center'>
                                                                         <DateRangeIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.date} </span>
@@ -589,15 +586,6 @@ const MyRequest = () => {
                                                                     <div className='d-flex align-items-center'>
                                                                         <AddLocationIcon className='icon' /> <span className='px-2 fontServerandDate'> {item.location} </span>
                                                                     </div>
-                                                                </div>
-                                                                <div className='d-flex align-items-center'>
-                                                                    <Avatar src="/broken-image.jpg" />
-                                                                </div>
-                                                            </div>
-                                                            <Divider style={{ backgroundColor: 'gray' }} />
-                                                            <div className='px-2 d-flex align-items-center justify-content-between'>
-                                                                <div>
-                                                                    <span className="openColor">{item.status + ' :'}</span> <span style={{ fontSize: '12px' }}>{item.offers} offers..</span>
                                                                 </div>
                                                             </div>
                                                         </div>
