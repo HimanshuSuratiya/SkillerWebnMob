@@ -39,6 +39,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AssistantPhotoIcon from '@mui/icons-material/AssistantPhoto';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import { TextField } from '@mui/material';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment'
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import { useTheme } from '@mui/material/styles';
+import ChipInput from "material-ui-chip-input";
+import MultiImageInput from "react-multiple-image-input";
 
 const photos = [
     {
@@ -71,6 +79,26 @@ const photos = [
         width: 3,
         height: 3
     },
+];
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
+const names = [
+    'English',
+    'Spanish',
+    'Arabic',
+    'Russian',
+    'Japanese',
+    'Korean',
 ];
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
@@ -113,13 +141,29 @@ SimpleBidRejectDialog.propTypes = {
 };
 
 const DetailPage = ({ setDetail, Map, cardData }) => {
+    const theme = useTheme();
     const [moreOption, setMoreOption] = useState('');
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
     const [openBidReject, setOpenBidReject] = useState(false);
     const [selectedValue, setSelectedValue] = useState(emails[1]);
+    const [skills, setSkills] = useState(["ex:Skills"]);
+    const [images, setImages] = useState({});
     const [openCancelModal, setOpenCancelModal] = useState(false);
+    const [openMakeanofferModal, setOpenMakeanofferModal] = useState(false);
+    const [personName, setPersonName] = useState([]);
     const [openCompleteModal, setOpenCompleteModal] = useState(false);
+    const [learningMethod, setLearningMethod] = useState('');
+
+    const crop = {
+        unit: "%",
+        aspect: 4 / 3,
+        width: "100"
+    };
+
+    const handleLearningMethodChange = (event) => {
+        setLearningMethod(event.target.value);
+    };
 
     const handleChangeMoreOption = (event) => {
         setMoreOption(event.target.value);
@@ -147,12 +191,38 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
         setOpenCancelModal(false);
     };
 
+    const handleClickOpenMakeanofferModal = () => {
+        setOpenMakeanofferModal(true);
+    };
+
+    const handleCloseOpenMakeanofferModal = () => {
+        setOpenMakeanofferModal(false);
+    };
+
     const handleClickOpenCompleteModal = () => {
         setOpenCompleteModal(true);
     };
 
     const handleCloseOpenCompleteModal = () => {
         setOpenCompleteModal(false);
+    };
+
+    function getStyles(name, personName, theme) {
+        return {
+            fontWeight:
+                personName.indexOf(name) === -1
+                    ? theme.typography.fontWeightRegular
+                    : theme.typography.fontWeightMedium,
+        };
+    }
+
+    const handleLanguageSelection = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setPersonName(
+            typeof value === 'string' ? value.split(',') : value,
+        );
     };
 
     return (
@@ -247,7 +317,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                             <p className='p-0 m-0 py-1 d-flex align-item-center justify-content-center' style={{ color: '#000', fontWeight: '600', fontSize: '36px' }}>$50</p>
                             {cardData.status === 'Pending' &&
                                 <div className="d-flex justify-content-center py-2">
-                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' >Make an offer</button>
+                                    <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpenMakeanofferModal}>Make an offer</button>
                                 </div>
                             }
                         </div>
@@ -484,6 +554,119 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                         Cancel
                     </button>
                     <button className='make-an-offer-btn' onClick={handleCloseOpenCompleteModal} autoFocus>
+                        Submit
+                    </button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                className='mt-4'
+                open={openMakeanofferModal}
+                fullWidth
+                onClose={handleCloseOpenMakeanofferModal}
+                aria-labelledby="responsive-dialog-title"
+            >
+                <DialogTitle id="responsive-dialog-title">
+                    {"Create your offer"}
+                </DialogTitle>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogContent>
+                    <div>
+                        <div className='mb-4'>
+                            <h5>{cardData.taskName}</h5>
+                        </div>
+                        <FormControl fullWidth>
+                            <InputLabel htmlFor="outlined-adornment-amount">Enter Expected Budget</InputLabel>
+                            <OutlinedInput
+                                type='number'
+                                id="outlined-adornment-amount"
+                                startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                label="Enter Expected Budget"
+                            />
+                        </FormControl>
+                    </div>
+                    <div className='mt-4'>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            type="number"
+                            size='large'
+                            label={'Enter expected days to complete the order'}
+                        />
+                    </div>
+                    <div className='mt-4'>
+                        <Box >
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Enter learning method</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={learningMethod}
+                                    label="Enter learning method"
+                                    onChange={handleLearningMethodChange}
+                                >
+                                    <MenuItem value={10}>Text</MenuItem>
+                                    <MenuItem value={20}>Call</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </div>
+                    <div className='mt-4'>
+                        <FormControl sx={{ width: '100%' }}>
+                            <InputLabel id="demo-multiple-chip-label">Select your Language</InputLabel>
+                            <Select
+                                labelId="demo-multiple-chip-label"
+                                id="demo-multiple-chip"
+                                multiple
+                                value={personName}
+                                onChange={handleLanguageSelection}
+                                input={<OutlinedInput id="select-multiple-chip" label="Select your Language" />}
+                                renderValue={(selected) => (
+                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                        {selected.map((value) => (
+                                            <Chip key={value} label={value} />
+                                        ))}
+                                    </Box>
+                                )}
+                                MenuProps={MenuProps}
+                            >
+                                {names.map((name) => (
+                                    <MenuItem
+                                        key={name}
+                                        value={name}
+                                        style={getStyles(name, personName, theme)}
+                                    >
+                                        {name}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </div>
+                    <div className='mt-4'>
+                        <ChipInput className='w-100' defaultValue={skills} label="Skills" />
+                    </div>
+                    <div className='mt-4 make-an-offer-border'>
+                        <MultiImageInput
+                            images={images}
+                            setImages={setImages}
+                            max={5}
+                            allowCrop={false}
+                            theme={"light"}
+                            cropConfig={{ crop, ruleOfThirds: true }}
+                        />
+                    </div>
+                    <div className='mt-4'>
+                        <TextareaAutosize
+                            className='p-2'
+                            aria-label="minimum height"
+                            minRows={2}
+                            style={{ width: '100%' }}
+                            placeholder="Enter your Description"
+                        />
+                    </div>
+                </DialogContent>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogActions>
+                    <button className='make-an-offer-btn me-3' onClick={handleCloseOpenMakeanofferModal} autoFocus>
                         Submit
                     </button>
                 </DialogActions>

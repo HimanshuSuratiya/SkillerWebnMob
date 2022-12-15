@@ -143,3 +143,8 @@
 .dialog-comment .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     width: 465px;
 }
+
+.make-an-offer-border div.sc-AxiKw {
+    border-radius: 8px;
+    border: 2px solid #c4c4c4 !important;
+}
