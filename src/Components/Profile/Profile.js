@@ -4,7 +4,7 @@ import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
 import Images from "../../Images/Image";
-import { TextField } from '@mui/material';
+import { TextField, TextareaAutosize } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -97,6 +97,37 @@ const Profile = () => {
                                                 defaultValue="(239) 816-9029"
                                                 size='large'
                                                 label={'Phone'}
+                                            />
+                                        </div>
+                                        <hr />
+                                        <div className="row m-0">
+                                            <TextField
+                                                fullWidth
+                                                variant='outlined'
+                                                defaultValue="Bay Area, San Francisco, CA"
+                                                size='large'
+                                                label={'Location'}
+                                            />
+                                        </div>
+                                        <hr />
+                                        <div className="row m-0">
+                                            <TextField
+                                                fullWidth
+                                                variant='outlined'
+                                                defaultValue="America"
+                                                size='large'
+                                                label={'Country'}
+                                            />
+                                        </div>
+                                        <hr />
+                                        <div className="row m-0">
+                                            <label className="p-0">Your Address</label>
+                                            <TextareaAutosize
+                                                className='p-2'
+                                                aria-label="minimum height"
+                                                minRows={1}
+                                                style={{ width: '100%' }}
+                                                value="House No 125 GD calony Mayur Vihar Phase-3 Delhi = 110096"
                                             />
                                         </div>
                                         <hr />
