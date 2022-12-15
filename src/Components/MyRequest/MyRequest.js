@@ -28,7 +28,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
-import DetailPage from "../DetailPage/DetailPage";
+import DetailPageSkillProvider from "../DetailPageSkillProvider/DetailPageSkillProvider";
 import Tooltip from '@mui/material/Tooltip';
 import ListIcon from '@mui/icons-material/List';
 import Images from '../../Images/Image';
@@ -610,7 +610,7 @@ const MyRequest = () => {
                             </div>
                             {state.showDetail &&
                                 <div className='col-lg-8 my-task-right-main-div'>
-                                    <DetailPage cardData={state.cardData} Map={false} />
+                                    <DetailPageSkillProvider cardData={state.cardData} Map={false} />
                                 </div>
                             }
                         </div>
