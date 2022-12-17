@@ -148,3 +148,13 @@
     border-radius: 8px;
     border: 2px solid #c4c4c4 !important;
 }
+
+.view-more-detail-head {
+    font-size: '16px';
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.view-more-detail-head-detail {
+    color: #188dc7;
+}

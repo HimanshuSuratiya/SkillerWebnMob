@@ -81,6 +81,39 @@ const photos = [
     },
 ];
 
+const photosInViewMoreDetail = [
+    {
+        src: Images.cppjava,
+        width: 5,
+        height: 8
+    },
+    {
+        src: Images.android,
+        width: 7,
+        height: 11
+    },
+    {
+        src: Images.app,
+        width: 3,
+        height: 5
+    },
+    {
+        src: Images.blogThree,
+        width: 3,
+        height: 4
+    },
+    {
+        src: Images.blogOne,
+        width: 3,
+        height: 4
+    },
+    {
+        src: Images.blogTwo,
+        width: 3,
+        height: 3
+    },
+];
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -150,6 +183,7 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
     const [skills, setSkills] = useState(["ex:Skills"]);
     const [images, setImages] = useState({});
     const [openCancelModal, setOpenCancelModal] = useState(false);
+    const [openViewMoreDetailModal, setOpenViewMoreDetailModal] = useState(false);
     const [openMakeanofferModal, setOpenMakeanofferModal] = useState(false);
     const [personName, setPersonName] = useState([]);
     const [openCompleteModal, setOpenCompleteModal] = useState(false);
@@ -189,6 +223,14 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
 
     const handleCloseOpenCancelModal = () => {
         setOpenCancelModal(false);
+    };
+
+    const handleClickOpenViewMoreDetailModal = () => {
+        setOpenViewMoreDetailModal(true);
+    };
+
+    const handleCloseOpenViewMoreDetailModal = () => {
+        setOpenViewMoreDetailModal(false);
     };
 
     const handleClickOpenMakeanofferModal = () => {
@@ -393,7 +435,10 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                                                 </div>
                                             </div>
                                             <p className='p-0 m-0 px-2'>{item.description}</p>
-                                            <p className='p-0 m-0 px-2' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>{item.timeAgo}</p>
+                                            <div className='p-0 m-0 px-2 d-flex align-items-center justify-content-between'>
+                                                <p className='m-0' style={{ fontWeight: '700', fontSize: '12px', color: '#188dc7' }}>{item.timeAgo}</p>
+                                                <button className='btn btn-primary btn-lg btn-block make-an-offer-btn' onClick={handleClickOpenViewMoreDetailModal}>View more details</button>
+                                            </div>
                                         </div>
                                         <Divider className='mx-2 my-3' style={{ backgroundColor: '#a9a4a4' }} />
                                     </>
@@ -668,6 +713,71 @@ const DetailPage = ({ setDetail, Map, cardData }) => {
                 <DialogActions>
                     <button className='make-an-offer-btn me-3' onClick={handleCloseOpenMakeanofferModal} autoFocus>
                         Submit
+                    </button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                className='mt-4'
+                open={openViewMoreDetailModal}
+                fullWidth
+                onClose={handleCloseOpenViewMoreDetailModal}
+                aria-labelledby="responsive-dialog-title"
+            >
+                <DialogTitle id="responsive-dialog-title">
+                    {"View details for this offers"}
+                </DialogTitle>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogContent>
+                    <div>
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <p className='p-0 m-0 view-more-detail-head'>Enter expected days to complete the order</p>
+                            <p className='p-0 m-0 view-more-detail-head-detail'>35 Days</p>
+                        </div>
+                        <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <p className='p-0 m-0 view-more-detail-head'>Enter learning method</p>
+                            <p className='p-0 m-0 view-more-detail-head-detail'>Text & call</p>
+                        </div>
+                        <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <p className='p-0 m-0 view-more-detail-head'>Language</p>
+                            <p className='p-0 m-0 view-more-detail-head-detail'>Spanish , English, Korean</p>
+                        </div>
+                        <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <p className='p-0 m-0 view-more-detail-head'>Skills</p>
+                            <p className='p-0 m-0 view-more-detail-head-detail'>React.js , Javascript, Machine learning , Html</p>
+                        </div>
+                        <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div>
+                            <label className='p-0 m-0 view-more-detail-head'>Description</label>
+                            <p className='p-0 m-0 view-more-detail-head-detail'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        </div>
+                        <Divider className='my-2' style={{ backgroundColor: '#a9a4a4' }} />
+                        <div>
+                            <label className='p-0 m-0 view-more-detail-head'>Photos</label>
+                            <Gallery photos={photosInViewMoreDetail} />
+                            <ModalGateway>
+                                {viewerIsOpen ? (
+                                    <Modal onClose={closeLightbox}>
+                                        <Carousel
+                                            currentIndex={currentImage}
+                                            views={photosInViewMoreDetail.map((x) => ({
+                                                ...x,
+                                                srcset: x.srcSet,
+                                                caption: x.title
+                                            }))}
+                                        />
+                                    </Modal>
+                                ) : null}
+                            </ModalGateway>
+                        </div>
+                    </div>
+                </DialogContent>
+                <Divider style={{ backgroundColor: '#a9a4a4' }} />
+                <DialogActions>
+                    <button className='make-an-offer-btn' onClick={handleCloseOpenViewMoreDetailModal} autoFocus>
+                        Cancel
                     </button>
                 </DialogActions>
             </Dialog>
