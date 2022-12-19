@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "./Pages/LandingPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/Loginandcreateaccount/Login/Login";
