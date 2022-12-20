@@ -108,7 +108,7 @@ const BrowseRequests = () => {
         if (event.target.value <= state.taskBudgetMaxRangeValue) {
             setState((prevState) => ({ ...prevState, taskBudgetMinRangeValue: event.target.value, taskBudgetRangeValue: [event.target.value, state.taskBudgetMaxRangeValue] }));
         } else {
-            alert('Please select Smallest Ammount');
+            alert('Please select Smallest Amount');
         }
     };
 
@@ -116,7 +116,7 @@ const BrowseRequests = () => {
         if (event.target.value >= state.taskBudgetMinRangeValue) {
             setState((prevState) => ({ ...prevState, taskBudgetMaxRangeValue: event.target.value, taskBudgetRangeValue: [state.taskBudgetMinRangeValue, event.target.value] }));
         } else {
-            alert('Please select greatest Ammount');
+            alert('Please select greatest Amount');
         }
     };
 
@@ -213,7 +213,7 @@ const BrowseRequests = () => {
                                     onChange={handleDistanceMinimumRange}
                                 >
                                     <MenuItem value={0}>5 km</MenuItem>
-                                    <MenuItem value={20}>25 km</MenuItem>
+                                    <MenuItem value={20}>20 km</MenuItem>
                                     <MenuItem value={40}>50 km</MenuItem>
                                     <MenuItem value={60}>70 km</MenuItem>
                                     <MenuItem value={80}>100 km</MenuItem>
